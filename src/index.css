@@ -1,5 +1,50 @@
-body {
+* {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+.library {
+  color: blue;
+}
+
+.code {
+  color: green;
+}
+
+.file {
+  color: maroon;
+}
+
+.example {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.group {
+  margin-bottom: 10px;
+}
+
+.in1 {
+  margin-left: 10px;
+}
+
+.in2 {
+  margin-left: 20px;
+}
+
+.in3 {
+  margin-left: 30px;
+}
+
+.in4 {
+  margin-left: 40px;
+}
+
+.in5 {
+  margin-left: 50px;
+}
+
+.in6 {
+  margin-left: 60px;
 }
