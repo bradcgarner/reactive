@@ -6,7 +6,7 @@ import { toggleRedux, toggleMapState, toggleCombine, toggleAsync } from '../acti
 export function NavBar(props) {
   let reactFormat = props.reactt.reactt ? '' : 'strikethru';
   let classFormat = props.reactt.reactt ? '' : 'strikethru';
-  let statefulFormat = ( props.reactt.reactt && props.reactt.classs ) ? '' : 'strikethru';
+  let statefulFormat = ( props.reactt.reactt && props.reactt.classs && !props.reduxx.reduxx ) ? '' : 'strikethru';
   let propsFormat = props.reactt.reactt ? '' : 'strikethru';
   let callbackFormat = ( props.reactt.reactt && !props.reduxx.reduxx ) ? '' : 'strikethru';
   let linksFormat = props.reactt.reactt ? '' : 'strikethru';

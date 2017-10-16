@@ -10,7 +10,7 @@ export function App() {
       <main>
         <NavBar />
         <Reactt />
-        {/*<Reduxx />*/}
+        <Reduxx />
       </main>
   )
 }

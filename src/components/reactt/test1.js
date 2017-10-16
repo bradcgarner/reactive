@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import ImportI from './indexx/import-i';
 import Code from './indexx/code';
 
-export function NewComponent(props) {
-  console.log('new1 index',props);
+export function Test1(props) {
+  console.log('test1',props);
   
   return (
       <div className="block index">
@@ -20,4 +20,4 @@ export const mapStateToProps = state => ({
   reduxx: state.reduxx
 })
 
-export default connect(mapStateToProps)(NewComponent)
+export default connect(mapStateToProps)(Test1)
