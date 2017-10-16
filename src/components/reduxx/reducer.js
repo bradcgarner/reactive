@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 export function Reducer(props) {
   console.log('Reducer',props)
 
-  // @@@@@ import
   const showRedux = props.reduxx.reduxx ? 'normal' : 'clear';      
   const showCombine = ( props.reduxx.reduxx && props.reduxx.combine ) ? 'normal' : 'clear';
   const hideCombine = ( props.reduxx.reduxx && props.reduxx.combine ) ? 'clear' : 'normal';
@@ -42,7 +41,6 @@ export function Reducer(props) {
           <div className="code in1"><p className={showRedux}>&#125;</p></div>
         </div>
 
-
         <div className="group singleReducer if">
           <div className="code in1"><p className={showCombine}>export const reducer2 = ( state = initialState, action ) => &#123;</p></div>
           <div className="code in2"><p className={showCombine}>if ( action.type === ACTION_NAME ) &#123;</p></div>
@@ -53,7 +51,6 @@ export function Reducer(props) {
           <div className="code in2"><p className={showCombine}>return state;</p></div>
           <div className="code in1"><p className={showCombine}>&#125;</p></div>
         </div>
-
 
         <div className="group reducerCombine">
           <div className="code in1"><p className={showCombine}>export default combineReducers ( &#123;</p></div>

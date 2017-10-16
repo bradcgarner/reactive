@@ -117,10 +117,13 @@ h1 {
   height: 80px; }
 
 .component1methodSetState {
-  height: 80px; }
+  height: 80px;
+  position: relative; }
 
 .component1methodDispatch {
-  height: 32px; }
+  position: absolute;
+  top: 0;
+  left: 0; }
 
 .component1return {
   height: 176px; }
@@ -132,7 +135,7 @@ h1 {
   height: 48px; }
 
 .component1 {
-  height: 840px;
+  height: 793px;
   margin-bottom: 15px; }
 
 .component2import {

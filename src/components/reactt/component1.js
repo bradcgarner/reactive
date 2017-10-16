@@ -33,10 +33,11 @@ export function Component1(props) {
 
   // @@@@@@@@@ setState 
   const isStateful = ( !props.reduxx.reduxx && props.reactt.stateful ) ? 'normal' : 'clear' ;
-
+  const showSetState = ( !props.reduxx.reduxx && props.reactt.stateful ) ? 'normal' : 'hidden' ;
+  
   // @@@@@@@@@ dispatch 
-  const showDispatch = props.reduxx.reduxx ? 'normal' : 'clear' ;
-  const dispatchAsync = ( props.reduxx.reduxx && props.reduxx.async ) ? 'normal' : 'clear' ;
+  const showDispatch = props.reduxx.reduxx ? 'normal' : 'hidden' ;
+  const dispatchAsync = ( props.reduxx.reduxx && props.reduxx.async ) ? 'normal' : 'hidden' ;
 
   // @@@@@@@@@ return 
   // const isStateful = ( !props.reduxx.reduxx && props.reactt.stateful ) ? 'normal' : 'clear' ;
@@ -89,7 +90,7 @@ export function Component1(props) {
   
       <div className ="group component1methodmethodGeneral">
         <div className="code in1"><p>methodName( arg ) &#123;</p></div>
-        <div className="code in2"><p>{'&#47;&#47; ...do some logic'}</p></div>
+        <div className="code in2"><p>{'// ...do some logic'}</p></div>
         <div className="code in1"><p>&#125;</p></div>
       </div>
 
@@ -100,21 +101,20 @@ export function Component1(props) {
         <div className="code in2"><p className={showCallback}>&#125;)</p></div>
         <div className="code in1"><p className={showCallback}>&#125;</p></div>
       </div>
-        
-      
+
       <div className="group component1methodSetState"> 
-        <div className="code in1"><p className={isStateful}>this.setState(&#123;</p></div>
-        <div className="code in2"><p className={isStateful}>return Object.assign( &#123; &#125; , state, &#123;</p></div>
-        <div className="code in3"><p className={isStateful}>prop: value</p></div>
-        <div className="code in2"><p className={isStateful}>&#125;)</p></div>
-        <div className="code in1"><p className={isStateful}>&#125;);</p></div>
-      </div>        
-      
-      <div className="group component1methodDispatch"> 
-        <div className="code in1"><p className={showDispatch}>this.props.dispatch( actionName ( value ) ) ;</p></div>
-        <div className="code in1"><p className={dispatchAsync}>this.props.dispatch( asyncActionName ( value ) ) ;</p></div>      
-      </div>
-           
+        <div className="code in1"><p className={showSetState}>this.setState(&#123;</p></div>
+        <div className="code in2"><p className={showSetState}>return Object.assign( &#123; &#125; , state, &#123;</p></div>
+        <div className="code in3"><p className={showSetState}>prop: value</p></div>
+        <div className="code in2"><p className={showSetState}>&#125;)</p></div>
+        <div className="code in1"><p className={showSetState}>&#125;);</p></div>
+
+        <div className="component1methodDispatch">
+          <div className="code in1"><p className={showDispatch}>this.props.dispatch( actionName ( value ) ) ;</p></div>
+          <div className="code in1"><p className={dispatchAsync}>this.props.dispatch( asyncActionName ( value ) ) ;</p></div>      
+        </div>
+
+      </div>    
            
       <div className="group component1return">
         <div className="code in1"><p className={isStateful}>render() (</p></div>

@@ -184,11 +184,13 @@ $component1-methodCallback-ht: $component1-methodGeneral-lines + $group-OH;
 
 $component1-methodSetState-lines: $line * 5;
 $component1-methodSetState-ht: $component1-methodSetState-lines + $group-OH;
-.component1methodSetState  { height: $component1-methodSetState-lines; };
+.component1methodSetState  { height: $component1-methodSetState-lines; position: relative; };
 
-$component1-methodDispatch-lines: $line * 2;
-$component1-methodDispatch-ht: $component1-methodDispatch-lines + $group-OH;
-.component1methodDispatch  { height: $component1-methodDispatch-lines; };
+.component1methodDispatch  { 
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
 $component1-return-lines: $line * 11;
 $component1-return-ht: $component1-return-lines + $group-OH;
@@ -210,7 +212,6 @@ $component1-connect-ht: $component1-connect-lines + $group-OH;
     $component1-methodGeneral-ht +
     $component1-methodCallback-ht +
     $component1-methodSetState-ht +
-    $component1-methodDispatch-ht +
     $component1-return-ht +
     $component1-mapState-ht +
     $component1-connect-ht +
