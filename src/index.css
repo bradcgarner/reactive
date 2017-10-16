@@ -2,7 +2,27 @@
   margin: 0;
   padding: 0;
   font-family: 'Inconsolata', monospace;
-  font-size: 14px; }
+  font-size: 14px;
+  box-sizing: border-box; }
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  padding: 10px;
+  height: 30px;
+  background-color: white; }
+
+form input {
+  float: left; }
+form label {
+  float: left; }
+
+.react, .redux {
+  display: inline-block;
+  width: 50%;
+  margin-top: 30px;
+  vertical-align: top;
+  padding: 0 30px; }
 
 .library {
   color: blue; }
@@ -16,13 +36,14 @@
 .clear {
   color: white; }
 
-.hidden {
+.hidden, .comment {
   display: none; }
 
 .example {
   font-family: 'Nova Mono', monospace;
   text-decoration: underline;
-  font-style: italic; }
+  font-style: italic;
+  font-size: 12px; }
 
 h1, h2, h3 {
   clear: left; }
@@ -54,15 +75,22 @@ h1 {
 .in6 {
   margin-left: 60px; }
 
-form input {
-  float: left;
-  clear: left; }
-form label {
-  float: left; }
-
 .strikethru {
   text-decoration: line-through;
   color: #ccc; }
+
+.code {
+  height: 16px; }
+
+.group {
+  margin-bottom: 15px 0; }
+
+.big-header {
+  height: 35px;
+  margin-bottom: 15px; }
+
+.folder-header {
+  margin-bottom: 15px; }
 
 .indeximport {
   height: 95px; }
@@ -71,90 +99,91 @@ form label {
   height: 95px; }
 
 .index {
-  height: 230px; }
+  height: 240px; }
 
 .component1import {
-  height: 105px; }
+  height: 112px; }
 
 .component1line1 {
-  height: 15px; }
+  height: 16px; }
 
 .component1constructor {
-  height: 60px; }
+  height: 64px; }
 
 .component1methodGeneral {
-  height: 45px; }
+  height: 48px; }
 
 .component1methodCallback {
-  height: 75px; }
+  height: 80px; }
 
 .component1methodSetState {
-  height: 75px; }
+  height: 80px; }
 
 .component1methodDispatch {
-  height: 30px; }
+  height: 32px; }
 
 .component1return {
-  height: 165px; }
+  height: 176px; }
 
 .component1mapState {
-  height: 45px; }
+  height: 48px; }
 
 .component1connect {
-  height: 45px; }
+  height: 48px; }
 
 .component1 {
-  height: 1140px; }
+  height: 840px;
+  margin-bottom: 15px; }
 
 .component2import {
-  height: 75px; }
+  height: 80px; }
 
 .component2line1 {
-  height: 15px; }
+  height: 16px; }
 
 .component2return {
-  height: 120px; }
+  height: 128px; }
 
 .component2connect {
-  height: 45px; }
+  height: 48px; }
 
 .component2 {
-  height: 495px; }
+  height: 382px; }
 
 .storeImport {
-  height: 60px; }
+  height: 64px; }
 
 .storeCode {
-  height: 15px; }
+  height: 16px; }
 
 .store {
-  height: 215px; }
+  height: 160px; }
 
 .reducerImport {
-  height: 30px; }
+  height: 32px; }
 
 .reducerInitialState {
-  height: 45px; }
+  height: 48px; }
 
 .reducerSwitch {
-  height: 120px; }
+  height: 128px; }
 
 .reducerSingleIf {
-  height: 120px; }
+  height: 128px; }
 
 .reducerCombine {
-  height: 60px; }
+  height: 64px; }
 
 .reducer {
-  height: 495px; }
+  height: 525px; }
 
 .actionsCode {
-  height: 75px; }
+  height: 80px; }
 
 .actionsAsync {
-  height: 90px; }
+  height: 96px; }
 
 .actions {
-  height: 305px; }
+  height: 256px; }
 
 /*# sourceMappingURL=index.css.map */

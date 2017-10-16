@@ -8,7 +8,7 @@ export function Indexx(props) {
   
   return (
       <div className="block index">
-        <h3>Index</h3>
+        <div className="folder-header"><h3>Index</h3></div>
         <ImportI />
         <Code />
       </div>

@@ -7,10 +7,11 @@ import SingleIf from './single-if';
 import Combine from './combine';
 
 
-export function Reducer() {
+export function Reducer(props) {
+  console.log('Reducer',props)
   return (
       <div className="block reducer">
-        <h3>Reducer</h3>
+        <div className="folder-header"><h3>Reducer</h3></div>
         <ImportR />
         <InitialState />
         <SingleSwitch />

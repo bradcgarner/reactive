@@ -8,7 +8,7 @@ export function Component2(props) {
   console.log('14 compon2',props);
   return (
       <div className="block component2">
-        <h3>Component2</h3>
+        <div className="folder-header"><h3>Component2</h3></div>
         <Import2 />
         <div className="group component2line1">
           <div className="code"><p>export default function <span className="example">Component2</span> (props) &#123;</p></div>

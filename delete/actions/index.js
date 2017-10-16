@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import Import from './import';
 import Async from './async';
 
-export function Actions() {
+export function Actions(props) {
+  console.log('actions',props);
   return (
       <div className="block actions">
-        <h3>Actions</h3>
+        <div className="folder-header"><h3>Actions</h3></div>
         <Import />
         <Async />
       </div>

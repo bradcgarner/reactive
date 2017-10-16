@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export function Code() {
+export function Code(props) {
+  console.log('reduxcode',props);
   return (
         <div className="group storeCode">
           <div className="code in1"><p>export default createStore( reducer , applyMiddleware( thunk ) )</p></div>

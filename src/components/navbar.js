@@ -18,8 +18,7 @@ export function NavBar(props) {
 
   return (
       <div className="navbar">
-        <h3>NavBar</h3>
-        
+                
         <form className="form">
           <input className="in1" type="checkbox" name="react" checked={props.reactt.reactt} onChange={()=>props.dispatch(toggleReact())} />
             <label className={reactFormat} htmlFor="react">React</label>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export function Import() {
+export function Import(props) {
+  console.log('reduxImport',props)
   return (
         <div className="group storeImport">
           <div className="file"><p>import &#123; reducer &#125; from './reducer';</p></div>

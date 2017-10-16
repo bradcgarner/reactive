@@ -18,3 +18,13 @@ export const TOGGLE_ASYNC = 'TOGGLE_ASYNC';
 export const toggleAsync = arg => ({
   type: TOGGLE_ASYNC
 })
+
+export const TOGGLE_SWITCH = 'TOGGLE_SWITCH';
+export const toggleSwitch = arg => ({
+  type: TOGGLE_SWITCH
+})
+
+export const TOGGLE_NAMEDKEY = 'TOGGLE_NAMEDKEY';
+export const toggleNamedKey = arg => ({
+  type: TOGGLE_NAMEDKEY
+})

@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import Import from './import';
 import Code from './code';
 
-export function Store() {
+export function Store(props) {
+  console.log('reduxStore',props)
   return (
       <div className="block store">
-        <h3>Store</h3>
+        <div className="folder-header"><h3>Store</h3></div>
         <Import />
         <Code />
       </div>

@@ -5,12 +5,15 @@ import NavBar from './components/navbar';
 import { connect } from 'react-redux';
 
 
-export function App() {
+export function App(props) {
+  const reactt = props.reactt.reactt ? <Reactt /> : '' ;
+  const reduxx = props.reduxx.reduxx ? <Reduxx /> : '' ;
+
   return (
       <main>
         <NavBar />
-        <Reactt />
-        <Reduxx />
+        {reactt}
+        {reduxx}
       </main>
   )
 }

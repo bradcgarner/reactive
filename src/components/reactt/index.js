@@ -17,7 +17,7 @@ import { Test2 } from './test2';
 // import { MapState } from './component1/mapState';
 // import { Connect1 } from './component1/connect1';
 
-import Component2 from './component2/';
+import Component2 from './component2';
 
 export function Reactt(props) {
   return (
@@ -25,7 +25,7 @@ export function Reactt(props) {
       <article className="react">
         {/* <Test1/>
         <Test2/> */}
-        <h1>React</h1>
+        <div className="big-header"><h1>React</h1></div>
         <Indexx />
         <Component1 />
         

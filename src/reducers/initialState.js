@@ -13,7 +13,9 @@ export const initialState = {
     reduxx: false, // redux is on; if off, following 3 are hidden
     mapState: false, // component1 maps state to props
     combine: false, // if off, 1 reducer shows, if on 2 reducers show and are combined
-    async: false // component1 calls an async action
+    async: false, // component1 calls an async action
+    switchh: false, // reducer switch
+    namedKey: false // reducer keys are named
   }
 };
 

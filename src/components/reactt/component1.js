@@ -14,9 +14,6 @@ import { connect } from 'react-redux';
 export function Component1(props) {
   console.log('consolidated component1 props', props);
   // @@@@@@@@@ import
-  const showStore = props.reduxx.reduxx ? 'normal' : 'clear';
-  const showProvider = props.reduxx.reduxx ? 'normal' : 'clear';
-  const showConnect = props.reduxx.reduxx ? 'normal' : 'clear';
   const showActions = props.reduxx.reduxx ? 'normal' : 'clear';
   const showRoutes = props.reactt.routes ? 'normal' : 'clear';
   const showRouter = props.reactt.routes ? 'normal' : 'clear';
@@ -46,20 +43,22 @@ export function Component1(props) {
   // const showRoutes = props.reactt.routes ? 'normal' : 'clear';
   // const showRouter = props.reactt.routes ? 'normal' : 'clear';
   // const showLinks = props.reactt.links ? 'normal' : 'clear';
-  const showCallbackFn = ( !props.reduxx.reduxx ) ? 'normal' : 'clear' ;
-  const showThisCallbackFn = ( props.reactt.classs && !props.reduxx.reduxx ) ? 'normal' : 'clear' ;
-  
+  const showCallbackFn = ( !props.reduxx.reduxx & props.reactt.callback ) ? 'normal' : 'clear' ;
+  const hideCallBackFn = showCallbackFn==='normal' ? 'hidden' : 'normal' ;
+  const showThisCallbackFn = ( showCallbackFn==='normal' && props.reactt.classs ) ? 'normal' : 'clear' ;
+
   // @@@@@@@@@ mapState 
   const showMapState =  ( props.reduxx.reduxx && props.reduxx.mapState ) ? 'normal' : 'clear' ;
-
+  const showMapStateAtConnect =  showMapState==='normal' ? 'normal' : 'hidden' ;
+  
   // @@@@@@@@@ connect 
-  // const showConnect = props.reduxx.reduxx ? 'normal' : 'clear';
+  const showConnect = props.reduxx.reduxx ? 'normal' : 'clear';
   // const showMapState =  ( props.reduxx.reduxx && props.reduxx.mapState ) ? 'normal' : 'clear' ;
   
 
     return (
     <div className="block component1">
-      <h3>Component1</h3>
+      <div className="folder-header"><h3>Component1</h3></div>
        
       <div className="group component1import">
         <div className="library"><p>import React from 'react';</p></div>
@@ -122,8 +121,8 @@ export function Component1(props) {
         <div className="code in2"><p>return (</p></div>
         <div className="code in3"><p className={showRouter}>&lt;BrowserRouter&gt;</p></div>
         <div className="code in4"><p>&lt;div&gt;</p></div>
-        <div className="code in5"><p>&lt;Component2 
-          <span className={showCallbackFn}>onChange = &#123; ( arg ) => </span>
+        <div className="code in5"><p>&lt;Component2 <span className={hideCallBackFn}>/></span>
+          <span className={showCallbackFn}> onClick = &#123; ( arg ) => </span>
           <span className={showThisCallbackFn}>this.</span>
           <span className={showCallbackFn}>callbackFunc( arg ) &#125; /></span>
         </p></div>
@@ -141,10 +140,12 @@ export function Component1(props) {
         <div className="code in1"><p className={showMapState}>&#125;</p></div>
       </div>  
   
-      <div className="code component1connect in1">
-        <p className={showConnect}>export default connect(
-          <span className={showMapState}> mapStateToProps </span>
-        )( Component1 )</p>
+      <div className="group component1connect">
+        <div className="code in1">
+          <p className={showConnect}>export default connect(
+            <span className={showMapStateAtConnect}> mapStateToProps </span>
+          )( Component1 )</p>
+        </div>
       </div> 
   
     </div>

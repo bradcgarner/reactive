@@ -20,6 +20,14 @@ export default ( state = initialState.reduxx , action ) => {
       return { ...state, 
         async: !state.async
       }
+    case actions.TOGGLE_SWITCH:
+      return { ...state, 
+        switchh: !state.switchh
+      }
+    case actions.TOGGLE_NAMEDKEY:
+      return { ...state, 
+        namedKey: !state.namedKey
+      }
     default:
       return state;
   }
