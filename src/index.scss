@@ -9,10 +9,9 @@ $background: white;
   margin: 0;
   padding: 0;
   font-family: 'Inconsolata', monospace;  
-  font-size: 14px;
+  font-size: 13px;
   box-sizing: border-box;  
 }
-
 
 $navbar-height: 30px;
 
@@ -75,14 +74,14 @@ h1, h2, h3 {
 }
 
 h2, h3 {
-  font-size: 16px;
+  font-size: 15px;
 }
 h1 {
-  font-size: 18px
+  font-size: 17px
 }
 
 .group {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .in1 {
@@ -118,28 +117,28 @@ h1 {
 
 // @@@@@@@@@@@@ OVERALL DIMENSIONS @@@@@@@@@@@@@@
 
-$big-header: 35px;
+$h1-height: 22px;
 
-$folder-header: 20px;
-$folder-top-bot-padding: 15px;
+$folder-header: 18px;
+$folder-top-bot-padding: 12px;
 $folder-left-right-padding: 15px;
-$folder-bot-margin: 15px;
+$folder-bot-margin: 12px;
 $folder-OH: $folder-header + (2 * $folder-bot-margin) ;
 $folder-width: 500px;
 
 $group-header: 0px;
-$group-bot-margin: 15px;
+$group-bot-margin: 8px;
 $group-OH: $group-header + $group-bot-margin;
 
-$line: 16px;
+$line: 14px;
 
 .code {height: $line; }
 .group {
   margin-bottom: $group-bot-margin 0;
 }
 
-.big-header {
-  height: $big-header;
+.h1 {
+  height: $h1-height;
   margin-bottom: $group-bot-margin;  
 }
 
@@ -152,7 +151,7 @@ $index-import-ht: $index-import-lines + $group-OH;
 .indeximport          { height: $index-import-ht; };
 
 $index-code-lines: $line * 7;
-$index-code-ht: $index-import-lines + $group-OH;
+$index-code-ht: $index-code-lines + $group-OH;
 .indexCode         { height: $index-code-ht; };
 
 .index { 
@@ -174,19 +173,11 @@ $component1-constructor-lines: $line * 4;
 $component1-constructor-ht: $component1-constructor-lines + $group-OH;
 .component1constructor     { height: $component1-constructor-lines; };
 
-$component1-methodGeneral-lines: $line * 3;
-$component1-methodGeneral-ht: $component1-methodGeneral-lines + $group-OH;
-.component1methodGeneral   { height: $component1-methodGeneral-lines; };
+$component1-method-lines: $line * 5;
+$component1-method-ht: $component1-method-lines + $group-OH;
+.component1method   { height: $component1-method-lines; position: relative; };
 
-$component1-methodCallback-lines: $line * 5;
-$component1-methodCallback-ht: $component1-methodGeneral-lines + $group-OH;
-.component1methodCallback  { height: $component1-methodCallback-lines; }; 
-
-$component1-methodSetState-lines: $line * 5;
-$component1-methodSetState-ht: $component1-methodSetState-lines + $group-OH;
-.component1methodSetState  { height: $component1-methodSetState-lines; position: relative; };
-
-.component1methodDispatch  { 
+.component1methodDispatch, .component1methodSimple, .component1methodCallback  { 
   position: absolute;
   top: 0;
   left: 0;
@@ -202,16 +193,14 @@ $component1-mapState-ht: $component1-mapState-lines + $group-OH;
 
 $component1-connect-lines: $line * 1;
 $component1-connect-ht: $component1-connect-lines + $group-OH;
-.component1connect         { height: $component1-mapState-lines; };
+.component1connect         { height: $component1-connect-lines; };
 
 .component1 { 
   height: 
     $component1-import-ht +
     $component1-line1-ht +
     $component1-constructor-ht +
-    $component1-methodGeneral-ht +
-    $component1-methodCallback-ht +
-    $component1-methodSetState-ht +
+    $component1-method-ht +
     $component1-return-ht +
     $component1-mapState-ht +
     $component1-connect-ht +

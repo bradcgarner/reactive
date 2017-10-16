@@ -34,10 +34,7 @@ export function Component1(props) {
   // @@@@@@@@@ setState 
   const isStateful = ( !props.reduxx.reduxx && props.reactt.stateful ) ? 'normal' : 'clear' ;
   const showSetState = ( !props.reduxx.reduxx && props.reactt.stateful ) ? 'normal' : 'hidden' ;
-  
-  // @@@@@@@@@ dispatch 
-  const showDispatch = props.reduxx.reduxx ? 'normal' : 'hidden' ;
-  const dispatchAsync = ( props.reduxx.reduxx && props.reduxx.async ) ? 'normal' : 'hidden' ;
+
 
   // @@@@@@@@@ return 
   // const isStateful = ( !props.reduxx.reduxx && props.reactt.stateful ) ? 'normal' : 'clear' ;
@@ -47,6 +44,12 @@ export function Component1(props) {
   const showCallbackFn = ( !props.reduxx.reduxx & props.reactt.callback ) ? 'normal' : 'clear' ;
   const hideCallBackFn = showCallbackFn==='normal' ? 'hidden' : 'normal' ;
   const showThisCallbackFn = ( showCallbackFn==='normal' && props.reactt.classs ) ? 'normal' : 'clear' ;
+
+  // @@@@@@@@@ dispatch 
+  const showDispatch = props.reduxx.reduxx ? 'normal' : 'hidden' ;
+  const dispatchAsync = ( props.reduxx.reduxx && props.reduxx.async ) ? 'normal' : 'hidden' ;
+
+  const showSimpleFn = ( showCallbackFn==='clear' && showDispatch==='hidden' && dispatchAsync==='hidden' ) ? 'normal' : 'hidden' ;
 
   // @@@@@@@@@ mapState 
   const showMapState =  ( props.reduxx.reduxx && props.reduxx.mapState ) ? 'normal' : 'clear' ;
@@ -84,34 +87,32 @@ export function Component1(props) {
       <div className="group component1constructor"> 
         <div className="code in1"><p className={showConstructor}>constructor( props ) &#123;</p></div>
         <div className="code in2"><p className={showConstructor}>super( props )</p></div>
-        <div className="code in3"><p className={showConstructor}>whatever</p></div>
+        <div className="code in3">
+          <p className={showConstructor}> this.state=&#123; prop: arg[] } </p></div>
         <div className="code constructor in1"><p className={showConstructor}>&#125;</p></div>
       </div>
-  
-      <div className ="group component1methodmethodGeneral">
-        <div className="code in1"><p>methodName( arg ) &#123;</p></div>
-        <div className="code in2"><p>{'// ...do some logic'}</p></div>
-        <div className="code in1"><p>&#125;</p></div>
-      </div>
 
-      <div className ="group component1methodCallback"> 
-        <div className="code in1"><p className={showCallback}>callbackFunc( arg ) &#123;</p></div>
-        <div className="code in2"><p className={showCallback}>this.setState(&#123;</p></div>
-        <div className="code in3"><p className={showCallback}>prop: arg</p></div>
-        <div className="code in2"><p className={showCallback}>&#125;)</p></div>
-        <div className="code in1"><p className={showCallback}>&#125;</p></div>
-      </div>
+      <div className ="group component1method"> 
 
-      <div className="group component1methodSetState"> 
-        <div className="code in1"><p className={showSetState}>this.setState(&#123;</p></div>
-        <div className="code in2"><p className={showSetState}>return Object.assign( &#123; &#125; , state, &#123;</p></div>
-        <div className="code in3"><p className={showSetState}>prop: value</p></div>
-        <div className="code in2"><p className={showSetState}>&#125;)</p></div>
-        <div className="code in1"><p className={showSetState}>&#125;);</p></div>
-
+        <div className="component1methodCallback">
+          <div className="code in1"><p className={showCallbackFn}>callbackFunc( arg ) &#123;</p></div>
+          <div className="code in2"><p className={showCallbackFn}>this.setState(&#123;</p></div>
+          <div className="code in3"><p className={showCallbackFn}>prop: arg</p></div>
+          <div className="code in2"><p className={showCallbackFn}>&#125;)</p></div>
+          <div className="code in1"><p className={showCallbackFn}>&#125;</p></div>
+        </div>
+        
         <div className="component1methodDispatch">
-          <div className="code in1"><p className={showDispatch}>this.props.dispatch( actionName ( value ) ) ;</p></div>
-          <div className="code in1"><p className={dispatchAsync}>this.props.dispatch( asyncActionName ( value ) ) ;</p></div>      
+          <div className="code in1"><p className={showDispatch}>callbackFunc( arg ) &#123;</p></div>
+          <div className="code in2"><p className={showDispatch}>this.props.dispatch( actionName ( value ) ) ;</p></div>
+          <div className="code in2"><p className={dispatchAsync}>this.props.dispatch( asyncActionName ( value ) ) ;</p></div>      
+          <div className="code in1"><p className={showDispatch}>&#125;</p></div>
+        </div>
+
+        <div className="component1methodSimple">
+          <div className="code in1"><p className={showSimpleFn}>callbackFunc( arg ) &#123;</p></div>
+          <div className="code in2"><p className={showSimpleFn}>{'// ...do some logic'};</p></div>
+          <div className="code in1"><p className={showSimpleFn}>&#125;</p></div>
         </div>
 
       </div>    
