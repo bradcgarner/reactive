@@ -1,0 +1,255 @@
+$unavailable: #ccc;
+$library: blue;
+$code: green;
+$file: maroon;
+$indent: 10px;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inconsolata', monospace;  
+  font-size: 14px;
+}
+
+.library {
+  color: $library;
+}
+
+.code {
+  color: $code;
+}
+
+.file {
+  color: $file;
+}
+
+.clear {
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.example {
+  font-family: 'Nova Mono', monospace;  
+  text-decoration: underline;
+  font-style: italic;
+}
+
+h1, h2, h3 {
+  clear: left;
+}
+
+h2, h3 {
+  font-size: 16px;
+}
+h1 {
+  font-size: 18px
+}
+
+.group {
+  margin-bottom: 10px;
+}
+
+.in1 {
+  margin-left: $indent * 1;
+}
+
+.in2 {
+  margin-left: $indent * 2;
+}
+
+.in3 {
+  margin-left: $indent * 3;
+}
+
+.in4 {
+  margin-left: $indent * 4;
+}
+
+.in5 {
+  margin-left: $indent * 5;
+}
+
+.in6 {
+  margin-left: $indent * 6;
+}
+
+form {
+  input {
+    // display: inline-block;
+    float: left;
+    clear: left;
+  };
+  label {
+    float: left;
+  }
+}
+
+.strikethru {
+  text-decoration: line-through;
+  color: $unavailable;
+}
+
+// @@@@@@@@@@@@ OVERALL DIMENSIONS @@@@@@@@@@@@@@
+
+$h1: 25px;
+$folder-top-bot-margin: 15px;
+$folder-left-right-margin: 15px;
+$folder-OH: $h1 + $folder-top-bot-margin;
+$folder-width: 500px;
+
+$h3: 20px;
+$group-top-bot-margin: 15px;
+$group-OH: $h3 + (2 * $group-top-bot-margin);
+
+$line: 15px;
+
+$index-import-lines: $line * 3;
+$index-import-ht: $index-import-lines + $group-OH;
+.indeximport          { height: $index-import-ht; };
+
+$index-code-lines: $line * 7;
+$index-code-ht: $index-import-lines + $group-OH;
+.indexCode         { height: $index-code-ht; };
+
+.index { height: 
+  $index-import-ht +
+  $index-code-ht +
+  $folder-OH;
+};
+
+$component1-import-lines: $line * 7;
+$component1-import-ht: $component1-import-lines + $group-OH;
+.component1import          { height: $component1-import-lines };
+
+$component1-line1-lines: $line * 1;
+$component1-line1-ht: $component1-line1-lines + $group-OH;
+.component1line1           { height: $component1-line1-lines; }; 
+
+$component1-constructor-lines: $line * 4;
+$component1-constructor-ht: $component1-constructor-lines + $group-OH;
+.component1constructor     { height: $component1-constructor-lines; };
+
+$component1-methodGeneral-lines: $line * 3;
+$component1-methodGeneral-ht: $component1-methodGeneral-lines + $group-OH;
+.component1methodGeneral   { height: $component1-methodGeneral-lines; };
+
+$component1-methodCallback-lines: $line * 5;
+$component1-methodCallback-ht: $component1-methodGeneral-lines + $group-OH;
+.component1methodCallback  { height: $component1-methodCallback-lines; }; 
+
+$component1-methodSetState-lines: $line * 5;
+$component1-methodSetState-ht: $component1-methodSetState-lines + $group-OH;
+.component1methodSetState  { height: $component1-methodSetState-lines; };
+
+$component1-methodDispatch-lines: $line * 2;
+$component1-methodDispatch-ht: $component1-methodDispatch-lines + $group-OH;
+.component1methodDispatch  { height: $component1-methodDispatch-lines; };
+
+$component1-return-lines: $line * 11;
+$component1-return-ht: $component1-return-lines + $group-OH;
+.component1return          { height: $component1-return-lines; };
+
+$component1-mapState-lines: $line * 3;
+$component1-mapState-ht: $component1-mapState-lines + $group-OH;
+.component1mapState        { height: $component1-mapState-lines; };
+
+$component1-connect-lines: $line * 1;
+$component1-connect-ht: $component1-connect-lines + $group-OH;
+.component1connect         { height: $component1-mapState-lines; };
+
+.component1 { height: 
+  $component1-import-ht +
+  $component1-line1-ht +
+  $component1-constructor-ht +
+  $component1-methodGeneral-ht +
+  $component1-methodCallback-ht +
+  $component1-methodSetState-ht +
+  $component1-methodDispatch-ht +
+  $component1-return-ht +
+  $component1-mapState-ht +
+  $component1-connect-ht +
+  $folder-OH;
+};
+
+$component2-import-lines: $line * 5;
+$component2-import-ht: $component2-import-lines + $group-OH;
+.component2import          { height: $component2-import-lines; };
+
+$component2-line1-lines: $line * 1;
+$component2-line1-ht: $component2-line1-lines + $group-OH;
+.component2line1           { height: $component2-line1-lines; }; 
+
+$component2-return-lines: $line * 8;
+$component2-return-ht: $component2-return-lines + $group-OH;
+.component2return          { height: $component2-return-lines; };
+
+$component2-connect-lines: $line * 3;
+$component2-connect-ht: $component2-connect-lines + $group-OH;
+.component2connect         { height: $component2-connect-lines; };
+
+.component2 { height: 
+  $component2-import-ht +
+  $component2-line1-ht +
+  $component2-return-ht +
+  $component2-connect-ht +
+  $folder-OH;
+};
+
+$store-import-lines: $line * 4;
+$store-import-ht: $store-import-lines + $group-OH;
+.storeImport          { height: $store-import-lines; };
+
+$store-code-lines: $line * 1;
+$store-code-ht: $store-code-lines + $group-OH;
+.storeCode            { height: $store-code-lines; };
+
+.store { height: 
+  $store-import-ht +
+  $store-code-ht +
+  $folder-OH;
+};
+
+$reducer-import-lines: $line * 2;
+$reducer-import-ht: $reducer-import-lines + $group-OH;
+.reducerImport          { height: $reducer-import-lines; };
+
+$reducer-initialState-lines: $line * 3;
+$reducer-initialState-ht: $reducer-initialState-lines + $group-OH;
+.reducerInitialState          { height: $reducer-initialState-lines; };
+      
+$reducer-switch-lines: $line * 8;
+$reducer-switch-ht: $reducer-switch-lines + $group-OH;
+.reducerSwitch          { height: $reducer-switch-lines; };
+
+$reducer-if-lines: $line * 8;
+$reducer-if-ht: $reducer-if-lines + $group-OH;
+.reducerSingleIf          { height: $reducer-if-lines; };
+
+$reducer-combine-lines: $line * 4;
+$reducer-combine-ht: $reducer-combine-lines + $group-OH;
+.reducerCombine          { height: $reducer-combine-lines; };
+
+.reducer { height: 
+  $reducer-import-ht +
+  $reducer-initialState-ht +
+  $reducer-switch-ht +
+  $reducer-combine-ht +
+  $folder-OH;
+};
+
+$actions-code-lines: $line * 5;
+$actions-code-ht: $actions-code-lines + $group-OH;
+.actionsCode          { height: $actions-code-lines; };
+
+$actions-async-lines: $line * 6;
+$actions-async-ht: $actions-async-lines + $group-OH;
+.actionsAsync          { height: $actions-async-lines; };
+
+.actions { height: 
+  $actions-code-ht +
+  $actions-async-ht +
+  $folder-OH;
+};

@@ -1,50 +1,160 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-}
+  font-family: 'Inconsolata', monospace;
+  font-size: 14px; }
 
 .library {
-  color: blue;
-}
+  color: blue; }
 
 .code {
-  color: green;
-}
+  color: green; }
 
 .file {
-  color: maroon;
-}
+  color: maroon; }
+
+.clear {
+  color: white; }
+
+.hidden {
+  display: none; }
 
 .example {
+  font-family: 'Nova Mono', monospace;
   text-decoration: underline;
-  font-style: italic;
-}
+  font-style: italic; }
+
+h1, h2, h3 {
+  clear: left; }
+
+h2, h3 {
+  font-size: 16px; }
+
+h1 {
+  font-size: 18px; }
 
 .group {
-  margin-bottom: 10px;
-}
+  margin-bottom: 10px; }
 
 .in1 {
-  margin-left: 10px;
-}
+  margin-left: 10px; }
 
 .in2 {
-  margin-left: 20px;
-}
+  margin-left: 20px; }
 
 .in3 {
-  margin-left: 30px;
-}
+  margin-left: 30px; }
 
 .in4 {
-  margin-left: 40px;
-}
+  margin-left: 40px; }
 
 .in5 {
-  margin-left: 50px;
-}
+  margin-left: 50px; }
 
 .in6 {
-  margin-left: 60px;
-}
+  margin-left: 60px; }
+
+form input {
+  float: left;
+  clear: left; }
+form label {
+  float: left; }
+
+.strikethru {
+  text-decoration: line-through;
+  color: #ccc; }
+
+.indeximport {
+  height: 95px; }
+
+.indexCode {
+  height: 95px; }
+
+.index {
+  height: 230px; }
+
+.component1import {
+  height: 105px; }
+
+.component1line1 {
+  height: 15px; }
+
+.component1constructor {
+  height: 60px; }
+
+.component1methodGeneral {
+  height: 45px; }
+
+.component1methodCallback {
+  height: 75px; }
+
+.component1methodSetState {
+  height: 75px; }
+
+.component1methodDispatch {
+  height: 30px; }
+
+.component1return {
+  height: 165px; }
+
+.component1mapState {
+  height: 45px; }
+
+.component1connect {
+  height: 45px; }
+
+.component1 {
+  height: 1140px; }
+
+.component2import {
+  height: 75px; }
+
+.component2line1 {
+  height: 15px; }
+
+.component2return {
+  height: 120px; }
+
+.component2connect {
+  height: 45px; }
+
+.component2 {
+  height: 495px; }
+
+.storeImport {
+  height: 60px; }
+
+.storeCode {
+  height: 15px; }
+
+.store {
+  height: 215px; }
+
+.reducerImport {
+  height: 30px; }
+
+.reducerInitialState {
+  height: 45px; }
+
+.reducerSwitch {
+  height: 120px; }
+
+.reducerSingleIf {
+  height: 120px; }
+
+.reducerCombine {
+  height: 60px; }
+
+.reducer {
+  height: 495px; }
+
+.actionsCode {
+  height: 75px; }
+
+.actionsAsync {
+  height: 90px; }
+
+.actions {
+  height: 305px; }
+
+/*# sourceMappingURL=index.css.map */

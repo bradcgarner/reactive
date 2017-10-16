@@ -1,15 +1,23 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Reactt from './components/react/';
-import Reduxx from './components/redux/';
+import Reactt from './components/reactt/';
+import Reduxx from './components/reduxx/';
+import NavBar from './components/navbar';
+import { connect } from 'react-redux';
 
-export default function App() {
+
+export function App() {
   return (
-      <BrowserRouter>
       <main>
-        <Route path="/" component={Reactt}/>
-        <Route path="/" component={Reduxx} />
+        <NavBar />
+        <Reactt />
+        {/*<Reduxx />*/}
       </main>
-      </BrowserRouter>
   )
 }
+
+export const mapStateToProps = state => ({
+  reactt: state.reactt,
+  reduxx: state.reduxx
+})
+
+export default connect(mapStateToProps)(App)
