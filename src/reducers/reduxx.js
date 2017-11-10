@@ -28,6 +28,14 @@ export default ( state = initialState.reduxx , action ) => {
       return { ...state, 
         namedKey: !state.namedKey
       }
+    case actions.TOGGLE_FORM:
+      return { ...state, 
+        namedKey: !state.form
+      }
+    case actions.TOGGLE_COMPOSE:
+      return { ...state, 
+        namedKey: !state.compose
+      }
     default:
       return state;
   }

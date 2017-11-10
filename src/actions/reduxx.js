@@ -28,3 +28,13 @@ export const TOGGLE_NAMEDKEY = 'TOGGLE_NAMEDKEY';
 export const toggleNamedKey = arg => ({
   type: TOGGLE_NAMEDKEY
 })
+
+export const TOGGLE_FORM = 'TOGGLE_FORM';
+export const toggleForm = arg => ({
+  type: TOGGLE_FORM
+})
+
+export const TOGGLE_COMPOSE = 'TOGGLE_COMPOSE';
+export const toggleCompose = arg => ({
+  type: TOGGLE_COMPOSE
+})

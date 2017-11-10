@@ -14,7 +14,7 @@ export function Store(props) {
       <div className="folder-header"><h3 className={showRedux}>Store</h3></div>
 
       <div className="group storeImport">
-        <div className="file"><p className={showRedux}>import &#123; reducer &#125; from './reducer';</p></div>
+        <div className="file"><p className={showRedux}>import reducer from './reducer';</p></div>
         <div className="library"><p className={showRedux}>import &#123; createStore &#125; from 'redux';</p></div>
         <div className="library"><p className={showAsync}>import &#123; applyMiddleware &#125; from 'redux';</p></div>
         <div className="library"><p className={showAsync}>import  thunk  from 'redux-thunk';</p></div>
@@ -27,7 +27,24 @@ export function Store(props) {
           The dispatch() method acceppts an action as an argument; the action must be an object... 
           EXCEPT... the action may be an argument or a function...</p>
       </div>
+      <div className="flowContainer">
+        <div className="flow e-s-reducer-T"><div className="arrow-R"></div></div>
+        <div className="flow e-s-reducer-B"></div>
 
+        <div className="flow e-s-create"><div className="arrow-R"></div></div>
+
+        <div className="flow e-s-thunk"></div>
+        <div className="flow e-s-export">
+          <div className="flow one">
+            <div className="flow two">
+              <div className="arrow-U"></div>
+              <div className="flow three">
+                <div className="arrow-L"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

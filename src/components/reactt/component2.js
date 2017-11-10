@@ -31,6 +31,7 @@ export function Component2(props) {
         <div className="group component2import">
           <div className="library"><p>import React from 'react';</p></div>
           <div className="file"><p className={showActions}>import &#123; <span className="example">actionName</span> &#125; from './<span className="example">actions</span>';</p></div>
+          <div className="library"><p className={showConnect}>import &#123; connect &#125; from 'react-redux';</p></div>
           <div className="file"><p>import &#123; <span className="example">component3</span> &#125; from './<span className="example">component3</span>';</p></div>
           <div className="library"><p className={showRoutes}>import &#123; Route &#125; from 'react-router-dom';</p></div>
           <div className="library"><p className={showLinks}>import &#123; Link &#125; from 'react-router-dom';</p></div>
@@ -61,6 +62,26 @@ export function Component2(props) {
           <p className={showConnect}>export default connect()( Component1 )</p>
         </div>
       </div> 
+
+      <div className="flowContainer">
+        <div className="flow r-2-connect"><div className="arrow-D"></div></div>
+        
+        <div className="flow r-2-link-L"><div className="arrow-D"></div></div>
+        <div className="flow r-2-link-R"></div>
+        
+        <div className="flow r-2-route">
+          <div className="arrow-D"></div>
+          <div className="flow tail"></div>
+        </div>
+        <div className="flow r-2-export">
+          <div className="flow one">
+            <div className="arrow-L"></div>
+          </div>
+          <div className="flow two">
+            <div className="arrow-U"></div>
+          </div>
+        </div>
+      </div>
 
       </div>
   )

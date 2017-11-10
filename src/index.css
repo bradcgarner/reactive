@@ -3,7 +3,8 @@
   padding: 0;
   font-family: 'Inconsolata', monospace;
   font-size: 13px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  white-space: nowrap; }
 
 .navbar {
   position: fixed;
@@ -19,10 +20,13 @@ form label {
 
 .react, .redux {
   display: inline-block;
-  width: 50%;
+  width: 510px;
   margin-top: 30px;
   vertical-align: top;
-  padding: 0 30px; }
+  padding: 0 1.5em; }
+
+.react {
+  margin-left: 1.5em; }
 
 .library {
   color: blue; }
@@ -40,9 +44,7 @@ form label {
   display: none; }
 
 .example {
-  font-family: 'Nova Mono', monospace;
   text-decoration: underline;
-  font-style: italic;
   font-size: 12px; }
 
 h1, h2, h3 {
@@ -53,9 +55,6 @@ h2, h3 {
 
 h1 {
   font-size: 17px; }
-
-.group {
-  margin-bottom: 8px; }
 
 .in1 {
   margin-left: 10px; }
@@ -79,7 +78,7 @@ h1 {
   text-decoration: line-through;
   color: #ccc; }
 
-.code {
+.code, .library, .file {
   height: 14px; }
 
 .group {
@@ -90,6 +89,7 @@ h1 {
   margin-bottom: 8px; }
 
 .folder-header {
+  height: 18px;
   margin-bottom: 12px; }
 
 .indeximport {
@@ -102,7 +102,7 @@ h1 {
   height: 226px; }
 
 .component1import {
-  height: 98px; }
+  height: 126px; }
 
 .component1line1 {
   height: 14px; }
@@ -111,7 +111,7 @@ h1 {
   height: 56px; }
 
 .component1method {
-  height: 70px;
+  height: 112px;
   position: relative; }
 
 .component1methodDispatch, .component1methodSimple, .component1methodCallback {
@@ -120,20 +120,25 @@ h1 {
   left: 0; }
 
 .component1return {
-  height: 154px; }
+  height: 210px; }
 
 .component1mapState {
   height: 42px; }
 
 .component1connect {
-  height: 14px; }
+  height: 56px;
+  position: relative; }
+
+.component1connectSimple, .component1connectCompose {
+  position: absolute;
+  top: 0;
+  left: 0; }
 
 .component1 {
-  height: 546px;
-  margin-bottom: 12px; }
+  height: 714px; }
 
 .component2import {
-  height: 70px; }
+  height: 84px; }
 
 .component2line1 {
   height: 14px; }
@@ -145,7 +150,7 @@ h1 {
   height: 42px; }
 
 .component2 {
-  height: 312px; }
+  height: 326px; }
 
 .storeImport {
   height: 56px; }
@@ -163,24 +168,746 @@ h1 {
   height: 42px; }
 
 .reducerSwitch {
-  height: 112px; }
+  height: 126px; }
 
 .reducerSingleIf {
-  height: 112px; }
+  height: 126px; }
 
 .reducerCombine {
   height: 56px; }
 
 .reducer {
-  height: 432px; }
+  height: 460px; }
 
 .actionsCode {
+  height: 70px; }
+
+.actionsSubmit {
   height: 70px; }
 
 .actionsAsync {
   height: 84px; }
 
 .actions {
-  height: 212px; }
+  height: 290px; }
+
+.block {
+  position: relative;
+  background-color: #ccc;
+  margin-bottom: 12px;
+  padding-left: 50px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.flowContainer {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  z-index: 999; }
+
+.arrow-L {
+  position: absolute;
+  border: 0.6em solid transparent;
+  border-right: 0.6em solid purple;
+  height: 0.6em;
+  width: 0.6em; }
+
+.arrow-R {
+  position: absolute;
+  border: 0.6em solid transparent;
+  border-left: 0.6em solid purple;
+  height: 0.6em;
+  width: 0.6em; }
+
+.arrow-U {
+  position: absolute;
+  border: 0.6em solid transparent;
+  border-bottom: 0.6em solid purple;
+  height: 0.6em;
+  width: 0.6em; }
+
+.arrow-D {
+  position: absolute;
+  border: 0.6em solid transparent;
+  border-top: 0.6em solid purple;
+  height: 0.6em;
+  width: 0.6em; }
+
+.r-i-store-L {
+  position: absolute;
+  top: 64px;
+  height: 58.4px;
+  left: -2em;
+  width: 2em;
+  border: solid 0.2em purple;
+  border-right: none; }
+  .r-i-store-L .arrow-L {
+    left: 20%;
+    top: -0.7em; }
+
+.r-i-store-R {
+  position: absolute;
+  top: 64px;
+  height: 72.4px;
+  left: 0;
+  width: 10px;
+  border-bottom: solid 0.2em purple; }
+
+.r-i-provider {
+  position: absolute;
+  top: 92px;
+  height: 30.4px;
+  left: -1em;
+  width: 1em;
+  border-top: solid 0.2em purple;
+  border-left: solid 0.2em purple; }
+
+.r-i-compon1-L {
+  position: absolute;
+  top: 50px;
+  height: 86.4px;
+  left: -3em;
+  width: 3em;
+  border: solid 0.2em purple;
+  border-right: none; }
+  .r-i-compon1-L .arrow-R {
+    right: 0;
+    bottom: -0.7em; }
+
+.r-i-compon1-R {
+  position: absolute;
+  top: 50px;
+  height: 86.4px;
+  left: 0;
+  width: 20px;
+  border-bottom: solid 0.2em purple; }
+
+.r-i-react-dom-L {
+  position: absolute;
+  top: 78px;
+  height: 30.4px;
+  left: 8em;
+  width: 9em;
+  border-bottom: solid 0.2em purple; }
+  .r-i-react-dom-L .arrow-L {
+    left: 50%;
+    bottom: -0.7em; }
+
+.r-i-react-dom-R {
+  position: absolute;
+  top: 78px;
+  height: 30.4px;
+  left: 17em;
+  width: 3em;
+  border-top: solid 0.2em purple;
+  border-right: solid 0.2em purple;
+  border-bottom: solid 0.2em purple; }
+
+.r-i-export {
+  position: absolute;
+  top: 124px;
+  height: 0;
+  width: 0; }
+  .r-i-export .html {
+    position: absolute;
+    height: 0px;
+    left: 17em;
+    bottom: -39.2px;
+    width: 4em;
+    border-bottom: solid 0.2em purple; }
+    .r-i-export .html .arrow-R {
+      left: 100%;
+      bottom: -0.7em; }
+  .r-i-export .provider {
+    position: absolute;
+    height: 140px;
+    left: 17em;
+    top: -4.2px;
+    width: 12em;
+    border-right: solid 0.2em purple;
+    border-top: solid 0.2em purple; }
+    .r-i-export .provider .arrow-D {
+      top: 100%;
+      right: -0.7em; }
+
+.r-1-connect-L {
+  position: absolute;
+  top: 64px;
+  height: 548.4px;
+  left: -3em;
+  width: 3em;
+  border-top: solid 0.2em purple;
+  border-left: solid 0.2em purple;
+  border-bottom: solid 0.2em purple; }
+  .r-1-connect-L .arrow-D {
+    top: 50%;
+    left: -0.7em; }
+
+.r-1-connect-R {
+  position: absolute;
+  top: 64px;
+  height: 548.4px;
+  left: 0;
+  width: 1em;
+  border-bottom: solid 0.2em purple; }
+
+.r-1-compose {
+  position: absolute;
+  top: 78px;
+  height: 520.4px;
+  left: -2em;
+  width: 2em;
+  border-top: solid 0.2em purple;
+  border-left: solid 0.2em purple;
+  border-bottom: solid 0.2em purple; }
+  .r-1-compose .arrow-D {
+    top: 55%;
+    left: -0.7em; }
+
+.r-1-link-L {
+  position: absolute;
+  top: 134px;
+  height: 296.4px;
+  left: -1em;
+  width: 1em;
+  border-top: solid 0.2em purple;
+  border-left: solid 0.2em purple;
+  border-bottom: solid 0.2em purple; }
+  .r-1-link-L .arrow-D {
+    top: 50%;
+    left: -0.7em; }
+
+.r-1-link-R {
+  position: absolute;
+  top: 134px;
+  height: 296.4px;
+  left: 0em;
+  width: 48px;
+  border-bottom: solid 0.2em purple; }
+
+.r-1-form {
+  position: absolute;
+  top: 92px;
+  height: 534.4px;
+  left: 23.5em;
+  width: 8em;
+  border-top: solid 0.2em purple;
+  border-right: solid 0.2em purple; }
+  .r-1-form .arrow-D1 {
+    top: 40%;
+    right: -0.7em; }
+  .r-1-form .arrow-D2 {
+    top: 85%;
+    right: -0.7em; }
+  .r-1-form .tail1 {
+    position: absolute;
+    bottom: 140px;
+    right: 0;
+    height: 10px;
+    width: 3em;
+    border-bottom: solid 0.2em purple; }
+  .r-1-form .tail2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 12em;
+    border-bottom: solid 0.2em purple; }
+
+.r-1-route {
+  position: absolute;
+  top: 106px;
+  height: 310.4px;
+  left: 21em;
+  width: 9em;
+  border-top: solid 0.2em purple;
+  border-right: solid 0.2em purple; }
+  .r-1-route .arrow-D {
+    top: 50%;
+    right: -0.7em; }
+  .r-1-route .tail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 1em;
+    border-bottom: solid 0.2em purple; }
+
+.r-1-router {
+  position: absolute;
+  top: 120px;
+  height: 254.4px;
+  left: 24.5em;
+  width: 4em;
+  border-top: solid 0.2em purple;
+  border-right: solid 0.2em purple; }
+  .r-1-router .arrow-D {
+    top: 50%;
+    right: -0.7em; }
+  .r-1-router .tail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 18em;
+    border-bottom: solid 0.2em purple; }
+
+.r-1-export {
+  position: absolute;
+  top: 142.2px;
+  height: 0;
+  width: 0; }
+  .r-1-export .two {
+    position: absolute;
+    height: 383.2px;
+    right: 0;
+    bottom: -25.2px;
+    width: 6em;
+    border-top: solid 0.2em purple;
+    border-left: solid 0.2em purple;
+    border-bottom: solid 0.2em purple; }
+    .r-1-export .two .arrow-U1 {
+      top: 175px;
+      left: -0.7em; }
+  .r-1-export .two .three {
+    position: absolute;
+    height: 22.4px;
+    left: 100%;
+    top: -0.2em;
+    width: 16em;
+    border-top: solid 0.2em purple;
+    border-right: solid 0.2em purple; }
+    .r-1-export .two .three .arrow-R {
+      left: 30%;
+      top: -0.7em; }
+  .r-1-export .oneConnect {
+    position: absolute;
+    height: 21px;
+    left: 0;
+    bottom: -525px;
+    width: 5em;
+    border-right: solid 0.2em purple;
+    border-bottom: solid 0.2em purple; }
+    .r-1-export .oneConnect .arrow-L {
+      left: 30%;
+      bottom: -0.7em; }
+  .r-1-export .twoConnect {
+    position: absolute;
+    height: 883px;
+    right: 0;
+    bottom: -525px;
+    width: 6em;
+    border-top: solid 0.2em purple;
+    border-left: solid 0.2em purple;
+    border-bottom: solid 0.2em purple; }
+    .r-1-export .twoConnect .arrow-U1 {
+      top: 175px;
+      left: -0.7em; }
+    .r-1-export .twoConnect .arrow-U2 {
+      top: 500px;
+      left: -0.7em; }
+  .r-1-export .twoConnect .threeConnect {
+    position: absolute;
+    height: 22.4px;
+    left: 100%;
+    top: -0.2em;
+    width: 16em;
+    border-top: solid 0.2em purple;
+    border-right: solid 0.2em purple; }
+    .r-1-export .twoConnect .threeConnect .arrow-R {
+      left: 30%;
+      top: -0.7em; }
+  .r-1-export .oneCompose {
+    position: absolute;
+    height: 21px;
+    left: 0;
+    bottom: -483px;
+    width: 16em;
+    border-right: solid 0.2em purple;
+    border-bottom: solid 0.2em purple; }
+    .r-1-export .oneCompose .arrow-L {
+      left: 30%;
+      bottom: -0.7em; }
+  .r-1-export .twoCompose {
+    position: absolute;
+    height: 841px;
+    right: 0;
+    bottom: -483px;
+    width: 6em;
+    border-top: solid 0.2em purple;
+    border-left: solid 0.2em purple;
+    border-bottom: solid 0.2em purple; }
+    .r-1-export .twoCompose .arrow-U1 {
+      top: 175px;
+      left: -0.7em; }
+    .r-1-export .twoCompose .arrow-U2 {
+      top: 500px;
+      left: -0.7em; }
+  .r-1-export .twoCompose .threeCompose {
+    position: absolute;
+    height: 22.4px;
+    left: 100%;
+    top: -0.2em;
+    width: 16em;
+    border-top: solid 0.2em purple;
+    border-right: solid 0.2em purple; }
+    .r-1-export .twoCompose .threeCompose .arrow-R {
+      left: 30%;
+      top: -0.7em; }
+
+.r-2-connect {
+  position: absolute;
+  top: 64px;
+  height: 184.4px;
+  left: -3em;
+  width: 3em;
+  border-top: solid 0.2em purple;
+  border-left: solid 0.2em purple;
+  border-bottom: solid 0.2em purple; }
+  .r-2-connect .arrow-D {
+    top: 50%;
+    left: -0.7em; }
+
+.r-2-link-L {
+  position: absolute;
+  top: 106px;
+  height: 86.4px;
+  left: -1.5em;
+  width: 1.5em;
+  border-top: solid 0.2em purple;
+  border-left: solid 0.2em purple;
+  border-bottom: solid 0.2em purple; }
+  .r-2-link-L .arrow-D {
+    top: 50%;
+    left: -0.7em; }
+
+.r-2-link-R {
+  position: absolute;
+  top: 106px;
+  height: 86.4px;
+  left: 0em;
+  width: 48px;
+  border-bottom: solid 0.2em purple; }
+
+.r-2-route {
+  position: absolute;
+  top: 92px;
+  height: 86.4px;
+  left: 21em;
+  width: 9em;
+  border-top: solid 0.2em purple;
+  border-right: solid 0.2em purple; }
+  .r-2-route .arrow-D {
+    top: 50%;
+    right: -0.7em; }
+  .r-2-route .tail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 4em;
+    border-bottom: solid 0.2em purple; }
+
+.r-2-export {
+  position: absolute;
+  top: 250px;
+  height: 0;
+  width: 0; }
+  .r-2-export .one {
+    position: absolute;
+    height: 21px;
+    left: 0;
+    bottom: -21px;
+    width: 16em;
+    border-right: solid 0.2em purple;
+    border-bottom: solid 0.2em purple; }
+    .r-2-export .one .arrow-L {
+      left: 30%;
+      bottom: -0.7em; }
+  .r-2-export .two {
+    position: absolute;
+    height: 848px;
+    right: 0;
+    bottom: -21px;
+    width: 5em;
+    border-top: solid 0.2em purple;
+    border-left: solid 0.2em purple;
+    border-bottom: solid 0.2em purple; }
+    .r-2-export .two .arrow-U {
+      top: 30%;
+      left: -0.7em; }
+
+.e-s-reducer-T {
+  position: absolute;
+  top: 36px;
+  height: 58.4px;
+  left: 18em;
+  width: 3em;
+  border-top: solid 0.2em purple;
+  border-right: solid 0.2em purple; }
+  .e-s-reducer-T .arrow-R {
+    left: 50%;
+    top: -0.7em; }
+
+.e-s-reducer-B {
+  position: absolute;
+  top: 36px;
+  height: 58.4px;
+  left: 18em;
+  width: 3em;
+  border-bottom: solid 0.2em purple; }
+  .e-s-reducer-B .arrow-L {
+    left: 50%;
+    bottom: -0.7em; }
+
+.e-s-create {
+  position: absolute;
+  top: 50px;
+  height: 44.4px;
+  left: -2em;
+  width: 1.9em;
+  border-top: solid 0.2em purple;
+  border-left: solid 0.2em purple;
+  border-bottom: solid 0.2em purple; }
+  .e-s-create .arrow-R {
+    right: 5%;
+    bottom: -0.7em; }
+
+.e-s-thunk {
+  position: absolute;
+  top: 64px;
+  height: 14px;
+  left: -2em;
+  width: 1.9em;
+  border-top: solid 0.2em purple;
+  border-bottom: solid 0.2em purple; }
+
+.e-s-export {
+  position: absolute;
+  top: 98.8px;
+  left: 10em;
+  height: 0;
+  width: 0; }
+  .e-s-export .one {
+    position: absolute;
+    height: 14px;
+    top: 0;
+    left: 0;
+    width: 15em;
+    border-right: solid 0.2em purple;
+    border-left: solid 0.2em purple;
+    border-bottom: solid 0.2em purple; }
+  .e-s-export .one .two {
+    position: absolute;
+    height: 91px;
+    right: -0.2em;
+    bottom: 0;
+    width: 40em;
+    border-top: solid 0.2em purple;
+    border-right: solid 0.2em purple; }
+    .e-s-export .one .two .arrow-U {
+      top: 30%;
+      right: -0.7em; }
+  .e-s-export .one .two .three {
+    position: absolute;
+    height: 49px;
+    right: 100%;
+    top: -0.2em;
+    width: 10em;
+    border-right: solid 0.2em purple;
+    border-bottom: solid 0.2em purple; }
+    .e-s-export .one .two .three .arrow-L {
+      left: 50%;
+      bottom: -0.7em; }
+
+.e-r-combine {
+  position: absolute;
+  top: 36px;
+  height: 324.8px;
+  left: 20em;
+  width: 10em;
+  border-top: solid 0.2em purple;
+  border-right: solid 0.2em purple; }
+  .e-r-combine .arrow-D {
+    top: 50%;
+    right: -0.7em; }
+  .e-r-combine .tail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 11.5em;
+    border-bottom: solid 0.2em purple; }
+
+.e-r-named1 {
+  position: absolute;
+  top: 106px;
+  height: 282.8px;
+  left: 17em;
+  width: 11em;
+  border-top: solid 0.2em purple;
+  border-right: solid 0.2em purple; }
+  .e-r-named1 .arrow-D {
+    top: 30%;
+    right: -0.7em; }
+  .e-r-named1 .tail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 21em;
+    border-bottom: solid 0.2em purple; }
+
+.e-r-named2 {
+  position: absolute;
+  top: 232px;
+  height: 142.8px;
+  left: 14em;
+  width: 12.5em;
+  border-top: solid 0.2em purple;
+  border-right: solid 0.2em purple; }
+  .e-r-named2 .arrow-D {
+    top: 30%;
+    right: -0.7em; }
+  .e-r-named2 .tail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 20em;
+    border-bottom: solid 0.2em purple; }
+
+.e-r-export {
+  position: absolute;
+  top: 110px;
+  height: 0;
+  width: 0; }
+  .e-r-export .store {
+    position: absolute;
+    height: 212.4px;
+    right: 0;
+    bottom: 0;
+    width: 6em;
+    border-top: solid 0.2em purple;
+    border-left: solid 0.2em purple;
+    border-bottom: solid 0.2em purple; }
+    .e-r-export .store .arrow-L {
+      left: 30%;
+      bottom: -0.7em; }
+    .e-r-export .store .arrow-R {
+      left: 30%;
+      top: -0.7em; }
+  .e-r-export .storeCombine {
+    position: absolute;
+    height: 464.4px;
+    right: 0;
+    bottom: -252px;
+    width: 6em;
+    border-top: solid 0.2em purple;
+    border-left: solid 0.2em purple;
+    border-bottom: solid 0.2em purple; }
+    .e-r-export .storeCombine .arrow-L {
+      left: 30%;
+      bottom: -0.7em; }
+    .e-r-export .storeCombine .arrow-R {
+      left: 30%;
+      top: -0.7em; }
+
+.e-a-dispatch {
+  position: absolute;
+  top: 50px;
+  height: 184.4px;
+  left: 19em;
+  width: 10em;
+  border-top: solid 0.2em purple;
+  border-right: solid 0.2em purple; }
+  .e-a-dispatch .arrow-D {
+    top: 30%;
+    right: -0.7em; }
+  .e-a-dispatch .tail1 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 3em;
+    border-bottom: solid 0.2em purple; }
+  .e-a-dispatch .tail2 {
+    position: absolute;
+    bottom: 14px;
+    right: 0;
+    height: 10px;
+    width: 3.5em;
+    border-bottom: solid 0.2em purple; }
+  .e-a-dispatch .tail3 {
+    position: absolute;
+    bottom: 42px;
+    right: 0;
+    height: 10px;
+    width: 14em;
+    border-bottom: solid 0.2em purple; }
+
+.e-a-export {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  height: 0;
+  width: 0; }
+  .e-a-export .export {
+    position: absolute;
+    height: 128.8px;
+    right: 0;
+    width: 4.5em;
+    border-top: solid 0.2em purple;
+    border-bottom: solid 0.2em purple; }
+    .e-a-export .export .arrow-L1 {
+      left: 30%;
+      top: -0.7em; }
+    .e-a-export .export .arrow-L2 {
+      left: 30%;
+      bottom: -0.7em; }
+  .e-a-export .submit {
+    position: absolute;
+    top: 0;
+    height: 58.8px;
+    right: 0;
+    width: 4.5em;
+    border-bottom: solid 0.2em purple; }
+    .e-a-export .submit .arrow-L {
+      left: 30%;
+      bottom: -0.7em; }
+  .e-a-export .component1 {
+    position: absolute;
+    height: 372.2px;
+    bottom: 0;
+    right: 4.5em;
+    width: 11em;
+    border-top: solid 0.2em purple;
+    border-right: solid 0.2em purple; }
+    .e-a-export .component1 .arrow-L {
+      left: 30%;
+      top: -0.7em; }
+  .e-a-export .reducer {
+    position: absolute;
+    height: 474.4px;
+    bottom: 0;
+    right: 0;
+    width: 4.7em;
+    border-top: solid 0.2em purple;
+    border-left: solid 0.2em purple; }
+    .e-a-export .reducer .arrow-R {
+      left: 30%;
+      top: -0.7em; }
+  .e-a-export .component2 {
+    position: absolute;
+    height: 370.4px;
+    top: 0;
+    right: 4.5em;
+    width: 15.5em;
+    border-right: solid 0.2em purple;
+    border-bottom: solid 0.2em purple; }
+    .e-a-export .component2 .arrow-L {
+      left: 30%;
+      bottom: -0.7em; }
 
 /*# sourceMappingURL=index.css.map */

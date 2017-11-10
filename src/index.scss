@@ -11,6 +11,7 @@ $background: white;
   font-family: 'Inconsolata', monospace;  
   font-size: 13px;
   box-sizing: border-box;  
+  white-space: nowrap;
 }
 
 $navbar-height: 30px;
@@ -33,39 +34,32 @@ form {
   }
 }
 
+$column-side-padding: 1.5em;
+
 .react, .redux {
   display: inline-block;
-  width: 50%;
+  width: 510px;
   margin-top: $navbar-height;
   vertical-align: top;
-  padding: 0 30px;
-  
+  padding: 0 $column-side-padding;
+}
+.react {
+  margin-left: $column-side-padding;
 }
 
-.library {
-  color: $library;
-}
-
-.code {
-  color: $code;
-}
-
-.file {
-  color: $file;
-}
-
-.clear {
-  color: white;
-}
+.library { color: $library; }
+.code    { color: $code;    }
+.file    { color: $file;    }
+.clear   { color: white;  }
 
 .hidden, .comment {
   display: none;
 }
 
 .example {
-  font-family: 'Nova Mono', monospace;  
+  // font-family: 'Nova Mono', monospace;  
   text-decoration: underline;
-  font-style: italic;
+  // font-style: italic;
   font-size: 12px;
 }
 
@@ -73,42 +67,15 @@ h1, h2, h3 {
   clear: left;
 }
 
-h2, h3 {
-  font-size: 15px;
-}
-h1 {
-  font-size: 17px
-}
+h2, h3 { font-size: 15px; }
+h1     { font-size: 17px; }
 
-.group {
-  margin-bottom: 8px;
-}
-
-.in1 {
-  margin-left: $indent * 1;
-}
-
-.in2 {
-  margin-left: $indent * 2;
-}
-
-.in3 {
-  margin-left: $indent * 3;
-}
-
-.in4 {
-  margin-left: $indent * 4;
-}
-
-.in5 {
-  margin-left: $indent * 5;
-}
-
-.in6 {
-  margin-left: $indent * 6;
-}
-
-
+.in1 { margin-left: $indent * 1;}
+.in2 { margin-left: $indent * 2;}
+.in3 { margin-left: $indent * 3;}
+.in4 { margin-left: $indent * 4;}
+.in5 { margin-left: $indent * 5;}
+.in6 { margin-left: $indent * 6;}
 
 .strikethru {
   text-decoration: line-through;
@@ -116,6 +83,10 @@ h1 {
 }
 
 // @@@@@@@@@@@@ OVERALL DIMENSIONS @@@@@@@@@@@@@@
+
+$block-padding-left: 50px;
+$block-padding-right: 25px;
+$block-padding: 10px;
 
 $h1-height: 22px;
 
@@ -130,9 +101,13 @@ $group-header: 0px;
 $group-bot-margin: 8px;
 $group-OH: $group-header + $group-bot-margin;
 
+$folder-header-loaded: $folder-header + $group-bot-margin;
 $line: 14px;
+$half-line: 10px; // 3 extra for typography sake
 
-.code {height: $line; }
+.code, .library, .file {
+  height: $line;
+}
 .group {
   margin-bottom: $group-bot-margin 0;
 }
@@ -143,6 +118,7 @@ $line: 14px;
 }
 
 .folder-header {
+  height: $folder-header;
   margin-bottom: $folder-bot-margin;    
 }
 
@@ -161,7 +137,7 @@ $index-code-ht: $index-code-lines + $group-OH;
     $folder-OH;
 };
 
-$component1-import-lines: $line * 7;
+$component1-import-lines: $line * 9;
 $component1-import-ht: $component1-import-lines + $group-OH;
 .component1import          { height: $component1-import-lines };
 
@@ -173,7 +149,7 @@ $component1-constructor-lines: $line * 4;
 $component1-constructor-ht: $component1-constructor-lines + $group-OH;
 .component1constructor     { height: $component1-constructor-lines; };
 
-$component1-method-lines: $line * 5;
+$component1-method-lines: $line * 8;
 $component1-method-ht: $component1-method-lines + $group-OH;
 .component1method   { height: $component1-method-lines; position: relative; };
 
@@ -183,7 +159,7 @@ $component1-method-ht: $component1-method-lines + $group-OH;
   left: 0;
 }
 
-$component1-return-lines: $line * 11;
+$component1-return-lines: $line * 15;
 $component1-return-ht: $component1-return-lines + $group-OH;
 .component1return          { height: $component1-return-lines; };
 
@@ -191,10 +167,15 @@ $component1-mapState-lines: $line * 3;
 $component1-mapState-ht: $component1-mapState-lines + $group-OH;
 .component1mapState        { height: $component1-mapState-lines; };
 
-$component1-connect-lines: $line * 1;
+$component1-connect-lines: $line * 4;
 $component1-connect-ht: $component1-connect-lines + $group-OH;
-.component1connect         { height: $component1-connect-lines; };
+.component1connect         { height: $component1-connect-lines; position: relative;};
 
+.component1connectSimple, .component1connectCompose  { 
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .component1 { 
   height: 
     $component1-import-ht +
@@ -205,10 +186,9 @@ $component1-connect-ht: $component1-connect-lines + $group-OH;
     $component1-mapState-ht +
     $component1-connect-ht +
     $folder-OH;
-  margin-bottom: $folder-bot-margin
 };
 
-$component2-import-lines: $line * 5;
+$component2-import-lines: $line * 6;
 $component2-import-ht: $component2-import-lines + $group-OH;
 .component2import          { height: $component2-import-lines; };
 
@@ -255,11 +235,11 @@ $reducer-initialState-lines: $line * 3;
 $reducer-initialState-ht: $reducer-initialState-lines + $group-OH;
 .reducerInitialState          { height: $reducer-initialState-lines; };
       
-$reducer-switch-lines: $line * 8;
+$reducer-switch-lines: $line * 9;
 $reducer-switch-ht: $reducer-switch-lines + $group-OH;
 .reducerSwitch          { height: $reducer-switch-lines; };
 
-$reducer-if-lines: $line * 8;
+$reducer-if-lines: $line * 9;
 $reducer-if-ht: $reducer-if-lines + $group-OH;
 .reducerSingleIf          { height: $reducer-if-lines; };
 
@@ -281,12 +261,856 @@ $actions-code-lines: $line * 5;
 $actions-code-ht: $actions-code-lines + $group-OH;
 .actionsCode          { height: $actions-code-lines; };
 
+$actions-submit-lines: $line * 5;
+$actions-submit-ht: $actions-submit-lines + $group-OH;
+.actionsSubmit          { height: $actions-submit-lines; };
+
 $actions-async-lines: $line * 6;
 $actions-async-ht: $actions-async-lines + $group-OH;
 .actionsAsync          { height: $actions-async-lines; };
 
 .actions { height: 
   $actions-code-ht +
+  $actions-submit-ht +  
   $actions-async-ht +
   $folder-OH;
 };
+
+// @@@@@@@@@@@@@@@@@@@@@
+
+// first letter [r,e] = [react, redux]
+// second letter i index, 1 compon1,
+//       2 compon2, s store, r reducer,
+//       a actions
+// third part = descriptor
+// last part = Left, Right, Top, Bottom
+.block {
+  position: relative;
+  background-color: #ccc;
+  margin-bottom: $folder-bot-margin;
+  padding-left: $block-padding-left;  
+  padding-right: $block-padding-right;
+  padding-top: $block-padding;
+  padding-bottom: $block-padding;
+}
+
+.flowContainer {
+  position: absolute;
+  top: $block-padding;
+  left: $block-padding-left;
+  z-index: 999;
+}
+$flowLine: purple;
+$flowW: 0.2em;
+$flowStyle: solid;
+$arrow: .6em;
+$arrowOff: $arrow + ($flowW/2);
+.flow {}
+.arrow-L {
+  position: absolute;
+  border: $arrow solid transparent;
+  border-right: $arrow solid $flowLine;
+  height: $arrow; 
+  width: $arrow;
+}
+.arrow-R {
+  position: absolute;
+  border: $arrow solid transparent;
+  border-left: $arrow solid $flowLine;
+  height: $arrow; 
+  width: $arrow;
+}
+.arrow-U {
+  position: absolute;
+  border: $arrow solid transparent;
+  border-bottom: $arrow solid $flowLine;
+  height: $arrow; 
+  width: $arrow;
+}
+.arrow-D {
+  position: absolute;
+  border: $arrow solid transparent;
+  border-top: $arrow solid $flowLine;
+  height: $arrow; 
+  width: $arrow;
+}
+// @@@@@@@@@@@@ REACT INDEX FILE @@@@@@@@@@@@@@@
+
+.r-i-store-L {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 2) + $half-line;
+  height: (3.6 * $line) + $group-bot-margin;
+  left: -2em;
+  width: 2em;
+  border: $flowStyle $flowW $flowLine; 
+  border-right: none;
+  .arrow-L {
+    left: 20%;
+    top: -$arrowOff;
+  }
+}
+.r-i-store-R {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 2) + $half-line;
+  height: (4.6 * $line) + $group-bot-margin;
+  left: 0;
+  width: $indent;
+  border-bottom: $flowStyle $flowW $flowLine; 
+}
+.r-i-provider {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 4) + $half-line;
+  height: (1.6 * $line) + $group-bot-margin;
+  left: -1em;
+  width: 1em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-left: $flowStyle $flowW $flowLine;
+}
+.r-i-compon1-L {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 1) + $half-line;
+  height: (5.6 * $line) + $group-bot-margin;
+  left: -3em;
+  width: 3em;
+  border: $flowStyle $flowW $flowLine; 
+  border-right: none; 
+  .arrow-R {
+    right: 0;
+    bottom: -$arrowOff;
+  }
+}
+.r-i-compon1-R {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 1) + $half-line;
+  height: (5.6 * $line) + $group-bot-margin;
+  left: 0;
+  width: ($indent * 2);
+  border-bottom: $flowStyle $flowW $flowLine;
+}
+.r-i-react-dom-L {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 3) + $half-line;
+  height: (1.6 * $line) + $group-bot-margin;
+  left: 8em;
+  width: 9em;
+  border-bottom: $flowStyle $flowW $flowLine; 
+  .arrow-L {
+    left: 50%;
+    bottom: -$arrowOff;
+  }
+}
+.r-i-react-dom-R {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 3) + $half-line;
+  height: (1.6 * $line) + $group-bot-margin;
+  left: 17em;
+  width: 3em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-right: $flowStyle $flowW $flowLine;
+  border-bottom: $flowStyle $flowW $flowLine;
+}
+// @@@@@@@@@@@@ REDUX INDEX EXPORTS @@@@@@@@@@@@@@@
+
+.r-i-export {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 7);
+  height: 0;
+  width: 0;
+  .html {
+    position: absolute;
+    height: (0 * $line);
+    left: 17em;
+    bottom: -(2.8 * $line);
+    width: 4em;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-R {
+      left: 100%;
+      bottom: -$arrowOff;
+    }
+  }
+  .provider {
+    position: absolute;
+    height: (10 * $line);
+    left: 17em;
+    top: -(0.3 * $line);
+    width: 12em;
+    border-right: $flowStyle $flowW $flowLine;
+    border-top: $flowStyle $flowW $flowLine;
+    .arrow-D {
+      top: 100%;
+      right: -$arrowOff;
+    }
+  }
+}
+// @@@@@@@@@@@@ REACT COMPONENT 1 FILE @@@@@@@@@@@@@@@
+
+.r-1-connect-L {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 2) + $half-line;
+  height: (38.6 * $line) + $group-bot-margin;
+  left: -3em;
+  width: 3em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-left: $flowStyle $flowW $flowLine;
+  border-bottom: $flowStyle $flowW $flowLine;
+  .arrow-D {
+    top: 50%;
+    left: -$arrowOff;
+  }
+}
+.r-1-connect-R {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 2) + $half-line;
+  height: (38.6 * $line) + $group-bot-margin;
+  left: 0;
+  width: 1em;
+  border-bottom: $flowStyle $flowW $flowLine;
+}
+.r-1-compose {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 3) + $half-line;
+  height: (36.6 * $line) + $group-bot-margin;
+  left: -2em;
+  width: 2em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-left: $flowStyle $flowW $flowLine;
+  border-bottom: $flowStyle $flowW $flowLine;
+  .arrow-D {
+    top: 55%;
+    left: -$arrowOff;
+  }
+}
+.r-1-link-L {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 7) + $half-line;
+  height: (20.6 * $line) + $group-bot-margin;
+  left: -1em;
+  width: 1em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-left: $flowStyle $flowW $flowLine;
+  border-bottom: $flowStyle $flowW $flowLine;
+  .arrow-D {
+    top: 50%;
+    left: -$arrowOff;
+  }
+}
+.r-1-link-R {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 7) + $half-line;
+  height: (20.6 * $line) + $group-bot-margin;
+  left: 0em;
+  width: ($indent * 4.8);
+  border-bottom: $flowStyle $flowW $flowLine;
+}
+
+.r-1-form {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 4) + $half-line;
+  height: (37.6 * $line) + $group-bot-margin;
+  left: 23.5em;
+  width: 8em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-right: $flowStyle $flowW $flowLine;
+  .arrow-D1 {
+    top: 40%;
+    right: -$arrowOff;
+  }
+  .arrow-D2 {
+    top: 85%;
+    right: -$arrowOff;
+  }
+  .tail1 {
+    position: absolute;
+    bottom: (10 * $line);
+    right: 0;
+    height: 10px;
+    width: 3em;
+    border-bottom: $flowStyle $flowW $flowLine;
+  }
+  .tail2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 12em;
+    border-bottom: $flowStyle $flowW $flowLine;
+  }
+}
+.r-1-route {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 5) + $half-line;
+  height: (21.6 * $line) + $group-bot-margin;
+  left: 21em;
+  width: 9em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-right: $flowStyle $flowW $flowLine;
+  .arrow-D {
+    top: 50%;
+    right: -$arrowOff;
+  }
+  .tail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 1em;
+    border-bottom: $flowStyle $flowW $flowLine;
+  }
+}
+
+.r-1-router {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 6) + $half-line;
+  height: (17.6 * $line) + $group-bot-margin;
+  left: 24.5em;
+  width: 4em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-right: $flowStyle $flowW $flowLine;
+  .arrow-D {
+    top: 50%;
+    right: -$arrowOff;
+  }
+  .tail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 18em;
+    border-bottom: $flowStyle $flowW $flowLine;
+  }
+}
+// @@@@@@@@@@@@ REDUX COMPONENT 1 EXPORTS @@@@@@@@@@@@@@@
+.r-1-export {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 8.3);
+  height: 0;
+  width: 0;
+  .two {
+    position: absolute;
+    height: (24.8 * $line) + $folder-header-loaded + $block-padding;
+    right: 0;
+    bottom: -(1.8 * $line);
+    width: 6em;
+    border-top: $flowStyle $flowW $flowLine;
+    border-left: $flowStyle $flowW $flowLine;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-U1 {
+      top: 175px;
+      left: -$arrowOff;
+    }
+  }
+  .two .three {
+    position: absolute;
+    height: (1.6 * $line) ;
+    left: 100%;
+    top: -$flowW;
+    width: 16em;
+    border-top: $flowStyle $flowW $flowLine;
+    border-right: $flowStyle $flowW $flowLine;
+    .arrow-R {
+      left: 30%;
+      top: -$arrowOff;
+    }
+  }
+  .oneConnect {
+    position: absolute;
+    height: (1.5 * $line);
+    left: 0;
+    bottom: -(37.5 * $line);
+    width: 5em;
+    border-right: $flowStyle $flowW $flowLine;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-L {
+      left: 30%;
+      bottom: -$arrowOff;
+    }
+  }
+  .twoConnect {
+    position: absolute;
+    height: (60.5 * $line) + $folder-header-loaded + $block-padding;
+    right: 0;
+    bottom: -(37.5 * $line);
+    width: 6em;
+    border-top: $flowStyle $flowW $flowLine;
+    border-left: $flowStyle $flowW $flowLine;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-U1 {
+      top: 175px;
+      left: -$arrowOff;
+    }
+    .arrow-U2 {
+      top: 500px;
+      left: -$arrowOff;
+    }
+  }
+  .twoConnect .threeConnect {
+    position: absolute;
+    height: (1.6 * $line) ;
+    left: 100%;
+    top: -$flowW;
+    width: 16em;
+    border-top: $flowStyle $flowW $flowLine;
+    border-right: $flowStyle $flowW $flowLine;
+    .arrow-R {
+      left: 30%;
+      top: -$arrowOff;
+    }
+  }
+  .oneCompose {
+    position: absolute;
+    height: (1.5 * $line);
+    left: 0;
+    bottom: -(34.5 * $line);
+    width: 16em;
+    border-right: $flowStyle $flowW $flowLine;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-L {
+      left: 30%;
+      bottom: -$arrowOff;
+    }
+  }
+  .twoCompose {
+    position: absolute;
+    height: (57.5 * $line) + $folder-header-loaded + $block-padding;
+    right: 0;
+    bottom: -(34.5 * $line);
+    width: 6em;
+    border-top: $flowStyle $flowW $flowLine;
+    border-left: $flowStyle $flowW $flowLine;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-U1 {
+      top: 175px;
+      left: -$arrowOff;
+    }
+    .arrow-U2 {
+      top: 500px;
+      left: -$arrowOff;
+    }
+  }
+  .twoCompose .threeCompose {
+    position: absolute;
+    height: (1.6 * $line) ;
+    left: 100%;
+    top: -$flowW;
+    width: 16em;
+    border-top: $flowStyle $flowW $flowLine;
+    border-right: $flowStyle $flowW $flowLine;
+    .arrow-R {
+      left: 30%;
+      top: -$arrowOff;
+    }
+  }
+}
+
+// @@@@@@@@@@@@ REACT COMPONENT 2 FILE @@@@@@@@@@@@@@@
+
+.r-2-connect {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 2) + $half-line;
+  height: (12.6 * $line) + $group-bot-margin;
+  left: -3em;
+  width: 3em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-left: $flowStyle $flowW $flowLine;
+  border-bottom: $flowStyle $flowW $flowLine;
+  .arrow-D {
+    top: 50%;
+    left: -$arrowOff;
+  }
+}
+.r-2-link-L {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 5) + $half-line;
+  height: (5.6 * $line) + $group-bot-margin;
+  left: -1.5em;
+  width: 1.5em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-left: $flowStyle $flowW $flowLine;
+  border-bottom: $flowStyle $flowW $flowLine;
+  .arrow-D {
+    top: 50%;
+    left: -$arrowOff;
+  }
+}
+.r-2-link-R {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 5) + $half-line;
+  height: (5.6 * $line) + $group-bot-margin;
+  left: 0em;
+  width: ($indent * 4.8);
+  border-bottom: $flowStyle $flowW $flowLine;
+}
+.r-2-route {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 4) + $half-line;
+  height: (5.6 * $line) + $group-bot-margin;
+  left: 21em;
+  width: 9em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-right: $flowStyle $flowW $flowLine;
+  .arrow-D {
+    top: 50%;
+    right: -$arrowOff;
+  }
+  .tail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 4em;
+    border-bottom: $flowStyle $flowW $flowLine;
+  }
+}
+
+// @@@@@@@@@@@@ REDUX COMPONENT 2 EXPORTS @@@@@@@@@@@@@@@
+.r-2-export {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 16);
+  height: 0;
+  width: 0;  
+  .one {
+    position: absolute;
+    height: (1.5 * $line);
+    left: 0;
+    bottom: -(1.5 * $line);
+    width: 16em;
+    border-right: $flowStyle $flowW $flowLine;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-L {
+      left: 30%;
+      bottom: -$arrowOff;
+    }
+  }
+  .two {
+    position: absolute;
+    height: (58 * $line) + $folder-header-loaded + $block-padding;
+    right: 0;
+    bottom: -(1.5 * $line);
+    width: 5em;
+    border-top: $flowStyle $flowW $flowLine;
+    border-left: $flowStyle $flowW $flowLine;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-U {
+      top: 30%;
+      left: -$arrowOff;
+    }
+  }
+}
+// @@@@@@@@@@@@ REACT STORE FILE @@@@@@@@@@@@@@@
+
+.e-s-reducer-T {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 0) + $half-line;
+  height: (3.6 * $line) + $group-bot-margin;
+  left: 18em;
+  width: 3em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-right: $flowStyle $flowW $flowLine;
+  .arrow-R {
+    left: 50%;
+    top: -$arrowOff;
+  }
+}
+.e-s-reducer-B {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 0) + $half-line;
+  height: (3.6 * $line) + $group-bot-margin;
+  left: 18em;
+  width: 3em;
+  border-bottom: $flowStyle $flowW $flowLine;
+  .arrow-L {
+    left: 50%;
+    bottom: -$arrowOff;
+  }
+}
+.e-s-create {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 1) + $half-line;
+  height: (2.6 * $line) + $group-bot-margin;
+  left: -2em;
+  width: 1.9em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-left: $flowStyle $flowW $flowLine;
+  border-bottom: $flowStyle $flowW $flowLine;
+  .arrow-R {
+    right: 5%;
+    bottom: -$arrowOff;
+  }
+}
+.e-s-thunk{
+  position: absolute;
+  top: $folder-header-loaded + ($line * 2) + $half-line;
+  height: (1 * $line);
+  left: -2em;
+  width: 1.9em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-bottom: $flowStyle $flowW $flowLine;
+}
+
+// @@@@@@@@@@@@ REDUX STORE EXPORTS @@@@@@@@@@@@@@@
+.e-s-export {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 5.2);
+  left: 10em;
+  height: 0;
+  width: 0;  
+  .one {
+    position: absolute;
+    height: (1 * $line);
+    top: 0;
+    left: 0;
+    width: 15em;
+    border-right: $flowStyle $flowW $flowLine;
+    border-left: $flowStyle $flowW $flowLine;
+    border-bottom: $flowStyle $flowW $flowLine;
+  }
+  .one .two {
+    position: absolute;
+    height: (6.5 * $line);
+    right: -$flowW;
+    bottom: 0;
+    width: 40em;
+    border-top: $flowStyle $flowW $flowLine;
+    border-right: $flowStyle $flowW $flowLine;
+    .arrow-U {
+      top: 30%;
+      right: -$arrowOff;
+    }
+  }
+  .one .two .three {
+    position: absolute;
+    height: (3.5 * $line);
+    right: 100%;
+    top: -$flowW;
+    width: 10em;
+    border-right: $flowStyle $flowW $flowLine;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-L {
+      left: 50%;
+      bottom: -$arrowOff;
+    }
+  }
+}
+
+// @@@@@@@@@@@@ REDUX REDUCER FILE @@@@@@@@@@@@@@@
+.e-r-combine {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 0) + $half-line;
+  height: (23.2 * $line);
+  left: 20em;
+  width: 10em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-right: $flowStyle $flowW $flowLine;
+  .arrow-D {
+    top: 50%;
+    right: -$arrowOff;
+  }
+  .tail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 11.5em;
+    border-bottom: $flowStyle $flowW $flowLine;
+  }
+}
+
+.e-r-named1 {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 5) + $half-line;
+  height: (20.2 * $line);
+  left: 17em;
+  width: 11em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-right: $flowStyle $flowW $flowLine;
+  .arrow-D {
+    top: 30%;
+    right: -$arrowOff;
+  }
+  .tail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 21em;
+    border-bottom: $flowStyle $flowW $flowLine;
+  }
+}
+.e-r-named2 {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 14) + $half-line;
+  height: (10.2 * $line);
+  left: 14em;
+  width: 12.5em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-right: $flowStyle $flowW $flowLine;
+  .arrow-D {
+    top: 30%;
+    right: -$arrowOff;
+  }
+  .tail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 20em;
+    border-bottom: $flowStyle $flowW $flowLine;
+  }
+}
+// @@@@@@@@@@@@ REDUX REDUCER EXPORTS @@@@@@@@@@@@@@@
+.e-r-export {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 6);
+  height: 0;
+  width: 0;  
+  .store {
+    position: absolute;
+    height: (14.6 * $line) + $group-bot-margin;
+    right: 0;
+    bottom: 0;
+    width: 6em;
+    border-top: $flowStyle $flowW $flowLine;
+    border-left: $flowStyle $flowW $flowLine;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-L {
+      left: 30%;
+      bottom: -$arrowOff;
+    }
+    .arrow-R {
+      left: 30%;
+      top: -$arrowOff;
+    }
+  }
+  .storeCombine {
+    position: absolute;
+    height: (14.6 * $line) + (18 * $line) + $group-bot-margin;
+    right: 0;
+    bottom: -(18 * $line);
+    width: 6em;
+    border-top: $flowStyle $flowW $flowLine;
+    border-left: $flowStyle $flowW $flowLine;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-L {
+      left: 30%;
+      bottom: -$arrowOff;
+    }
+    .arrow-R {
+      left: 30%;
+      top: -$arrowOff;
+    }
+  }
+}
+// @@@@@@@@@@@@ REDUX ACTIONS FILE @@@@@@@@@@@@@@@
+.e-a-dispatch {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 1) + $half-line;
+  height: (12.6 * $line) + $group-bot-margin;
+  left: 19em;
+  width: 10em;
+  border-top: $flowStyle $flowW $flowLine;
+  border-right: $flowStyle $flowW $flowLine;
+  .arrow-D {
+    top: 30%;
+    right: -$arrowOff;
+  }
+  .tail1 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 3em;
+    border-bottom: $flowStyle $flowW $flowLine;
+  }
+  .tail2 {
+    position: absolute;
+    bottom: ($line * 1);
+    right: 0;
+    height: 10px;
+    width: 3.5em;
+    border-bottom: $flowStyle $flowW $flowLine;
+  }
+  .tail3 {
+    position: absolute;
+    bottom: ($line * 3);
+    right: 0;
+    height: 10px;
+    width: 14em;
+    border-bottom: $flowStyle $flowW $flowLine;
+  }
+}
+
+// @@@@@@@@@@@@ REDUX ACTIONS EXPORT @@@@@@@@@@@@@@@
+.e-a-export {
+  position: absolute;
+  top: $folder-header-loaded + ($line * 1) + $half-line;
+  right: 0;
+  height: 0;
+  width: 0;
+  .export {
+    position: absolute;
+    height: (9.2 * $line);
+    right: 0;
+    width: 4.5em;
+    border-top: $flowStyle $flowW $flowLine;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-L1 {
+      left: 30%;
+      top: -$arrowOff;
+    }
+    .arrow-L2 {
+      left: 30%;
+      bottom: -$arrowOff;
+    }
+  }
+  .submit {
+    position: absolute;
+    top: 0;
+    height: (4.2 * $line);
+    right: 0;
+    width: 4.5em;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-L {
+      left: 30%;
+      bottom: -$arrowOff;
+    }
+  }
+  .component1 {
+    position: absolute;
+    height: (23.3 * $line) + ($block-padding * 2) + $folder-header-loaded;
+    bottom: 0;
+    right: 4.5em;
+    width: 8em + ($column-side-padding * 2);
+    border-top: $flowStyle $flowW $flowLine;
+    border-right: $flowStyle $flowW $flowLine;
+    .arrow-L {
+      left: 30%;
+      top: -$arrowOff;
+    }
+  }
+  .reducer {
+    position: absolute;
+    height: (30.6 * $line) + $folder-header-loaded + ($block-padding * 2);
+    bottom: 0;
+    right: 0;
+    width: 4.5em + $flowW;
+    border-top: $flowStyle $flowW $flowLine;
+    border-left: $flowStyle $flowW $flowLine;
+    .arrow-R {
+      left: 30%;
+      top: -$arrowOff;
+    }
+  }
+  .component2 {
+    position: absolute;
+    height: (24.6 * $line) + $folder-header-loaded;
+    top: 0;
+    right: 4.5em;
+    width: 12.5em + ($column-side-padding * 2);
+    border-right: $flowStyle $flowW $flowLine;
+    border-bottom: $flowStyle $flowW $flowLine;
+    .arrow-L {
+      left: 30%;
+      bottom: -$arrowOff;
+    }
+  }
+}

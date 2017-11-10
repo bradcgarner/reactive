@@ -23,26 +23,10 @@ export function Reactt(props) {
   return (
 
       <article className="react">
-        {/* <Test1/>
-        <Test2/> */}
-        <div className="big-header"><h1>React</h1></div>
+
+        <div className="h1"><h1>React</h1></div>
         <Indexx />
         <Component1 />
-        
-        {/*<div className="block component1">
-          <h3>Component1</h3>
-          <Import1 />
-          <Component1Line1 />
-          <Constructor1 />
-          <MethodGeneral />
-          <MethodCallback />
-          <MethodSetState />
-          <MethodDispatch />
-          <Return1 />
-          <MapState />
-          <Connect1 />
-        </div>*/}
-
         <Component2 />
       </article>
   )

@@ -1,0 +1,12 @@
+All elements have fixed heights
+
+h1 (React, Redux)
+26 (16 $h1 height +
+    8 $group-bot-margin ) 
+$h1-height
+
+30 (18 + 12) folder-header (Index, Component)
+
+14 each line
+8 margin at bottom of each block
+

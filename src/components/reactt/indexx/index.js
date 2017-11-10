@@ -11,6 +11,25 @@ export function Indexx(props) {
         <div className="folder-header"><h3>Index</h3></div>
         <ImportI />
         <Code />
+        <div className="flowContainer">
+          <div className="flow r-i-store-L"><div className="arrow-L"></div></div>
+          <div className="flow r-i-store-R"></div>
+          <div className="flow r-i-provider"></div>
+
+          <div className="flow r-i-compon1-L"><div className="arrow-R"></div></div>
+          <div className="flow r-i-compon1-R"></div>
+
+          <div className="flow r-i-react-dom-L"><div className="arrow-L"></div></div>
+          <div className="flow r-i-react-dom-R"></div>
+
+          <div className="flow r-i-export">
+          <div className="flow html"><div className="arrow-R"></div></div>
+          <div className="flow provider">
+            <div className="arrow-D"></div>
+          </div>
+          
+          </div>
+        </div>
       </div>
   )
 }

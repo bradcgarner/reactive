@@ -57,21 +57,31 @@ export function Component1(props) {
   
   // @@@@@@@@@ connect 
   const showConnect = props.reduxx.reduxx ? 'normal' : 'clear';
-  // const showMapState =  ( props.reduxx.reduxx && props.reduxx.mapState ) ? 'normal' : 'clear' ;
   
-
+  // @@@@@@@@@ forms 
+  const showForm = ( props.reduxx.reduxx && props.reduxx.form ) ? 'normal' : 'clear' ;
+  
+  // @@@@@@@@@ compose 
+  const showCompose = ( props.reduxx.reduxx && props.reduxx.compose ) ? 'normal' : 'clear' ;
+  const showConnectSimple = ( showConnect && !showCompose ) ? 'normal' : 'clear';
+  
     return (
     <div className="block component1">
       <div className="folder-header"><h3>Component1</h3></div>
        
       <div className="group component1import">
         <div className="library"><p>import React from 'react';</p></div>
-        <div className="file"><p className={showActions}>import &#123; <span className="example">actionName</span> &#125; from './<span className="example">component1</span>';</p></div>
-        <div className="file"><p>import &#123; <span className="example">component2</span> &#125; from './<span className="example">component2</span>';</p></div>
+        <div className="file"><p className={showActions}>import &#123;
+          <span className="example">actionName</span> 
+          <span className={showForm}>, <span className="example">submitForm</span></span>
+          &#125; from './<span className="example">actions</span>';</p></div>
         <div className="library"><p className={showConnect}>import &#123; connect &#125; from 'react-redux';</p></div>
+        <div className="library"><p className={showCompose}>import &#123; compose &#125; from 'redux';</p></div>
+        <div className="library"><p className={showForm}>import &#123;  reduxForm, Field &#125; from 'redux-form';</p></div>
         <div className="library"><p className={showRoutes}>import &#123; Route &#125; from 'react-router-dom';</p></div>
         <div className="library"><p className={showRouter}>import &#123; BrowserRouter &#125; from 'react-router-dom';</p></div>
         <div className="library"><p className={showLinks}>import &#123; Link &#125; from 'react-router-dom';</p></div>
+        <div className="file"><p>import &#123; <span className="example">component2</span> &#125; from './<span className="example">component2</span>';</p></div>
       </div>
 
       <div className="group component1line1">
@@ -107,6 +117,9 @@ export function Component1(props) {
           <div className="code in2"><p className={showDispatch}>this.props.dispatch( actionName ( value ) ) ;</p></div>
           <div className="code in2"><p className={dispatchAsync}>this.props.dispatch( asyncActionName ( value ) ) ;</p></div>      
           <div className="code in1"><p className={showDispatch}>&#125;</p></div>
+          <div className="code in1"><p className={showForm}>handleSubmitButton(values) &#123; </p></div>
+          <div className="code in2"><p className={showForm}>this.props.dispatch(submitForm(values))</p></div>
+          <div className="code in1"><p className={showForm}>&#125;</p></div>
         </div>
 
         <div className="component1methodSimple">
@@ -130,6 +143,10 @@ export function Component1(props) {
         <div className="code in5"><p className={showRoutes}>&lt;Route exact path="/" component=&#123; Component2 &#125; /></p></div>
         <div className="code in5"><p className={showLinks}>&lt;Link to="&#123; link &#125;"></p></div>
         <div className="code in4"><p>&lt;/div&gt;</p></div>
+        <div className="code in4"><p>&lt;form onSubmit=&#123;this.props.handleSubmit(values => &#123;</p></div>
+        <div className="code in5"><p>return this.handleSubmitButton(values)&#125; )&#125;&gt;</p></div>
+        <div className="code in5"><p>&lt;Field name="name" id="name" component="input"/&gt;</p></div>
+        <div className="code in4"><p>&lt;/form&gt;</p></div>
         <div className="code in3"><p className={showRouter}>&lt;/BrowserRouter&gt;</p></div>
         <div className="code in2"><p>)</p></div>
         <div className="code in1"><p className={isStateful}>&#125;</p></div>
@@ -142,13 +159,83 @@ export function Component1(props) {
       </div>  
   
       <div className="group component1connect">
-        <div className="code in1">
-          <p className={showConnect}>export default connect(
-            <span className={showMapStateAtConnect}> mapStateToProps </span>
-          )( Component1 )</p>
+
+        <div className="group component1connectSimple">
+          <div className="code in1">
+            <p className={showConnectSimple}>export default connect(
+              <span className={showMapStateAtConnect}> mapStateToProps </span>
+            )( Component1 )</p>
+          </div>
         </div>
+
+        <div className="group component1connectCompose">
+          <div className="code in1">
+            <p className={showCompose}>export default compose(</p>
+          </div>
+          <div className="code in2">
+            <p className={showCompose}>connect( 
+              <span className={showMapStateAtConnect}> mapStateToProps </span>
+            ),</p>
+          </div>
+          <div className="code in2">
+              <p className={showCompose}>reduxForm( &#123; form: 'formName' &#125; ),</p>
+          </div>
+          <div className="code in1">
+            <p className={showCompose}>)( Component1 )</p>
+          </div>
+        </div>
+
       </div> 
   
+      <div className="flowContainer">
+        <div className="flow r-1-compose"><div className="arrow-D"></div></div>
+        <div className="flow r-1-connect-L"><div className="arrow-D"></div></div>
+        <div className="flow r-1-connect-R"></div>
+
+      
+        <div className="flow r-1-link-L"><div className="arrow-D"></div></div>
+        <div className="flow r-1-link-R"></div>
+        
+        <div className="flow r-1-form">
+          <div className="arrow-D arrow-D1"></div>
+          <div className="arrow-D arrow-D2"></div>
+          <div className="flow tail1"></div>
+          <div className="flow tail2"></div>
+          </div>        
+        
+        <div className="flow r-1-route">
+          <div className="arrow-D"></div>
+          <div className="flow tail"></div>
+        </div>
+
+        <div className="flow r-1-router">
+          <div className="arrow-D"></div>
+          <div className="flow tail"></div>
+        </div>
+        
+        <div className="flow r-1-export">
+
+          <div className="flow two">
+            <div className="arrow-U arrow-U1"></div>
+            <div className="flow three"><div className="arrow-R"></div></div>
+          </div>
+
+          <div className="flow oneConnect"><div className="arrow-L"></div></div>
+          <div className="flow twoConnect">
+            <div className="arrow-U arrow-U1"></div>
+            <div className="arrow-U arrow-U2"></div>
+            <div className="flow threeConnect"><div className="arrow-R"></div></div>
+          </div>
+          
+          <div className="flow oneCompose"><div className="arrow-L"></div></div>
+          <div className="flow twoCompose">
+            <div className="arrow-U arrow-U1"></div>
+            <div className="arrow-U arrow-U2"></div>
+            <div className="flow threeCompose"><div className="arrow-R"></div></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   )
 }
