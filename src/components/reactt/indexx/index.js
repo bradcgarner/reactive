@@ -7,7 +7,7 @@ export function Indexx(props) {
   console.log('1 index',props);
   
   // ##################### ARROW CLASSES #####################
-  const arrStore       = `arr${props.reduxx.arrStore}`;
+  const arrStore       = `arr${props.reduxx.arrIndexStore}`;
   const arrProviderIn  = `arr${props.reduxx.arrIndexProvider}`;
   const arrC1          = `arr${props.reactt.arrIndexC1}`;
   const arrDOM         = `arr${props.reactt.arrIndexDOM}`;
@@ -37,13 +37,11 @@ export function Indexx(props) {
           </div>
           <div className={`flow r-i-react-dom-R ${arrDOM}`}></div>
 
-          <div className="flow r-i-export arr0">
-            <div className={`flow html ${arrHTML}`}>
-              <div className="arrow-R"></div>
-            </div>
-            <div className={`flow provider ${arrProviderOut}`}>
-              <div className="arrow-D"></div>
-            </div>
+          <div className={`flow r-i-export-html ${arrHTML}`}>
+            <div className="arrow-R"></div>
+          </div>
+          <div className={`flow r-i-export-provider ${arrProviderOut}`}>
+            <div className="arrow-D"></div>
           </div>
 
         </div>

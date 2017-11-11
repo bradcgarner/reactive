@@ -3,9 +3,18 @@ import { connect } from 'react-redux';
 
 export function Actions(props) {
   console.log('actions',props);
+  // ################## TEXT VARIABLES ################
 
   const showRedux = props.reduxx.reduxx ? 'normal' : 'clear';      
   const showAsync = ( props.reduxx.reduxx && props.reduxx.async ) ? 'normal' : 'clear';      
+  
+  // ##################### ARROW CLASSES #####################
+  const arrDispatch    = `arr${props.reduxx.arrActionsDispatch}`;
+  const arrExport      = `arr${props.reduxx.arrActionsExport}`;
+  const arrSubmit      = `arr${props.reduxx.arrActionsSubmit}`;
+  const arrReducer     = `arr${props.reduxx.arrActiosnReducer}`;
+  const arrComponent1  = `arr${props.reduxx.arrActionsC1}`;
+  const arrComponent2  = `arr${props.reduxx.arrActionsC2}`;
   
   return (
     <div className="block actions">
@@ -37,24 +46,30 @@ export function Actions(props) {
       </div>
 
       <div className="flowContainer">
-        <div className="flow e-a-dispatch">
+        <div className={`flow e-a-dispatch ${arrExport}`}>
           <div className="arrow-D"></div>
-          <div className="flow tail1"></div>
-          <div className="flow tail2"></div>
-          <div className="flow tail3"></div>
+          <div className="tail tail1"></div>
+          <div className="tail tail2"></div>
+          <div className="tail tail3"></div>
         </div>
-        <div className="flow e-a-export arr0">
-          <div className="flow export">
-            <div className="arrow-L arrow-L1"></div>
-            <div className="arrow-L arrow-L2"></div>
-          </div>
-          <div className="flow submit">
-            <div className="arrow-L"></div>
-          </div>
-          <div className="flow reducer"><div className="arrow-R"></div></div>
-          <div className="flow component1"><div className="arrow-L"></div></div>
-          <div className="flow component2"><div className="arrow-L"></div></div>
+        
+        <div className={`flow e-a-export ${arrExport}`}>
+          <div className="arrow-L arrow-L1"></div>
+          <div className="arrow-L arrow-L2"></div>
         </div>
+        <div className={`flow e-a-export-submit ${arrSubmit}`}>
+          <div className="arrow-L"></div>
+        </div>
+        <div className={`flow e-a-export-reducer ${arrReducer}`}>
+          <div className="arrow-R"></div>
+        </div>
+        <div className={`flow e-a-export-component1 ${arrComponent1}`}>
+          <div className="arrow-L"></div>
+        </div>
+        <div className={`flow e-a-export-component2 ${arrComponent2}`}>
+          <div className="arrow-L"></div>
+        </div>
+
       </div>
 
     </div>

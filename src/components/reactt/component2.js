@@ -81,19 +81,19 @@ export function Component2(props) {
         
         <div className={`flow r-2-route ${arrRoute}`}>
           <div className="arrow-D"></div>
-          <div className={`flow tail ${arrRoute}`}></div>
+          <div className={`tail ${arrRoute}`}></div>
         </div>
-        <div className="flow r-2-export arr0">
-          <div className={`flow export-R ${arrExport}`}>
-            <div className="arrow-L"></div>
-          </div>
-          <div className={`flow export-L ${arrExport}`}>
-            <div className="arrow-U"></div>
-          </div>
-          <div className={`flow export-connect ${arrExportConnect}`}>
-            <div className="arrow-L"></div>
-          </div>
+          
+        <div className={`flow r-2-export ${arrExport}`}>
+          <div className="arrow-U"></div>
         </div>
+        <div className={`flow r-2-export-connect-R ${arrExport}`}>
+          <div className="arrow-L"></div>
+        </div>
+        <div className={`flow r-2-export-connect-L ${arrExportConnect}`}>
+          <div className="arrow-U"></div>
+        </div>
+
       </div>
 
       </div>

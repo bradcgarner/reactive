@@ -4,10 +4,19 @@ import { connect } from 'react-redux';
 export function Store(props) {
   console.log('reduxnewstore',props);
 
+  // ################## TEXT VARIABLES ################
+
   // @@@@@@@@@ import
   const showRedux = props.reduxx.reduxx ? 'normal' : 'clear';    
   const showAsync = ( props.reduxx.reduxx && props.reduxx.async ) ? 'normal' : 'clear';
   const createAsync = ( props.reduxx.reduxx && props.reduxx.async ) ? ', applyMiddleware( thunk ) ) ' : ' )';
+  
+  // ##################### ARROW CLASSES #####################
+  const arrReducer     = `arr${props.reduxx.arrStoreReducer}`;
+  const arrCreate      = `arr${props.reduxx.arrStoreCreate}`;
+  const arrMiddleWare  = `arr${props.reduxx.arrStoreMiddlwWare}`;
+  const arrThunk       = `arr${props.reduxx.arrStoreThunk}`;
+  const arrExport      = `arr${props.reduxx.arrStoreExport}`;
   
   return (
     <div className="block store">
@@ -28,22 +37,26 @@ export function Store(props) {
           EXCEPT... the action may be an argument or a function...</p>
       </div>
       <div className="flowContainer">
-        <div className="flow e-s-reducer-T"><div className="arrow-R"></div></div>
-        <div className="flow e-s-reducer-B"></div>
-
-        <div className="flow e-s-create"><div className="arrow-R"></div></div>
-
-        <div className="flow e-s-thunk"></div>
-        <div className="flow e-s-export">
-          <div className="flow one">
-            <div className="flow two">
-              <div className="arrow-U"></div>
-              <div className="flow three">
-                <div className="arrow-L"></div>
-              </div>
-            </div>
-          </div>
+        <div className={`flow e-s-reducer-T ${arrReducer}`}>
+          <div className="arrow-R"></div>
         </div>
+        <div className={`flow e-s-reducer-B ${arrReducer}`}></div>
+
+        <div className={`flow e-s-create ${arrCreate}`}>
+          <div className="arrow-R"></div>
+        </div>
+
+        <div className={`flow e-s-thunk ${arrThunk}`}></div>
+        <div className={`flow e-s-middleware ${arrMiddleWare}`}></div>
+        
+        <div className={`flow e-s-export-one ${arrExport}`}></div>
+        <div className={`flow e-s-export-two ${arrExport}`}>
+          <div className="arrow-U"></div>
+        </div>
+        <div className={`flow e-s-export-three ${arrExport}`}>
+          <div className="arrow-L"></div>
+        </div>
+        
       </div>
     </div>
   )

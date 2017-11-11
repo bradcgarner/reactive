@@ -4,12 +4,21 @@ import { connect } from 'react-redux';
 export function Reducer(props) {
   console.log('Reducer',props)
 
+  // ################## TEXT VARIABLES ################
+
   const showRedux = props.reduxx.reduxx ? 'normal' : 'clear';      
   const showCombine = ( props.reduxx.reduxx && props.reduxx.combine ) ? 'normal' : 'clear';
   const hideCombine = ( props.reduxx.reduxx && props.reduxx.combine ) ? 'clear' : 'normal';
   const showForm = ( props.reduxx.reduxx && props.reduxx.form ) ? 'normal' : 'clear' ;  
   const key1 = props.reduxx.namedKey ? 'namedKey1: reducer,' : 'reducer,' ;
   const key2 = props.reduxx.namedKey ? 'namedKey2: reducer2' : 'reducer2' ;
+  
+  // ##################### ARROW CLASSES #####################
+  const arrCombine       = `arr${props.reduxx.arrReducerCombine}`;
+  const arrNamed1        = `arr${props.reduxx.arrReducerNamed1}`;
+  const arrNamed2        = `arr${props.reduxx.arrReducerNamed2}`;
+  const arrExport        = `arr${props.reduxx.arrReducerExport}`;
+  const arrExportCombine = `arr${props.reduxx.arrReducerExportCombine}`;
   
   return (
       <div className="block reducer">
@@ -27,7 +36,6 @@ export function Reducer(props) {
           <div className="code in2"><p className={showRedux}>prop: value</p></div>
           <div className="code in1"><p className={showRedux}>&#125;</p></div>
         </div>
-      
       
         <div className="group reducerSwitch">
           <div className="code in1">
@@ -66,28 +74,26 @@ export function Reducer(props) {
           <div className="code in1"><p className={showCombine}>&#125; )</p></div>
         </div>
         <div className="flowContainer">
-          <div className="flow e-r-combine">
+          <div className={`flow e-r-combine ${arrCombine}`}>
             <div className="arrow-D"></div>
-            <div className="flow tail"></div>
+            <div className="tail"></div>
           </div>
-          <div className="flow e-r-named1">
+          <div className={`flow e-r-named1 ${arrNamed1}`}>
             <div className="arrow-D"></div>
-            <div className="flow tail"></div>
+            <div className="tail"></div>
           </div>
-          <div className="flow e-r-named2">
+          <div className={`flow e-r-named2 ${arrNamed2}`}>
             <div className="arrow-D"></div>
-            <div className="flow tail"></div>
+            <div className="tail"></div>
           </div>
 
-          <div className="flow e-r-export">
-            <div className="flow store">
-              <div className="arrow-R"></div>
-              <div className="arrow-L"></div>
-            </div>
-            <div className="flow storeCombine">
-              <div className="arrow-R"></div>
-              <div className="arrow-L"></div>
-            </div>
+          <div className={`flow e-r-export-store ${arrExport}`}>
+            <div className="arrow-R"></div>
+            <div className="arrow-L"></div>
+          </div>
+          <div className={`flow e-r-export-storeCombine ${arrExportCombine}`}>
+            <div className="arrow-R"></div>
+            <div className="arrow-L"></div>
           </div>
         </div>
       </div>

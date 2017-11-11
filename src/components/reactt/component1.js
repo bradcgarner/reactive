@@ -203,51 +203,49 @@ export function Component1(props) {
         <div className={`flow r-1-form ${arrForm}`}>
           <div className="arrow-D arrow-D1"></div>
           <div className="arrow-D arrow-D2"></div>
-          <div className={`flow tail tail1 ${arrForm}`}></div>
-          <div className={`flow tail tail2 ${arrForm}`}></div>
+          <div className={`tail tail1 ${arrForm}`}></div>
+          <div className={`tail tail2 ${arrForm}`}></div>
           </div>        
         
         <div className={`flow r-1-route ${arrRoute}`}>
           <div className="arrow-D"></div>
-          <div className={`flow tail ${arrRoute}`}></div>
+          <div className={`tail ${arrRoute}`}></div>
         </div>
 
         <div className={`flow r-1-router ${arrRouter}`}>
           <div className="arrow-D"></div>
-          <div className={`flow tail ${arrRouter}`}></div>
+          <div className={`tail ${arrRouter}`}></div>
         </div>
         
-        <div className="flow r-1-export arr0">
-
-          <div className={`flow two ${arrExport}`}>
-            <div className="arrow-U arrow-U1"></div>
-            <div className="flow three">
-              <div className="arrow-R"></div>
-            </div>
-          </div>
-         
-          <div className={`flow oneConnect ${arrExportConnect}`}>
-            <div className="arrow-L"></div>
-          </div>
-          <div className={`flow twoConnect ${arrExportConnect}`}>
-            <div className="arrow-U arrow-U1"></div>
-            <div className="arrow-U arrow-U2"></div>
-            <div className="flow threeConnect">
-              <div className="arrow-R"></div>
-            </div>
-          </div>
-          
-          <div className={`flow oneCompose ${arrExportCompose}`}>
-            <div className="arrow-L"></div>
-          </div>
-          <div className={`flow twoCompose ${arrExportCompose}`}>
-            <div className="arrow-U arrow-U1"></div>
-            <div className="arrow-U arrow-U2"></div>
-            <div className="flow threeCompose">
-              <div className="arrow-R"></div>
-            </div>
-          </div>
+        <div className={`flow r-1-export-one ${arrExport}`}>
+          <div className="arrow-U arrow-U1"></div>
         </div>
+        <div className={`flow r-1-export-two ${arrExport}`}>
+          <div className="arrow-R"></div>
+        </div>
+         
+        <div className={`flow r-1-export-oneConnect ${arrExportConnect}`}>
+          <div className="arrow-L"></div>
+        </div>
+        <div className={`flow r-1-export-twoConnect ${arrExportConnect}`}>
+          <div className="arrow-U arrow-U1"></div>
+          <div className="arrow-U arrow-U2"></div>
+        </div>
+        <div className={`flow r-1-export-threeConnect ${arrExportConnect}`}>
+          <div className="arrow-R"></div>
+        </div>
+          
+        <div className={`flow r-1-export-oneCompose ${arrExportCompose}`}>
+          <div className="arrow-L"></div>
+        </div>
+        <div className={`flow r-1-export-twoCompose ${arrExportCompose}`}>
+          <div className="arrow-U arrow-U1"></div>
+          <div className="arrow-U arrow-U2"></div>
+        </div>
+        <div className={`flow r-1-export-threeCompose ${arrExportCompose}`}>
+          <div className="arrow-R"></div>
+        </div>
+
       </div>
 
     </div>

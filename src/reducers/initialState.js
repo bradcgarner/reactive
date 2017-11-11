@@ -35,6 +35,7 @@ export const initialState = {
     form: false,      // component 1 uses Redux form
     compose: false,   // component 1 uses compose
     
+    arrIndexStore: 0,    
     arrIndexProvider: 0,
     arrIndexProviderOut: 0,
     
@@ -45,12 +46,24 @@ export const initialState = {
     arrC2Connect: 0,
     arrC2Compose: 0,
 
-
-    arrStore: 0,
-
-    arrReducerExp: 0,
+    arrStoreReducer: 0,
+    arrStoreCreate: 0,
+    arrStoreMiddlwWare: 0,
+    arrStoreThunk: 0,
+    arrStoreExport: 0,
     
-    arrActionExp: 0,
+    arrReducerCombine: 0,
+    arrReducerNamed1: 0,
+    arrReducerNamed2: 0,
+    arrReducerExport: 0,
+    arrReducerExportCombine: 0,
+    
+    arrActionsDispatch: 0,
+    arrActionsExport: 0,
+    arrActionsSubmit: 0,
+    arrActiosnReducer: 0,
+    arrActionsC1: 0,
+    arrActionsC2: 0,
     
   }
 };
