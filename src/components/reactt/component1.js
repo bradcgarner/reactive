@@ -1,18 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { Import1 } from './import1';
-// import { Component1Line1 } from './component1-line1';
-// import { Constructor1 } from './constructor1';
-// import { MethodGeneral } from './method-general';
-// import { MethodCallback } from './method-callback';
-// import { MethodSetState } from './method-setState';
-// import { MethodDispatch } from './method-dispatch';
-// import { Return1 } from './return1';
-// import { MapState } from './mapState';
-// import { Connect1 } from './connect1';
 
 export function Component1(props) {
-  console.log('consolidated component1 props', props);
+  // ################## TEXT VARIABLES ################
   // @@@@@@@@@ import
   const showActions = props.reduxx.reduxx ? 'normal' : 'clear';
   const showRoutes = props.reactt.routes ? 'normal' : 'clear';
@@ -35,12 +25,7 @@ export function Component1(props) {
   const isStateful = ( !props.reduxx.reduxx && props.reactt.stateful ) ? 'normal' : 'clear' ;
   const showSetState = ( !props.reduxx.reduxx && props.reactt.stateful ) ? 'normal' : 'hidden' ;
 
-
   // @@@@@@@@@ return 
-  // const isStateful = ( !props.reduxx.reduxx && props.reactt.stateful ) ? 'normal' : 'clear' ;
-  // const showRoutes = props.reactt.routes ? 'normal' : 'clear';
-  // const showRouter = props.reactt.routes ? 'normal' : 'clear';
-  // const showLinks = props.reactt.links ? 'normal' : 'clear';
   const showCallbackFn = ( !props.reduxx.reduxx & props.reactt.callback ) ? 'normal' : 'clear' ;
   const hideCallBackFn = showCallbackFn==='normal' ? 'hidden' : 'normal' ;
   const showThisCallbackFn = ( showCallbackFn==='normal' && props.reactt.classs ) ? 'normal' : 'clear' ;
@@ -48,22 +33,33 @@ export function Component1(props) {
   // @@@@@@@@@ dispatch 
   const showDispatch = props.reduxx.reduxx ? 'normal' : 'hidden' ;
   const dispatchAsync = ( props.reduxx.reduxx && props.reduxx.async ) ? 'normal' : 'hidden' ;
-
   const showSimpleFn = ( showCallbackFn==='clear' && showDispatch==='hidden' && dispatchAsync==='hidden' ) ? 'normal' : 'hidden' ;
 
   // @@@@@@@@@ mapState 
   const showMapState =  ( props.reduxx.reduxx && props.reduxx.mapState ) ? 'normal' : 'clear' ;
   const showMapStateAtConnect =  showMapState==='normal' ? 'normal' : 'hidden' ;
+
+  // @@@@@@@@@ forms 
+  const showForm = ( props.reduxx.reduxx && props.reduxx.form ) ? 'normal' : 'clear' ;
   
   // @@@@@@@@@ connect 
   const showConnect = props.reduxx.reduxx ? 'normal' : 'clear';
   
-  // @@@@@@@@@ forms 
-  const showForm = ( props.reduxx.reduxx && props.reduxx.form ) ? 'normal' : 'clear' ;
-  
   // @@@@@@@@@ compose 
   const showCompose = ( props.reduxx.reduxx && props.reduxx.compose ) ? 'normal' : 'clear' ;
   const showConnectSimple = ( showConnect && !showCompose ) ? 'normal' : 'clear';
+  
+  // ##################### ARROW CLASSES #####################
+  const arrConnect       = `arr${props.reduxx.arrC1Connect}`;
+  const arrCompose       = `arr${props.reduxx.arrC1Compose}`;
+  const arrLink          = `arr${props.reactt.arrC1Link}`;
+  const arrForm          = `arr${props.reduxx.arrC1Form}`;
+  const arrRoute         = `arr${props.reactt.arrC1Route}`;
+  const arrRouter        = `arr${props.reactt.arrC1Router}`;
+  const arrExportCompose = `arr${props.reduxx.arrC1Compose}`;
+  const arrExportConnect = `arr${props.reduxx.arrC1Connect}`;
+  const arrExport        = props.reduxx.arrC1Compose + props.reduxx.arrC1Connect === 0 ?
+                           `arr${props.reactt.arrC1Exp}` : 'arr0' ;
   
     return (
     <div className="block component1">
@@ -188,50 +184,68 @@ export function Component1(props) {
       </div> 
   
       <div className="flowContainer">
-        <div className="flow r-1-compose"><div className="arrow-D"></div></div>
-        <div className="flow r-1-connect-L"><div className="arrow-D"></div></div>
-        <div className="flow r-1-connect-R"></div>
+        
+        <div className={`flow r-1-connect-L ${arrConnect}`}>
+          <div className="arrow-D"></div>
+        </div>
+        <div className={`flow r-1-connect-R ${arrConnect}`}></div>
+        
+        <div className={`flow r-1-compose ${arrCompose}`}>
+          <div className="arrow-D"></div>
+        </div>
 
       
-        <div className="flow r-1-link-L"><div className="arrow-D"></div></div>
-        <div className="flow r-1-link-R"></div>
-        
-        <div className="flow r-1-form">
+        <div className={`flow r-1-link-L ${arrLink}`}>
+          <div className="arrow-D"></div>
+        </div>
+        <div className={`flow r-1-link-R ${arrLink}`}></div>
+      
+        <div className={`flow r-1-form ${arrForm}`}>
           <div className="arrow-D arrow-D1"></div>
           <div className="arrow-D arrow-D2"></div>
-          <div className="flow tail1"></div>
-          <div className="flow tail2"></div>
+          <div className={`flow tail tail1 ${arrForm}`}></div>
+          <div className={`flow tail tail2 ${arrForm}`}></div>
           </div>        
         
-        <div className="flow r-1-route">
+        <div className={`flow r-1-route ${arrRoute}`}>
           <div className="arrow-D"></div>
-          <div className="flow tail"></div>
+          <div className={`flow tail ${arrRoute}`}></div>
         </div>
 
-        <div className="flow r-1-router">
+        <div className={`flow r-1-router ${arrRouter}`}>
           <div className="arrow-D"></div>
-          <div className="flow tail"></div>
+          <div className={`flow tail ${arrRouter}`}></div>
         </div>
         
-        <div className="flow r-1-export">
+        <div className="flow r-1-export arr0">
 
-          <div className="flow two">
+          <div className={`flow two ${arrExport}`}>
             <div className="arrow-U arrow-U1"></div>
-            <div className="flow three"><div className="arrow-R"></div></div>
+            <div className="flow three">
+              <div className="arrow-R"></div>
+            </div>
           </div>
-
-          <div className="flow oneConnect"><div className="arrow-L"></div></div>
-          <div className="flow twoConnect">
+         
+          <div className={`flow oneConnect ${arrExportConnect}`}>
+            <div className="arrow-L"></div>
+          </div>
+          <div className={`flow twoConnect ${arrExportConnect}`}>
             <div className="arrow-U arrow-U1"></div>
             <div className="arrow-U arrow-U2"></div>
-            <div className="flow threeConnect"><div className="arrow-R"></div></div>
+            <div className="flow threeConnect">
+              <div className="arrow-R"></div>
+            </div>
           </div>
           
-          <div className="flow oneCompose"><div className="arrow-L"></div></div>
-          <div className="flow twoCompose">
+          <div className={`flow oneCompose ${arrExportCompose}`}>
+            <div className="arrow-L"></div>
+          </div>
+          <div className={`flow twoCompose ${arrExportCompose}`}>
             <div className="arrow-U arrow-U1"></div>
             <div className="arrow-U arrow-U2"></div>
-            <div className="flow threeCompose"><div className="arrow-R"></div></div>
+            <div className="flow threeCompose">
+              <div className="arrow-R"></div>
+            </div>
           </div>
         </div>
       </div>

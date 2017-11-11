@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import Indexx from './indexx/';
 
 import Component1 from './component1';
-import { Test1 } from './test1';
-import { Test2 } from './test2';
+import Test1 from './test1';
+import Test2 from './test2';
 // import { Import1 } from './component1/import1';
 // import { Component1Line1 } from './component1/component1-line1';
 // import { Constructor1 } from './component1/constructor1';

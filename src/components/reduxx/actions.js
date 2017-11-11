@@ -43,7 +43,7 @@ export function Actions(props) {
           <div className="flow tail2"></div>
           <div className="flow tail3"></div>
         </div>
-        <div className="flow e-a-export">
+        <div className="flow e-a-export arr0">
           <div className="flow export">
             <div className="arrow-L arrow-L1"></div>
             <div className="arrow-L arrow-L2"></div>

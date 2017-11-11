@@ -8,6 +8,22 @@ export const initialState = {
     callback: false,  // component1 passes callback function prop to component2, hidden if redux is on
     links: false,     // components1 & 2 show links
     routes: false,    // components1 & 2 show routes
+    
+    arrIndexHTML: 0,
+    arrIndexDOM: 0,
+    arrIndexC1: 0,
+    
+    arrC1Link: 0,
+    arrC1Route: 0,
+    arrC1Router: 0,
+    arrC2Route: 0,
+    arrC1Exp: 0,
+
+    arrC2Exp: 0,
+    arrC2Link: 0,
+    arrC2Route: 0,
+    
+
   },
   reduxx: {
     reduxx: false,    // redux is on; if off, following 3 are hidden
@@ -18,6 +34,24 @@ export const initialState = {
     namedKey: false,  // reducer keys are named
     form: false,      // component 1 uses Redux form
     compose: false,   // component 1 uses compose
+    
+    arrIndexProvider: 0,
+    arrIndexProviderOut: 0,
+    
+    arrC1Connect: 0,
+    arrC1Compose: 0,
+    arrC1Form: 0,
+
+    arrC2Connect: 0,
+    arrC2Compose: 0,
+
+
+    arrStore: 0,
+
+    arrReducerExp: 0,
+    
+    arrActionExp: 0,
+    
   }
 };
 
