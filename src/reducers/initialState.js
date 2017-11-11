@@ -16,8 +16,8 @@ export const initialState = {
     async: false,     // component1 calls an async action
     switchh: false,   // reducer switch
     namedKey: false,  // reducer keys are named
-    form: true,       // component 1 uses Redux form
-    compose: true,    // component 1 uses compose
+    form: false,      // component 1 uses Redux form
+    compose: false,   // component 1 uses compose
   }
 };
 

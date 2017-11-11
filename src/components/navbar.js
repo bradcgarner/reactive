@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toggleReact, toggleClass, toggleState, toggleProps, toggleCallback, toggleLinks, toggleRoutes } from '../actions/reactt'
-import { toggleRedux, toggleMapState, toggleCombine, toggleAsync } from '../actions/reduxx'
+import { toggleRedux, toggleMapState, toggleCombine, toggleAsync, toggleForm, toggleCompose } from '../actions/reduxx'
 
 export function NavBar(props) {
   let reactFormat = props.reactt.reactt ? '' : 'strikethru';
@@ -15,7 +15,9 @@ export function NavBar(props) {
   let mapStateFormat = ( props.reactt.reactt && props.reduxx.reduxx ) ? '' : 'strikethru';
   let combineFormat = ( props.reactt.reactt && props.reduxx.reduxx ) ? '' : 'strikethru';
   let asyncFormat = ( props.reactt.reactt && props.reduxx.reduxx ) ? '' : 'strikethru';
-
+  let formFormat = ( props.reactt.reactt && props.reduxx.reduxx ) ? '' : 'strikethru';
+  let composeFormat = ( props.reactt.reactt && props.reduxx.reduxx ) ? '' : 'strikethru';
+  
   return (
       <div className="navbar">
                 
@@ -53,6 +55,13 @@ export function NavBar(props) {
           
           <input className="in3" type="checkbox" name="async" checked={props.reduxx.async} onChange={()=>props.dispatch(toggleAsync())} />
             <label className={asyncFormat} htmlFor="async">Async Actions</label>
+        
+          <input className="in3" type="checkbox" name="form" checked={props.reduxx.form} onChange={()=>props.dispatch(toggleForm())} />
+            <label className={formFormat} htmlFor="async">Forms</label>
+
+          <input className="in3" type="checkbox" name="compose" checked={props.reduxx.compose} onChange={()=>props.dispatch(toggleCompose())} />
+            <label className={composeFormat} htmlFor="async">Compose</label>
+        
         </form>
 
       </div>

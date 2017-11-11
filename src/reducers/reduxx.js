@@ -30,11 +30,11 @@ export default ( state = initialState.reduxx , action ) => {
       }
     case actions.TOGGLE_FORM:
       return { ...state, 
-        namedKey: !state.form
+        form: !state.form
       }
     case actions.TOGGLE_COMPOSE:
       return { ...state, 
-        namedKey: !state.compose
+        compose: !state.compose
       }
     default:
       return state;
