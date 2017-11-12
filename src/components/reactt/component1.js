@@ -5,61 +5,61 @@ export function Component1(props) {
   // ################## TEXT VARIABLES ################
   // @@@@@@@@@ import
   const showActions = props.reduxx.reduxx ? 'normal' : 'clear';
-  const showRoutes = props.reactt.routes ? 'normal' : 'clear';
-  const showRouter = props.reactt.routes ? 'normal' : 'clear';
-  const showLinks = props.reactt.links ? 'normal' : 'clear';
+  const showRoutes = props.routes ? 'normal' : 'clear';
+  const showRouter = props.routes ? 'normal' : 'clear';
+  const showLinks = props.links ? 'normal' : 'clear';
   
   // @@@@@@@@@ line 1
-  const showDefault = props.reduxx.reduxx ? 'clear' : 'normal' ;
-  const componentType = props.reactt.classs ? 'class' : 'function' ;
-  const componentTypePad = props.reactt.classs ? 'normal' : 'hidden' ;
-  const line1end = props.reactt.classs ? 'exends React.Component {' : '(props) {' ;
+  const showDefault = props.reduxx ? 'clear' : 'normal' ;
+  const componentType = props.classs ? 'class' : 'function' ;
+  const componentTypePad = props.classs ? 'normal' : 'hidden' ;
+  const line1end = props.classs ? 'exends React.Component {' : '(props) {' ;
 
   // @@@@@@@@@ constructor 
-  const showConstructor = props.reactt.classs ? 'normal' : 'clear' ;
+  const showConstructor = props.classs ? 'normal' : 'clear' ;
 
   // @@@@@@@@@ method callback 
-  const showCallback = ( !props.reduxx.reduxx && props.reactt.stateful ) ? 'normal' : 'clear' ;
+  const showCallback = ( !props.reduxx && props.stateful ) ? 'normal' : 'clear' ;
 
   // @@@@@@@@@ setState 
-  const isStateful = ( !props.reduxx.reduxx && props.reactt.stateful ) ? 'normal' : 'clear' ;
-  const showSetState = ( !props.reduxx.reduxx && props.reactt.stateful ) ? 'normal' : 'hidden' ;
+  const isStateful = ( !props.reduxx && props.stateful ) ? 'normal' : 'clear' ;
+  const showSetState = ( !props.reduxx && props.stateful ) ? 'normal' : 'hidden' ;
 
   // @@@@@@@@@ return 
-  const showCallbackFn = ( !props.reduxx.reduxx & props.reactt.callback ) ? 'normal' : 'clear' ;
+  const showCallbackFn = ( !props.reduxx & props.callback ) ? 'normal' : 'clear' ;
   const hideCallBackFn = showCallbackFn==='normal' ? 'hidden' : 'normal' ;
-  const showThisCallbackFn = ( showCallbackFn==='normal' && props.reactt.classs ) ? 'normal' : 'clear' ;
+  const showThisCallbackFn = ( showCallbackFn==='normal' && props.classs ) ? 'normal' : 'clear' ;
 
   // @@@@@@@@@ dispatch 
-  const showDispatch = props.reduxx.reduxx ? 'normal' : 'hidden' ;
-  const dispatchAsync = ( props.reduxx.reduxx && props.reduxx.async ) ? 'normal' : 'hidden' ;
+  const showDispatch = props.reduxx ? 'normal' : 'hidden' ;
+  const dispatchAsync = ( props.reduxx && props.async ) ? 'normal' : 'hidden' ;
   const showSimpleFn = ( showCallbackFn==='clear' && showDispatch==='hidden' && dispatchAsync==='hidden' ) ? 'normal' : 'hidden' ;
 
   // @@@@@@@@@ mapState 
-  const showMapState =  ( props.reduxx.reduxx && props.reduxx.mapState ) ? 'normal' : 'clear' ;
+  const showMapState =  ( props.reduxx && props.mapState ) ? 'normal' : 'clear' ;
   const showMapStateAtConnect =  showMapState==='normal' ? 'normal' : 'hidden' ;
 
   // @@@@@@@@@ forms 
-  const showForm = ( props.reduxx.reduxx && props.reduxx.form ) ? 'normal' : 'clear' ;
+  const showForm = ( props.reduxx && props.form ) ? 'normal' : 'clear' ;
   
   // @@@@@@@@@ connect 
-  const showConnect = props.reduxx.reduxx ? 'normal' : 'clear';
+  const showConnect = props.reduxx ? 'normal' : 'clear';
   
   // @@@@@@@@@ compose 
-  const showCompose = ( props.reduxx.reduxx && props.reduxx.compose ) ? 'normal' : 'clear' ;
+  const showCompose = ( props.reduxx && props.compose ) ? 'normal' : 'clear' ;
   const showConnectSimple = ( showConnect && !showCompose ) ? 'normal' : 'clear';
   
   // ##################### ARROW CLASSES #####################
-  const arrConnect       = `arr${props.reduxx.arrC1Connect}`;
-  const arrCompose       = `arr${props.reduxx.arrC1Compose}`;
-  const arrLink          = `arr${props.reactt.arrC1Link}`;
-  const arrForm          = `arr${props.reduxx.arrC1Form}`;
-  const arrRoute         = `arr${props.reactt.arrC1Route}`;
-  const arrRouter        = `arr${props.reactt.arrC1Router}`;
-  const arrExportCompose = `arr${props.reduxx.arrC1Compose}`;
-  const arrExportConnect = `arr${props.reduxx.arrC1Connect}`;
-  const arrExport        = props.reduxx.arrC1Compose + props.reduxx.arrC1Connect === 0 ?
-                           `arr${props.reactt.arrC1Exp}` : 'arr0' ;
+  const arrConnect       = `arr${props.arrC1Connect}`;
+  const arrCompose       = `arr${props.arrC1Compose}`;
+  const arrLink          = `arr${props.arrC1Link}`;
+  const arrForm          = `arr${props.arrC1Form}`;
+  const arrRoute         = `arr${props.arrC1Route}`;
+  const arrRouter        = `arr${props.arrC1Router}`;
+  const arrExportCompose = `arr${props.arrC1Compose}`;
+  const arrExportConnect = `arr${props.arrC1Connect}`;
+  const arrExport        = props.arrC1Compose + props.arrC1Connect === 0 ?
+                           `arr${props.arrC1Exp}` : 'arr0' ;
   
     return (
     <div className="block component1">
@@ -253,8 +253,7 @@ export function Component1(props) {
 }
 
 export const mapStateToProps = state => ({
-  reactt: state.reactt,
-  reduxx: state.reduxx
+  ...state
 })
 
 export default connect(mapStateToProps)(Component1)

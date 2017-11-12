@@ -7,16 +7,16 @@ export function Store(props) {
   // ################## TEXT VARIABLES ################
 
   // @@@@@@@@@ import
-  const showRedux = props.reduxx.reduxx ? 'normal' : 'clear';    
-  const showAsync = ( props.reduxx.reduxx && props.reduxx.async ) ? 'normal' : 'clear';
-  const createAsync = ( props.reduxx.reduxx && props.reduxx.async ) ? ', applyMiddleware( thunk ) ) ' : ' )';
+  const showRedux = props.reduxx ? 'normal' : 'clear';    
+  const showAsync = props.async ? 'normal' : 'clear';
+  const createAsync = props.async ? ', applyMiddleware( thunk ) ) ' : ' )';
   
   // ##################### ARROW CLASSES #####################
-  const arrReducer     = `arr${props.reduxx.arrStoreReducer}`;
-  const arrCreate      = `arr${props.reduxx.arrStoreCreate}`;
-  const arrMiddleWare  = `arr${props.reduxx.arrStoreMiddlwWare}`;
-  const arrThunk       = `arr${props.reduxx.arrStoreThunk}`;
-  const arrExport      = `arr${props.reduxx.arrStoreExport}`;
+  const arrReducer     = `arr${props.arrStoreReducer}`;
+  const arrCreate      = `arr${props.arrStoreCreate}`;
+  const arrMiddleWare  = `arr${props.arrStoreMiddleWare}`;
+  const arrThunk       = `arr${props.arrStoreThunk}`;
+  const arrExport      = `arr${props.arrStoreExport}`;
   
   return (
     <div className="block store">
@@ -63,8 +63,7 @@ export function Store(props) {
 }
 
 export const mapStateToProps = state => ({
-  reactt: state.reactt,
-  reduxx: state.reduxx
+ ...state
 })
 
 export default connect(mapStateToProps)(Store)

@@ -793,7 +793,7 @@ $arrowOff: $arrowW + ($flowW/2);
   border-right: none;
   border-bottom: none;
 }
-.e-s-thunk{
+.e-s-middleware{
   top: $folder-header-loaded + ($line * 2) + $half-line;
   height: (1 * $line);
   left: -2em;
@@ -960,11 +960,21 @@ $arrowOff: $arrowW + ($flowW/2);
   width: 4.5em;
   border-left: none;
   border-right: none;
-  .arrow-L1 {
+  border-bottom: none;
+  .arrow-L {
     left: 30%;
     top: -$arrowOff;
   }
-  .arrow-L2 {
+}
+.e-a-export-async {
+  height: (9.2 * $line);
+  top: $folder-header-loaded + (1.8*$line);
+  right: 0;
+  width: 4.5em;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  .arrow-L {
     left: 30%;
     bottom: -$arrowOff;
   }

@@ -6,19 +6,19 @@ export function Reducer(props) {
 
   // ################## TEXT VARIABLES ################
 
-  const showRedux = props.reduxx.reduxx ? 'normal' : 'clear';      
-  const showCombine = ( props.reduxx.reduxx && props.reduxx.combine ) ? 'normal' : 'clear';
-  const hideCombine = ( props.reduxx.reduxx && props.reduxx.combine ) ? 'clear' : 'normal';
-  const showForm = ( props.reduxx.reduxx && props.reduxx.form ) ? 'normal' : 'clear' ;  
-  const key1 = props.reduxx.namedKey ? 'namedKey1: reducer,' : 'reducer,' ;
-  const key2 = props.reduxx.namedKey ? 'namedKey2: reducer2' : 'reducer2' ;
+  const showRedux = props.reduxx ? 'normal' : 'clear';      
+  const showCombine = ( props.reduxx && props.combine ) ? 'normal' : 'clear';
+  const hideCombine = ( props.reduxx && props.combine ) ? 'clear' : 'normal';
+  const showForm = ( props.reduxx && props.form ) ? 'normal' : 'clear' ;  
+  const key1 = props.namedKey ? 'namedKey1: reducer,' : 'reducer,' ;
+  const key2 = props.namedKey ? 'namedKey2: reducer2' : 'reducer2' ;
   
   // ##################### ARROW CLASSES #####################
-  const arrCombine       = `arr${props.reduxx.arrReducerCombine}`;
-  const arrNamed1        = `arr${props.reduxx.arrReducerNamed1}`;
-  const arrNamed2        = `arr${props.reduxx.arrReducerNamed2}`;
-  const arrExport        = `arr${props.reduxx.arrReducerExport}`;
-  const arrExportCombine = `arr${props.reduxx.arrReducerExportCombine}`;
+  const arrCombine       = `arr${props.arrReducerCombine}`;
+  const arrNamed1        = `arr${props.arrReducerNamed1}`;
+  const arrNamed2        = `arr${props.arrReducerNamed2}`;
+  const arrExport        = `arr${props.arrReducerExport}`;
+  const arrExportCombine = `arr${props.arrReducerExportCombine}`;
   
   return (
       <div className="block reducer">
@@ -101,8 +101,7 @@ export function Reducer(props) {
 }
 
 export const mapStateToProps = state => ({
-  reactt: state.reactt,
-  reduxx: state.reduxx
+  ...state
 })
 
 export default connect(mapStateToProps)(Reducer)

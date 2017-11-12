@@ -5,16 +5,17 @@ export function Actions(props) {
   console.log('actions',props);
   // ################## TEXT VARIABLES ################
 
-  const showRedux = props.reduxx.reduxx ? 'normal' : 'clear';      
-  const showAsync = ( props.reduxx.reduxx && props.reduxx.async ) ? 'normal' : 'clear';      
+  const showRedux = props.reduxx ? 'normal' : 'clear';      
+  const showAsync = ( props.reduxx && props.async ) ? 'normal' : 'clear';      
   
   // ##################### ARROW CLASSES #####################
-  const arrDispatch    = `arr${props.reduxx.arrActionsDispatch}`;
-  const arrExport      = `arr${props.reduxx.arrActionsExport}`;
-  const arrSubmit      = `arr${props.reduxx.arrActionsSubmit}`;
-  const arrReducer     = `arr${props.reduxx.arrActiosnReducer}`;
-  const arrComponent1  = `arr${props.reduxx.arrActionsC1}`;
-  const arrComponent2  = `arr${props.reduxx.arrActionsC2}`;
+  const arrDispatch    = `arr${props.arrActionsDispatch}`;
+  const arrExport      = `arr${props.arrActionsExport}`;
+  const arrExportAsync = `arr${props.arrActionsAsync}`;
+  const arrSubmit      = `arr${props.arrActionsSubmit}`;
+  const arrReducer     = `arr${props.arrActiosnReducer}`;
+  const arrComponent1  = `arr${props.arrActionsC1}`;
+  const arrComponent2  = `arr${props.arrActionsC2}`;
   
   return (
     <div className="block actions">
@@ -54,8 +55,10 @@ export function Actions(props) {
         </div>
         
         <div className={`flow e-a-export ${arrExport}`}>
-          <div className="arrow-L arrow-L1"></div>
-          <div className="arrow-L arrow-L2"></div>
+          <div className="arrow-L"></div>
+        </div>
+        <div className={`flow e-a-export-async ${arrExportAsync}`}>
+          <div className="arrow-L arrow"></div>
         </div>
         <div className={`flow e-a-export-submit ${arrSubmit}`}>
           <div className="arrow-L"></div>
@@ -77,8 +80,7 @@ export function Actions(props) {
 }
 
 export const mapStateToProps = state => ({
-  reactt: state.reactt,
-  reduxx: state.reduxx
+  ...state
 })
 
 export default connect(mapStateToProps)(Actions)

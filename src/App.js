@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 
 
 export function App(props) {
-  const reactt = props.reactt.reactt ? <Reactt /> : '' ;
-  const reduxx = ( props.reactt.reactt && props.reduxx.reduxx ) ? <Reduxx /> : '' ;
+  const reactt = props.reactt ? <Reactt /> : '' ;
+  const reduxx = props.reduxx ? <Reduxx /> : '' ;
 
   return (
       <main>
@@ -19,8 +19,7 @@ export function App(props) {
 }
 
 export const mapStateToProps = state => ({
-  reactt: state.reactt,
-  reduxx: state.reduxx
+  ...state
 })
 
 export default connect(mapStateToProps)(App)

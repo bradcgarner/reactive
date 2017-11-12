@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 export function ImportI(props) {
   console.log('2 import index',props);
   
-  const showStore = props.reduxx.reduxx ? 'normal' : 'clear';
-  const showProvider = props.reduxx.reduxx ? 'normal' : 'clear';
+  const showStore = props.reduxx ? 'normal' : 'clear';
+  const showProvider = props.reduxx ? 'normal' : 'clear';
   
   return (
         <div className="group indexImport">
@@ -19,8 +19,7 @@ export function ImportI(props) {
 }
 
 const mapStateToProps = state => ({
-  reactt: state.reactt,
-  reduxx: state.reduxx
+  ...state
 })
 
 export default connect(mapStateToProps)(ImportI)

@@ -7,12 +7,12 @@ export function Indexx(props) {
   console.log('1 index',props);
   
   // ##################### ARROW CLASSES #####################
-  const arrStore       = `arr${props.reduxx.arrIndexStore}`;
-  const arrProviderIn  = `arr${props.reduxx.arrIndexProvider}`;
-  const arrC1          = `arr${props.reactt.arrIndexC1}`;
-  const arrDOM         = `arr${props.reactt.arrIndexDOM}`;
-  const arrHTML        = `arr${props.reactt.arrIndexHTML}`;
-  const arrProviderOut = `arr${props.reduxx.arrIndexProviderOut}`;
+  const arrStore       = `arr${props.arrIndexStore}`;
+  const arrProviderIn  = `arr${props.arrIndexProvider}`;
+  const arrC1          = `arr${props.arrIndexC1}`;
+  const arrDOM         = `arr${props.arrIndexDOM}`;
+  const arrHTML        = `arr${props.arrIndexHTML}`;
+  const arrProviderOut = `arr${props.arrIndexProviderOut}`;
   
   return (
       <div className="block index">
@@ -50,8 +50,7 @@ export function Indexx(props) {
 }
 
 export const mapStateToProps = state => ({
-  reactt: state.reactt,
-  reduxx: state.reduxx
+  ...state
 })
 
 export default connect(mapStateToProps)(Indexx)

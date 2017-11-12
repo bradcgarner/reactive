@@ -636,7 +636,7 @@ h1 {
   border-right: none;
   border-bottom: none; }
 
-.e-s-thunk {
+.e-s-middleware {
   top: 64px;
   height: 14px;
   left: -2em;
@@ -774,11 +774,21 @@ h1 {
   right: 0;
   width: 4.5em;
   border-left: none;
-  border-right: none; }
-  .e-a-export .arrow-L1 {
+  border-right: none;
+  border-bottom: none; }
+  .e-a-export .arrow-L {
     left: 30%;
     top: -0.7em; }
-  .e-a-export .arrow-L2 {
+
+.e-a-export-async {
+  height: 128.8px;
+  top: 51.2px;
+  right: 0;
+  width: 4.5em;
+  border-left: none;
+  border-right: none;
+  border-top: none; }
+  .e-a-export-async .arrow-L {
     left: 30%;
     bottom: -0.7em; }
 

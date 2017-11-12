@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 export function Code(props) {
   console.log('3 index code',props);
   
-  const showProvider = props.reduxx.reduxx ? 'normal' : 'clear';
+  const showProvider = props.reduxx ? 'normal' : 'clear';
 
   return (
         <div className="group indexCode">
@@ -20,8 +20,7 @@ export function Code(props) {
 }
 
 export const mapStateToProps = state => ({
-  reactt: state.reactt,
-  reduxx: state.reduxx
+  ...state
 })
 
 export default connect(mapStateToProps)(Code)

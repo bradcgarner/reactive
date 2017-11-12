@@ -7,28 +7,28 @@ export function Component2(props) {
     // ################## TEXT VARIABLES ################
 
     // @@@@@@@@@ import
-    const showActions = props.reduxx.reduxx ? 'normal' : 'clear';    
-    const showRoutes = props.reactt.routes ? 'normal' : 'clear';
-    const showLinks = props.reactt.links ? 'normal' : 'clear';
+    const showActions = props.reduxx ? 'normal' : 'clear';    
+    const showRoutes = props.routes ? 'normal' : 'clear';
+    const showLinks = props.links ? 'normal' : 'clear';
 
     // @@@@@@@@@@@ line1
-    const showDefault = props.reduxx.reduxx ? 'clear' : 'normal' ;
+    const showDefault = props.reduxx ? 'clear' : 'normal' ;
 
     // @@@@@@@@@ return
-    const showCallbackFn = ( !props.reduxx.reduxx & props.reactt.callback ) ? 'normal' : 'clear' ;
+    const showCallbackFn = ( !props.reduxx & props.callback ) ? 'normal' : 'clear' ;
     const hideCallBackFn = showCallbackFn==='normal' ? 'hidden' : 'normal' ;
-    const showThisCallbackFn = ( showCallbackFn==='normal' && props.reactt.classs ) ? 'normal' : 'clear' ;
+    const showThisCallbackFn = ( showCallbackFn==='normal' && props.classs ) ? 'normal' : 'clear' ;
   
     // @@@@@@@@@ connect 
-    const showConnect = props.reduxx.reduxx ? 'normal' : 'clear';
+    const showConnect = props.reduxx ? 'normal' : 'clear';
     
     // ##################### ARROW CLASSES #####################
-    const arrConnect       = `arr${props.reduxx.arrC2Connect}`;
-    const arrLink          = `arr${props.reactt.arrC2Link}`;
-    const arrRoute         = `arr${props.reactt.arrC2Route}`;
-    const arrExportConnect = `arr${props.reduxx.arrC2Connect}`;
-    const arrExport        = props.reduxx.arrC2Compose + props.reduxx.arrC2Connect === 0 ?
-                             `arr${props.reactt.arrC2Exp}` : 'arr0' ;
+    const arrConnect       = `arr${props.arrC2Connect}`;
+    const arrLink          = `arr${props.arrC2Link}`;
+    const arrRoute         = `arr${props.arrC2Route}`;
+    const arrExportConnect = `arr${props.arrC2Connect}`;
+    const arrExport        = props.arrC2Compose + props.arrC2Connect === 0 ?
+                             `arr${props.arrC2Exp}` : 'arr0' ;
   
     return (
       <div className="block component2">
@@ -101,8 +101,7 @@ export function Component2(props) {
 }
 
 export const mapStateToProps = state => ({
-  reactt: state.reactt,
-  reduxx: state.reduxx
+  ...state
 })
 
 export default connect(mapStateToProps)(Component2)
