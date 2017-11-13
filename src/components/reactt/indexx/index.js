@@ -4,7 +4,6 @@ import ImportI from './import-i';
 import Code from './code';
 
 export function Indexx(props) {
-  console.log('1 index',props);
   
   // ##################### ARROW CLASSES #####################
   const arrStore       = `arr${props.arrIndexStore}`;

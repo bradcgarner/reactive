@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 export function ImportI(props) {
-  console.log('2 import index',props);
   
   const showStore = props.reduxx ? 'normal' : 'clear';
   const showProvider = props.reduxx ? 'normal' : 'clear';

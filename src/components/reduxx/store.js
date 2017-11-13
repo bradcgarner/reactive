@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 export function Store(props) {
-  console.log('reduxnewstore',props);
 
   // ################## TEXT VARIABLES ################
 

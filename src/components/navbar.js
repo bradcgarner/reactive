@@ -16,7 +16,6 @@ export function NavBar(props) {
   let asyncFormat =  props.reduxx ? '' : 'strikethru';
   let formFormat = props.reduxx ? '' : 'strikethru';
   let composeFormat =  props.reduxx ? '' : 'strikethru';
-  console.log('navbar props',props);
   
   return (
       <div className="navbar">

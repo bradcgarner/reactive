@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 export function Actions(props) {
-  console.log('actions',props);
   // ################## TEXT VARIABLES ################
 
   const showRedux = props.reduxx ? 'normal' : 'clear';      
@@ -13,7 +12,7 @@ export function Actions(props) {
   const arrExport      = `arr${props.arrActionsExport}`;
   const arrExportAsync = `arr${props.arrActionsAsync}`;
   const arrSubmit      = `arr${props.arrActionsSubmit}`;
-  const arrReducer     = `arr${props.arrActiosnReducer}`;
+  const arrReducer     = `arr${props.arrActionsReducer}`;
   const arrComponent1  = `arr${props.arrActionsC1}`;
   const arrComponent2  = `arr${props.arrActionsC2}`;
   
@@ -38,12 +37,12 @@ export function Actions(props) {
       </div>
 
       <div className="group actionsAsync">
-        <div className="code in1"><p className={showAsync}>export const asyncActionName = arg => dispatch => ( &#123;</p></div>
+        <div className="code in1"><p className={showAsync}>export const asyncActionName = arg => dispatch => &#123;</p></div>
         <div className="code in2"><p className={showAsync}>dispatch( actionName() );</p></div>
         <div className="code in2"><p className={showAsync}>asyncFunctionReturnsPromise( arg )</p></div>
         <div className="code in3"><p className={showAsync}>.then( res => dispatch( actionName( res ) ) )</p></div>
         <div className="code in3"><p className={showAsync}>.catch( err => dispatch( actionName( err ) ) );</p></div>
-        <div className="code in1"><p className={showAsync}>} );</p></div>
+        <div className="code in1"><p className={showAsync}>};</p></div>
       </div>
 
       <div className="flowContainer">

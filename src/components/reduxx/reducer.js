@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 export function Reducer(props) {
-  console.log('Reducer',props)
 
   // ################## TEXT VARIABLES ################
 

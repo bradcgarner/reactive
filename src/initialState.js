@@ -20,9 +20,9 @@ export const initialState = {
   form: false,      // component 1 uses Redux form
   compose: false,   // component 1 uses compose
     
-  arrIndexHTML: 0,
-  arrIndexDOM: 0,
-  arrIndexC1: 0,
+  arrIndexHTML: 1,
+  arrIndexDOM: 1,
+  arrIndexC1: 1,
     
   arrIndexStore: 0,    
   arrIndexProvider: 0,
@@ -31,13 +31,13 @@ export const initialState = {
   arrC1Link: 0,
   arrC1Route: 0,
   arrC1Router: 0,
-  arrC1Exp: 0,
+  arrC1Exp: 1,
 
   arrC1Connect: 0,
   arrC1Compose: 0,
   arrC1Form: 0,
 
-  arrC2Exp: 0,
+  arrC2Exp: 1,
   arrC2Link: 0,
   arrC2Route: 0,
 
@@ -58,10 +58,8 @@ export const initialState = {
   arrActionsDispatch: 0,
   arrActionsExport: 0,
   arrActionsSubmit: 0,
-  arrActiosnReducer: 0,
+  arrActionsReducer: 0,
   arrActionsAsync: 0,
   arrActionsC1: 0,
   arrActionsC2: 0,
 };
-
-console.log('initialState def', initialState);

@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 export function Code(props) {
-  console.log('3 index code',props);
   
   const showProvider = props.reduxx ? 'normal' : 'clear';
 

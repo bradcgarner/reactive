@@ -300,7 +300,7 @@ $actions-async-ht: $actions-async-lines + $group-OH;
   left: $block-padding-left;
   z-index: 999;
 }
-$flowLine: rgb(201, 76, 201);
+$flowLine: rgb(236, 222, 236);
 $flowW: 0.2em;
 $flowStyle: solid;
 $arrowW: .6em;
@@ -1028,10 +1028,20 @@ $arrowOff: $arrowW + ($flowW/2);
     bottom: -$arrowOff;
   }
 }
-.arr0 {
-  border-color: purple;
-}
+.arr-1 { border-color: rgb(250, 2, 2); }
+.arr0 { border-color: rgba(223, 247, 8, 0.2); }
+.arr1 { border-color: #000; }
+.arr2 { border-color: #1b4750 }
+.arr3 { border-color: #24626b }
+.arr4 { border-color: #2a767e }
+.arr5 { border-color: #329577 }
+.arr6 { border-color: #349D8F }
+.arr7 { border-color: #5BC8B8 }
+.arr8 { border-color: #66CCC9 }
+.arr9 { border-color: lighten(#66CCC9, 5%) }
+
+
 
 .arrundefined {
-  border-color: red;
+  border-color: rgb(238, 255, 0);
 }

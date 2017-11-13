@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 export function Component1(props) {
   // ################## TEXT VARIABLES ################
   // @@@@@@@@@ import
-  const showActions = props.reduxx.reduxx ? 'normal' : 'clear';
+  const showActions = props.reduxx ? 'normal' : 'clear';
   const showRoutes = props.routes ? 'normal' : 'clear';
   const showRouter = props.routes ? 'normal' : 'clear';
   const showLinks = props.links ? 'normal' : 'clear';

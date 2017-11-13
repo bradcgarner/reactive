@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 export function Component2(props) {
-  console.log('14 compon2',props);
 
     // ################## TEXT VARIABLES ################
 
