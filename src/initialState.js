@@ -54,7 +54,8 @@ export const initialState = {
   arrC2Route: 0,
 
   arrC2Connect: 0,
-
+  arrC2Compose: 0,
+  
   arrStoreReducer: 0,
   arrStoreCreate: 0,
   arrStoreMiddleWare: 0,

@@ -3,30 +3,32 @@ import { connect } from 'react-redux';
 
 export function Component2(props) {
 
-    // ################## TEXT VARIABLES ################
+    // ################## CLASS VARIABLES ################
 
     // @@@@@@@@@ import
-    const showActions = props.reduxx ? 'normal' : 'clear';    
-    const showRoutes = props.routes ? 'normal' : 'clear';
-    const showLinks = props.links ? 'normal' : 'clear';
+    // const showActions = props.reduxx ? 'normal' : 'clear';    
+    // const showRoutes = props.routes ? 'normal' : 'clear';
+    // const showLinks = props.links ? 'normal' : 'clear';
 
     // @@@@@@@@@@@ line1
-    const showDefault = props.reduxx ? 'clear' : 'normal' ;
+    // const showDefault = props.reduxx ? 'clear' : 'normal' ;
 
     // @@@@@@@@@ return
-    const showCallbackFn = ( !props.reduxx & props.callback ) ? 'normal' : 'clear' ;
-    const hideCallBackFn = showCallbackFn==='normal' ? 'hidden' : 'normal' ;
-    const showThisCallbackFn = ( showCallbackFn==='normal' && props.classs ) ? 'normal' : 'clear' ;
+    // const showCallbackFn = ( !props.reduxx & props.callback ) ? 'normal' : 'clear' ;
+    // const hideCallBackFn = showCallbackFn==='normal' ? 'hidden' : 'normal' ;
   
     // @@@@@@@@@ connect 
-    const showConnect = props.reduxx ? 'normal' : 'clear';
+    // const showConnect = props.reduxx ? 'normal' : 'clear';
     
-    // ##################### ARROW CLASSES #####################
-    const arrConnect       = `arr${props.arrC2Connect}`;
-    const arrLink          = `arr${props.arrC2Link}`;
-    const arrRoute         = `arr${props.arrC2Route}`;
-    const arrExportConnect = `arr${props.arrC2Connect}`;
-    const arrExport        = props.arrC2Compose + props.arrC2Connect === 0 ?
+    const arrRedux           = `arr${props.arrRedux}`;
+    const arrCallback        = `arr${props.arrC2Callback}`;
+    const arrNoCallback      = props.arrC2Callback > 0 ? 'arr0' : 'normal' ;
+    const arrConnect         = `arr${props.arrC2Connect}`;
+    const arrLink            = `arr${props.arrC2Link}`;
+    const arrRoute           = `arr${props.arrC2Route}`;
+    const arrExportConnect   = `arr${props.arrC2Connect}`;
+    const arrNoExportConnect = props.arrC2Connect > 0 ? 'arr0' : 'normal' ;
+    const arrExport          = props.arrC2Compose + props.arrC2Connect === 0 ?
                              `arr${props.arrC2Exp}` : 'arr0' ;
   
     return (
@@ -35,15 +37,15 @@ export function Component2(props) {
 
         <div className="group component2import">
           <div className="library"><p>import React from 'react';</p></div>
-          <div className="file"><p className={showActions}>import &#123; <span className="example">actionName</span> &#125; from './<span className="example">actions</span>';</p></div>
-          <div className="library"><p className={showConnect}>import &#123; connect &#125; from 'react-redux';</p></div>
+          <div className="file"><p className={arrRedux}>import &#123; <span className="example">actionName</span> &#125; from './<span className="example">actions</span>';</p></div>
+          <div className="library"><p className={arrConnect}>import &#123; connect &#125; from 'react-redux';</p></div>
           <div className="file"><p>import &#123; <span className="example">component3</span> &#125; from './<span className="example">component3</span>';</p></div>
-          <div className="library"><p className={showRoutes}>import &#123; Route &#125; from 'react-router-dom';</p></div>
-          <div className="library"><p className={showLinks}>import &#123; Link &#125; from 'react-router-dom';</p></div>
+          <div className="library"><p className={arrRoute}>import &#123; Route &#125; from 'react-router-dom';</p></div>
+          <div className="library"><p className={arrLink}>import &#123; Link &#125; from 'react-router-dom';</p></div>
         </div>
         
         <div className="group component2line1">
-          <div className="code"><p>export <span className={showDefault}>default</span> function <span className="example">Component2</span> (props) &#123;</p></div>
+          <div className="code"><p>export <span className={arrNoExportConnect}>default</span> function <span className="example">Component2</span> (props) &#123;</p></div>
         </div>
 
         <div className="group component2return">
@@ -51,12 +53,12 @@ export function Component2(props) {
           <div className="code in4"><p>&lt;div&gt;</p></div>
           <div className="code in5">
             <p>&lt;p
-              <span className={hideCallBackFn}>>some text&lt;/p&gt;;</span>
-              <span className={showCallbackFn}> onClick = &#123; () => props.onClick( value ) &#125; &#125;</span>
-              <span className={showCallbackFn}> &gt;Some text&lt;/p&gt;</span>
+              <span className={arrNoCallback}>>some text&lt;/p&gt;;</span>
+              <span className={arrCallback}> onClick = &#123; () => props.onClick( value ) &#125; &#125;</span>
+              <span className={arrCallback}> &gt;Some text&lt;/p&gt;</span>
             </p></div>
-          <div className="code in5"><p className={showRoutes}>&lt;Route path="/" component=&#123; Component3 &#125; /></p></div>
-          <div className="code in5"><p className={showLinks}>&lt;Link to="&#123; link &#125;"></p></div>
+          <div className="code in5"><p className={arrRoute}>&lt;Route path="/" component=&#123; Component3 &#125; /></p></div>
+          <div className="code in5"><p className={arrLink}>&lt;Link to="&#123; link &#125;"></p></div>
           <div className="code in4"><p>&lt;/div&gt;</p></div>
           <div className="code in2"><p>)</p></div>
           <div className="code in1"><p>&#125;</p></div>
@@ -64,7 +66,7 @@ export function Component2(props) {
         
         <div className="group component2connect">
         <div className="code in1">
-          <p className={showConnect}>export default connect()( Component1 )</p>
+          <p className={arrConnect}>export default connect()( Component1 )</p>
         </div>
       </div> 
 
@@ -86,7 +88,7 @@ export function Component2(props) {
         <div className={`flow r-2-export ${arrExport}`}>
           <div className="arrow-U"></div>
         </div>
-        <div className={`flow r-2-export-connect-R ${arrExport}`}>
+        <div className={`flow r-2-export-connect-R ${arrExportConnect}`}>
           <div className="arrow-L"></div>
         </div>
         <div className={`flow r-2-export-connect-L ${arrExportConnect}`}>

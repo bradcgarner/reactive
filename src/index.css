@@ -10,8 +10,9 @@
   position: fixed;
   width: 100%;
   padding: 10px;
-  height: 30px;
-  background-color: white; }
+  height: 50px;
+  background-color: white;
+  z-index: 999; }
 
 form input {
   float: left; }
@@ -21,7 +22,7 @@ form label {
 .react, .redux {
   display: inline-block;
   width: 510px;
-  margin-top: 30px;
+  margin-top: 50px;
   vertical-align: top;
   padding: 0 1.5em; }
 
@@ -204,7 +205,7 @@ h1 {
   position: absolute;
   top: 10px;
   left: 50px;
-  z-index: 999; }
+  z-index: 99; }
 
 .flow {
   border: 0.2em solid #ecdeec;

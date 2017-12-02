@@ -69,6 +69,7 @@ const DEPENDENCIES = {
       },
       compose: {                 // toggle
         arrC1Compose: true,      // toggle
+        arrC2Compose: true,      // toggle
       },  
       arrIndexStore: true,       // always
       arrIndexProvider: true,    // always

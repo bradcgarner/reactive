@@ -14,7 +14,7 @@ $background: white;
   white-space: nowrap;
 }
 
-$navbar-height: 30px;
+$navbar-height: 50px;
 
 .navbar {
   position: fixed;
@@ -22,6 +22,7 @@ $navbar-height: 30px;
   padding: 10px;
   height: $navbar-height;
   background-color: $background;
+  z-index: 999;
 }
 
 form {
@@ -298,7 +299,7 @@ $actions-async-ht: $actions-async-lines + $group-OH;
   position: absolute;
   top: $block-padding;
   left: $block-padding-left;
-  z-index: 999;
+  z-index: 99;
 }
 $flowLine: rgb(236, 222, 236);
 $flowW: 0.2em;
