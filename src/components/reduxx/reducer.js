@@ -12,7 +12,9 @@ export function Reducer(props) {
   const key1 = props.namedKey ? 'namedKey1: reducer,' : 'reducer,' ;
   const key2 = props.namedKey ? 'namedKey2: reducer2' : 'reducer2' ;
   
-  // ##################### ARROW CLASSES #####################
+  // ################## CLASS VARIABLES ################
+  const arrRedux         = `arr${props.arrRedux}`; 
+  const background       = `block reducer ${arrRedux}`  
   const arrCombine       = `arr${props.arrReducerCombine}`;
   const arrNamed1        = `arr${props.arrReducerNamed1}`;
   const arrNamed2        = `arr${props.arrReducerNamed2}`;
@@ -20,7 +22,7 @@ export function Reducer(props) {
   const arrExportCombine = `arr${props.arrReducerExportCombine}`;
   
   return (
-      <div className="block reducer">
+      <div className={background}>
         <div className="folder-header"><h3 className={showRedux}>Reducer</h3></div>
 
         <div className="group reducerImport">

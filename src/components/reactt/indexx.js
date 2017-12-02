@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ImportI from './import-i';
-import Code from './code';
 
 export function Indexx(props) {
   
@@ -12,12 +10,33 @@ export function Indexx(props) {
   const arrDOM         = `arr${props.arrIndexDOM}`;
   const arrHTML        = `arr${props.arrIndexHTML}`;
   const arrProviderOut = `arr${props.arrIndexProviderOut}`;
-  
+  const showStore = props.reduxx ? 'normal' : 'clear';
+  const showProvider = props.reduxx ? 'normal' : 'clear';
+
   return (
       <div className="block index">
         <div className="folder-header"><h3>Index</h3></div>
-        <ImportI />
-        <Code />
+
+
+        <div className="group indexImport">
+          <div className="library"><p>import React from 'react';</p></div>
+          <div className="file"><p>import &#123; <span className="example">Component1</span> &#125; from './component1';</p></div>
+          <div className="file"><p className={showStore}>import store from './store';</p></div>
+          <div className="library"><p>import ReactDOM from 'react-dom';</p></div>
+          <div className="library"><p className={showProvider}>import &#123; Provider &#125; from 'react-redux';</p></div>
+        </div>
+        
+        <div className="group indexCode">
+          <div className="code"><p>ReactDOM.render(</p></div>
+          <div className="code in1"><p className={showProvider}>&lt;Provider store = &#123; store &#125; &gt;</p></div>
+          <div className="code in2"><p>&lt;<span className="example">Component1</span> /&gt;</p></div>
+          <div className="code in1"><p className={showProvider}>&lt;/Provider /&gt; ,</p></div>
+          <div className="code in1"><p>document.getElementById('root')</p></div>
+          <div className="code"><p>);</p></div>
+          <div className="code"><p>registerServiceWorker();</p></div>
+        </div>
+
+
         <div className="flowContainer">
           <div className={`flow r-i-store-L ${arrStore}`}>
             <div className="arrow-L"></div>

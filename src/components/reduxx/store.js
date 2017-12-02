@@ -10,7 +10,9 @@ export function Store(props) {
   const showAsync = props.async ? 'normal' : 'clear';
   const createAsync = props.async ? ', applyMiddleware( thunk ) ) ' : ' )';
   
-  // ##################### ARROW CLASSES #####################
+  // ################## CLASS VARIABLES ################
+  const arrRedux       = `arr${props.arrRedux}`; 
+  const background     = `block store ${arrRedux}`  
   const arrReducer     = `arr${props.arrStoreReducer}`;
   const arrCreate      = `arr${props.arrStoreCreate}`;
   const arrMiddleWare  = `arr${props.arrStoreMiddleWare}`;
@@ -18,7 +20,7 @@ export function Store(props) {
   const arrExport      = `arr${props.arrStoreExport}`;
   
   return (
-    <div className="block store">
+    <div className={background}>
       <div className="folder-header"><h3 className={showRedux}>Store</h3></div>
 
       <div className="group storeImport">

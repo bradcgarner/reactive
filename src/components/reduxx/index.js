@@ -1,12 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Store from './store';
 import Reducer from './reducer';
 import Actions from './actions';
 
-export default function Reduxx() {
+export function Reduxx(props) {
+  const arrRedux       = `arr${props.arrRedux}`; 
+  const header         = `redux ${arrRedux}`;
   return (
-    <article className="redux">
+    <article className={header}>
       <div className="h1"><h1>Redux</h1></div>
       <Store />
       <Reducer />
@@ -14,3 +17,9 @@ export default function Reduxx() {
     </article>
   )
 }
+
+export const mapStateToProps = state => ({
+  ...state
+})
+
+export default connect(mapStateToProps)(Reduxx)

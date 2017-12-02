@@ -16,10 +16,12 @@ export const initialState = {
   combine: false,   // if off, 1 reducer shows, if on 2 reducers show and are combined
   async: false,     // component1 calls an async action
   switchh: false,   // reducer switch
-  namedKey: false,  // reducer keys are named
   form: false,      // component 1 uses Redux form
   compose: false,   // component 1 uses compose
     
+  arrReact: 1,
+  arrRedux: 0,
+  
   arrIndexHTML: 1,
   arrIndexDOM: 1,
   arrIndexC1: 1,
@@ -28,15 +30,25 @@ export const initialState = {
   arrIndexProvider: 0,
   arrIndexProviderOut: 0,
 
+  arrC1Class: 0,
+  arrC1Stateful: 0,
+  arrC1Props: 1,
+  arrC1Callback: 0,
+  arrC1MapState: 0,
+  arrC1Async: 0,
   arrC1Link: 0,
   arrC1Route: 0,
   arrC1Router: 0,
   arrC1Exp: 1,
 
   arrC1Connect: 0,
+  arrC1Callback: 0,
   arrC1Compose: 0,
   arrC1Form: 0,
 
+  arrC2Props: 1,  
+  arrC2Callback: 0,
+  
   arrC2Exp: 1,
   arrC2Link: 0,
   arrC2Route: 0,
@@ -54,6 +66,7 @@ export const initialState = {
   arrReducerNamed2: 0,
   arrReducerExport: 0,
   arrReducerExportCombine: 0,
+  arrReducerSwitch: 0,
     
   arrActionsDispatch: 0,
   arrActionsExport: 0,

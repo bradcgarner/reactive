@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 export function Component1(props) {
   // ################## TEXT VARIABLES ################
   // @@@@@@@@@ import
-  const showActions = props.reduxx ? 'normal' : 'clear';
-  const showRoutes = props.routes ? 'normal' : 'clear';
-  const showRouter = props.routes ? 'normal' : 'clear';
-  const showLinks = props.links ? 'normal' : 'clear';
+  // const showActions = props.reduxx ? 'normal' : 'clear';
+  // const showRoutes = props.routes ? 'normal' : 'clear';
+  // const showRouter = props.routes ? 'normal' : 'clear';
+  // const showLinks = props.links ? 'normal' : 'clear';
   
   // @@@@@@@@@ line 1
   const showDefault = props.reduxx ? 'clear' : 'normal' ;
@@ -40,18 +40,18 @@ export function Component1(props) {
   const showMapStateAtConnect =  showMapState==='normal' ? 'normal' : 'hidden' ;
 
   // @@@@@@@@@ forms 
-  const showForm = ( props.reduxx && props.form ) ? 'normal' : 'clear' ;
+  // const showForm = ( props.reduxx && props.form ) ? 'normal' : 'clear' ;
   
   // @@@@@@@@@ connect 
-  const showConnect = props.reduxx ? 'normal' : 'clear';
+  // const arrConnect = props.reduxx ? 'normal' : 'clear';
   
   // @@@@@@@@@ compose 
-  const showCompose = ( props.reduxx && props.compose ) ? 'normal' : 'clear' ;
-  const showConnectSimple = ( showConnect && !showCompose ) ? 'normal' : 'clear';
+  // const arrCompose = ( props.reduxx && props.compose ) ? 'normal' : 'clear' ;
   
   // ##################### ARROW CLASSES #####################
   const arrConnect       = `arr${props.arrC1Connect}`;
   const arrCompose       = `arr${props.arrC1Compose}`;
+  const arrConnectSimple = ( arrConnect && !arrCompose ) ? arrConnect : 'arr0';
   const arrLink          = `arr${props.arrC1Link}`;
   const arrForm          = `arr${props.arrC1Form}`;
   const arrRoute         = `arr${props.arrC1Route}`;
@@ -60,23 +60,24 @@ export function Component1(props) {
   const arrExportConnect = `arr${props.arrC1Connect}`;
   const arrExport        = props.arrC1Compose + props.arrC1Connect === 0 ?
                            `arr${props.arrC1Exp}` : 'arr0' ;
-  
+  const arrActions       = `arr${props.arrActionsC1}`;
+                           
     return (
     <div className="block component1">
       <div className="folder-header"><h3>Component1</h3></div>
        
       <div className="group component1import">
         <div className="library"><p>import React from 'react';</p></div>
-        <div className="file"><p className={showActions}>import &#123;
+        <div className="file"><p className={arrActions}>import &#123;
           <span className="example">actionName</span> 
-          <span className={showForm}>, <span className="example">submitForm</span></span>
+          <span className={arrForm}>, <span className="example">submitForm</span></span>
           &#125; from './<span className="example">actions</span>';</p></div>
-        <div className="library"><p className={showConnect}>import &#123; connect &#125; from 'react-redux';</p></div>
-        <div className="library"><p className={showCompose}>import &#123; compose &#125; from 'redux';</p></div>
-        <div className="library"><p className={showForm}>import &#123;  reduxForm, Field &#125; from 'redux-form';</p></div>
-        <div className="library"><p className={showRoutes}>import &#123; Route &#125; from 'react-router-dom';</p></div>
-        <div className="library"><p className={showRouter}>import &#123; BrowserRouter &#125; from 'react-router-dom';</p></div>
-        <div className="library"><p className={showLinks}>import &#123; Link &#125; from 'react-router-dom';</p></div>
+        <div className="library"><p className={arrConnect}>import &#123; connect &#125; from 'react-redux';</p></div>
+        <div className="library"><p className={arrCompose}>import &#123; compose &#125; from 'redux';</p></div>
+        <div className="library"><p className={arrForm}>import &#123;  reduxForm, Field &#125; from 'redux-form';</p></div>
+        <div className="library"><p className={arrRoute}>import &#123; Route &#125; from 'react-router-dom';</p></div>
+        <div className="library"><p className={arrRouter}>import &#123; BrowserRouter &#125; from 'react-router-dom';</p></div>
+        <div className="library"><p className={arrLink}>import &#123; Link &#125; from 'react-router-dom';</p></div>
         <div className="file"><p>import &#123; <span className="example">component2</span> &#125; from './<span className="example">component2</span>';</p></div>
       </div>
 
@@ -113,9 +114,9 @@ export function Component1(props) {
           <div className="code in2"><p className={showDispatch}>this.props.dispatch( actionName ( value ) ) ;</p></div>
           <div className="code in2"><p className={dispatchAsync}>this.props.dispatch( asyncActionName ( value ) ) ;</p></div>      
           <div className="code in1"><p className={showDispatch}>&#125;</p></div>
-          <div className="code in1"><p className={showForm}>handleSubmitButton(values) &#123; </p></div>
-          <div className="code in2"><p className={showForm}>this.props.dispatch(submitForm(values))</p></div>
-          <div className="code in1"><p className={showForm}>&#125;</p></div>
+          <div className="code in1"><p className={arrForm}>handleSubmitButton(values) &#123; </p></div>
+          <div className="code in2"><p className={arrForm}>this.props.dispatch(submitForm(values))</p></div>
+          <div className="code in1"><p className={arrForm}>&#125;</p></div>
         </div>
 
         <div className="component1methodSimple">
@@ -129,21 +130,21 @@ export function Component1(props) {
       <div className="group component1return">
         <div className="code in1"><p className={isStateful}>render() (</p></div>
         <div className="code in2"><p>return (</p></div>
-        <div className="code in3"><p className={showRouter}>&lt;BrowserRouter&gt;</p></div>
+        <div className="code in3"><p className={arrRouter}>&lt;BrowserRouter&gt;</p></div>
         <div className="code in4"><p>&lt;div&gt;</p></div>
         <div className="code in5"><p>&lt;Component2 <span className={hideCallBackFn}>/></span>
           <span className={showCallbackFn}> onClick = &#123; ( arg ) => </span>
           <span className={showThisCallbackFn}>this.</span>
           <span className={showCallbackFn}>callbackFunc( arg ) &#125; /></span>
         </p></div>
-        <div className="code in5"><p className={showRoutes}>&lt;Route exact path="/" component=&#123; Component2 &#125; /></p></div>
-        <div className="code in5"><p className={showLinks}>&lt;Link to="&#123; link &#125;"></p></div>
+        <div className="code in5"><p className={arrRoute}>&lt;Route exact path="/" component=&#123; Component2 &#125; /></p></div>
+        <div className="code in5"><p className={arrLink}>&lt;Link to="&#123; link &#125;"></p></div>
         <div className="code in4"><p>&lt;/div&gt;</p></div>
         <div className="code in4"><p>&lt;form onSubmit=&#123;this.props.handleSubmit(values => &#123;</p></div>
         <div className="code in5"><p>return this.handleSubmitButton(values)&#125; )&#125;&gt;</p></div>
         <div className="code in5"><p>&lt;Field name="name" id="name" component="input"/&gt;</p></div>
         <div className="code in4"><p>&lt;/form&gt;</p></div>
-        <div className="code in3"><p className={showRouter}>&lt;/BrowserRouter&gt;</p></div>
+        <div className="code in3"><p className={arrRouter}>&lt;/BrowserRouter&gt;</p></div>
         <div className="code in2"><p>)</p></div>
         <div className="code in1"><p className={isStateful}>&#125;</p></div>
       </div>
@@ -158,7 +159,7 @@ export function Component1(props) {
 
         <div className="group component1connectSimple">
           <div className="code in1">
-            <p className={showConnectSimple}>export default connect(
+            <p className={arrConnectSimple}>export default connect(
               <span className={showMapStateAtConnect}> mapStateToProps </span>
             )( Component1 )</p>
           </div>
@@ -166,18 +167,18 @@ export function Component1(props) {
 
         <div className="group component1connectCompose">
           <div className="code in1">
-            <p className={showCompose}>export default compose(</p>
+            <p className={arrCompose}>export default compose(</p>
           </div>
           <div className="code in2">
-            <p className={showCompose}>connect( 
+            <p className={arrCompose}>connect( 
               <span className={showMapStateAtConnect}> mapStateToProps </span>
             ),</p>
           </div>
           <div className="code in2">
-              <p className={showCompose}>reduxForm( &#123; form: 'formName' &#125; ),</p>
+              <p className={arrCompose}>reduxForm( &#123; form: 'formName' &#125; ),</p>
           </div>
           <div className="code in1">
-            <p className={showCompose}>)( Component1 )</p>
+            <p className={arrCompose}>)( Component1 )</p>
           </div>
         </div>
 
