@@ -4,11 +4,7 @@ import { connect } from 'react-redux';
 export function Store(props) {
 
   // ################## TEXT VARIABLES ################
-
-  // @@@@@@@@@ import
-  const showRedux = props.reduxx ? 'normal' : 'clear';    
-  const showAsync = props.async ? 'normal' : 'clear';
-  const createAsync = props.async ? ', applyMiddleware( thunk ) ) ' : ' )';
+  const createAsync    = props.async ? ', applyMiddleware( thunk ) ) ' : ' )';
   
   // ################## CLASS VARIABLES ################
   const arrRedux       = `arr${props.arrRedux}`; 
@@ -21,17 +17,17 @@ export function Store(props) {
   
   return (
     <div className={background}>
-      <div className="folder-header"><h3 className={showRedux}>Store</h3></div>
+      <div className="folder-header"><h3 className={arrRedux}>Store</h3></div>
 
       <div className="group storeImport">
-        <div className="file"><p className={showRedux}>import reducer from './reducer';</p></div>
-        <div className="library"><p className={showRedux}>import &#123; createStore &#125; from 'redux';</p></div>
-        <div className="library"><p className={showAsync}>import &#123; applyMiddleware &#125; from 'redux';</p></div>
-        <div className="library"><p className={showAsync}>import  thunk  from 'redux-thunk';</p></div>
+        <div className="file"><p className={arrRedux}>import reducer from './reducer';</p></div>
+        <div className="library"><p className={arrRedux}>import &#123; createStore &#125; from 'redux';</p></div>
+        <div className="library"><p className={arrMiddleWare}>import &#123; applyMiddleware &#125; from 'redux';</p></div>
+        <div className="library"><p className={arrThunk}>import  thunk  from 'redux-thunk';</p></div>
       </div>
 
       <div className="group storeCode">
-        <div className="code"><p className={showRedux}>export default createStore( reducer {createAsync} </p></div>
+        <div className="code"><p className={arrRedux}>export default createStore( reducer {createAsync} </p></div>
         <p className="comment">The store created by createStore has a dispatch() method. 
           The dispatch() method calls the reducer that is the named aregument above. 
           The dispatch() method acceppts an action as an argument; the action must be an object... 

@@ -27,11 +27,11 @@ export function Actions(props) {
       </div>
 
       <div className="group actionsSubmit">
-        <div className="code in1"><p className={arrRedux}>export const SUBMIT_FORM = 'SUBMIT_FORM';</p></div>
-        <div className="code in1"><p className={arrRedux}>export const submitForm = arg => ( &#123;</p></div>
-        <div className="code in2"><p className={arrRedux}>type: SUBMIT_FORM,</p></div>
-        <div className="code in2"><p className={arrRedux}>arg</p></div>
-        <div className="code in1"><p className={arrRedux}>&#125; );</p></div>
+        <div className="code in1"><p className={arrSubmit}>export const SUBMIT_FORM = 'SUBMIT_FORM';</p></div>
+        <div className="code in1"><p className={arrSubmit}>export const submitForm = arg => ( &#123;</p></div>
+        <div className="code in2"><p className={arrSubmit}>type: SUBMIT_FORM,</p></div>
+        <div className="code in2"><p className={arrSubmit}>arg</p></div>
+        <div className="code in1"><p className={arrSubmit}>&#125; );</p></div>
       </div>
 
       <div className="group actionsAsync">
@@ -44,7 +44,7 @@ export function Actions(props) {
       </div>
 
       <div className="flowContainer">
-        <div className={`flow e-a-dispatch ${arrExport}`}>
+        <div className={`flow e-a-dispatch ${arrAsync}`}>
           <div className="arrow-D"></div>
           <div className="tail tail1"></div>
           <div className="tail tail2"></div>

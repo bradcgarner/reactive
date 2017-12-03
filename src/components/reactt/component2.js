@@ -4,21 +4,6 @@ import { connect } from 'react-redux';
 export function Component2(props) {
 
     // ################## CLASS VARIABLES ################
-
-    // @@@@@@@@@ import
-    // const showActions = props.reduxx ? 'normal' : 'clear';    
-    // const showRoutes = props.routes ? 'normal' : 'clear';
-    // const showLinks = props.links ? 'normal' : 'clear';
-
-    // @@@@@@@@@@@ line1
-    // const showDefault = props.reduxx ? 'clear' : 'normal' ;
-
-    // @@@@@@@@@ return
-    // const showCallbackFn = ( !props.reduxx & props.callback ) ? 'normal' : 'clear' ;
-    // const hideCallBackFn = showCallbackFn==='normal' ? 'hidden' : 'normal' ;
-  
-    // @@@@@@@@@ connect 
-    // const showConnect = props.reduxx ? 'normal' : 'clear';
     
     const arrRedux           = `arr${props.arrRedux}`;
     const arrCallback        = `arr${props.arrC2Callback}`;
@@ -28,8 +13,7 @@ export function Component2(props) {
     const arrRoute           = `arr${props.arrC2Route}`;
     const arrExportConnect   = `arr${props.arrC2Connect}`;
     const arrNoExportConnect = props.arrC2Connect > 0 ? 'arr0' : 'normal' ;
-    const arrExport          = props.arrC2Compose + props.arrC2Connect === 0 ?
-                             `arr${props.arrC2Exp}` : 'arr0' ;
+    const arrExport          = `arr${props.arrC2Exp}` ;
   
     return (
       <div className="block component2">

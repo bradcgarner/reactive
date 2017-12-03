@@ -1032,17 +1032,17 @@ $arrowOff: $arrowW + ($flowW/2);
 
 //https://color.hailpixel.com/#030708,131939,211D58,1B4750,24626B,2A767E,329577,349D8F,66CCC9,5BC8B8,3DB1B8,3DB1B8
 
-.arr-1 { color: rgb(250, 2, 2); border-color: rgb(250, 2, 2); }
-.arr0  { color: rgba(223, 247, 8, 0.2); border-color: rgba(223, 247, 8, 0.2); background-color: transparent;}
-.arr1  { color: #000000; border-color: #000000; }
-.arr2  { color: #1b4750; border-color: #1b4750 }
-.arr3  { color: #24626b; border-color: #24626b }
-.arr4  { color: #2a767e; border-color: #2a767e }
-.arr5  { color: #329577; border-color: #329577 }
-.arr6  { color: #349D8F; border-color: #349D8F }
-.arr7  { color: #5BC8B8; border-color: #5BC8B8 }
-.arr8  { color: #66CCC9; border-color: #66CCC9 }
-.arr9  { color: lighten(#66CCC9, 5%); border-color: lighten(#66CCC9, 5%) }
+.arr-1 { color: red;       border-color: red; }
+.arr0  { color: transparent; border-color: transparent; background-color: transparent;}
+.arr1  { color: #000000;   border-color: #000000; }
+.arr2  { color: #2a767e;   border-color: #2a767e }
+.arr3  { color: #349D8F;   border-color: #349D8F }
+.arr4  { color: #349D8F;   border-color: #349D8F }
+.arr5  { color: #349D8F;   border-color: #349D8F }
+.arr6  { color: #349D8F;   border-color: #349D8F }
+.arr7  { color: #349D8F;   border-color: #349D8F }
+.arr8  { color: #349D8F;   border-color: #349D8F }
+.arr9  { color: #349D8F;   border-color: #349D8F }
 
 
 

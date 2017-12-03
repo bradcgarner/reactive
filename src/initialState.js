@@ -68,7 +68,8 @@ export const initialState = {
   arrReducerExport: 0,
   arrReducerExportCombine: 0,
   arrReducerSwitch: 0,
-    
+  arrReducerForm: 0,
+  
   arrActionsDispatch: 0,
   arrActionsExport: 0,
   arrActionsSubmit: 0,
