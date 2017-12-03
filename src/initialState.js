@@ -30,6 +30,7 @@ export const initialState = {
   arrIndexProvider: 0,
   arrIndexProviderOut: 0,
 
+  arrC1Constructor: 0,
   arrC1Class: 0,
   arrC1Stateful: 0,
   arrC1Props: 1,

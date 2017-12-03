@@ -15,10 +15,13 @@ const DEPENDENCIES = {
     arrReact: true,
     classs: {          // toggle
       stateful: false, // toggle on tier 2
-      arrC1Class: false,
-      arrC1Stateful: false,
+      arrC1Class: true,
+      arrC1Constructor: false,
     },
-    stateful: false,   // toggle
+    stateful: {        // toggle
+      arrC1Stateful: true,   
+      arrC1Constructor: true,      
+    },
     propss: {          // toggle
       arrC1Props: true,
       arrC2Props: true,
@@ -89,9 +92,10 @@ const DEPENDENCIES = {
   }
 };
 
-// arrC1Exp: false,
-// arrC2Exp: false,  
+// arrC1Exp: false, turn off when Redux is on
+// arrC2Exp: false,   turn off when Redux is on
 // arrActionsExport
+// arrC1Callback turn off when Redux is on
 
 const flippedOff = -1;
 const off = 0;
@@ -99,26 +103,28 @@ const on = 1;
 const max = 9;
 
 
-// recursively loop through the tree.  When we find the prop we want, push it on.
-// When we push the prop on, if it is an object with dependencies, we push on the entire object.
-// We continue to recurse through the rest of the tree after finding, which is not needed.
-// While continuing, we push on nested dependencies, which we don't need.
-// So the [0] index of what we return is valuable; the rest is FYI.
-const extractDependencies= (prop, dependencies) => {
-  let found = [];
-  const findDependencies = (prop, dependencies) => {
+// recursively loop through the tree.  When we find the prop, return it.
+// If the prop is boolean (rare), we return the boolean.
+// usually the prop is an object; we return the whole object.
+// We end up with a pointer to the global DEPENDENCIES object
+const findDependencies = (prop) => {
+  console.log('findDependencies',prop)
+  console.log('DEPENDENCIES', DEPENDENCIES)
+
+  const findDependenciesLoop = (prop, dependencies) => {
     if ( dependencies[prop] ) {
-      return found.push(dependencies[prop]);
-    } else if ( typeof dependencies === 'object' && !found.length ) {
-      for ( let property in dependencies ) {
-        findDependencies(prop, dependencies[property])
+      console.log('found dependency: returning:', dependencies[prop])
+      return dependencies[prop];
+    } else if ( typeof dependencies === 'object' ) {
+      for ( let key in dependencies ) {
+        console.log('recurse prop in dep', key, dependencies)
+        return findDependenciesLoop(prop, dependencies[key])
       }
     } else {
       return;
     }
   }
-  findDependencies(prop, dependencies);
-  return found;
+  return findDependenciesLoop(prop, DEPENDENCIES);
 }
 
 // recursively loop through a subset of the global DEPENDENCIES object, 
@@ -127,95 +133,101 @@ const extractDependencies= (prop, dependencies) => {
 // true = turn on automatically
 // Convey all booleans. Objects don't have booleans, so set to false.
 // return the array, primed to merge with state
-const flattenDependencies = (dependencies) => {
-  let found = [];  
+// const flattenDependencies = (dependenciesPointer) => {
+//   let found = [];  
 
-  const loopDependencies = (prop, dependencies, count=0) => {
-    if ( typeof dependencies[prop] === 'object' ) {
-      let node = {};
-      node[prop] = false;
-      found.push(node);
-      // console.log('--- found object', found);
-      for ( let prop in dependencies[prop] ) {
-        loopDependencies(prop, dependencies[prop], count+1)
+//   const pushDependencyIntoFound = (dependency, dependenciesPointer) => {
+//     if ( typeof dependency === 'object' ) {
+//       for (let key in dependency) {
+//         let node = {};
+//         node[key] = false;
+//         found.push(node);
+//         return pushDependencyIntoFound(dependency[key], dependency)
+//       }
+//     } else {
+//       console.log('dependency',dependency)
+//       let node = {};
+//       node[dependency] = dependenciesPointer[dependency];
+//       console.log('node to push into found',node)
+//       return found.push(node);
+//       // console.log('--- found boolean', found);  
+//     }
+//   }
+
+//   for ( let dependency in dependenciesPointer ) {
+//     pushDependencyIntoFound(dependency, dependenciesPointer)
+//     console.log('in dependency', dependency);
+//   };
+
+//   return found;
+// }
+
+// const listLayersFullyRemoved = (dependenciesPointer, remainingPropsObj) => {
+//   const layerNumsRemoved = []
+//   // console.log('dependent',dep);
+//   for (let property in dependenciesPointer) {
+//     // console.log('prop of dependent',ppty)
+//     if (typeof remainingPropsObj[property] === 'number' &&
+//       !layerNumsRemoved.includes(remainingPropsObj[property])
+//     ) {
+//       layerNumsRemoved.push(remainingPropsObj[property]);
+//       // console.log('layerNumsRemoved after push',layerNumsRemoved)
+//     }
+//     // console.log('layerNumsRemoved after populating',layerNumsRemoved)
+//   }
+//   return layerNumsRemoved;
+// }
+
+const removeDependentProps = (dependenciesPointer, allProps) => {
+  const remainingPropsObj = Object.assign({}, allProps);
+  for (let property in dependenciesPointer) {
+    delete remainingPropsObj[property];          
+  }
+  return remainingPropsObj;
+}
+
+const listLayerNumsRemaining = (dependenciesPointer, remainingPropsObj) => {
+  let layerNumsRemaining = [];
+  
+  const loopLayerNumsRemaining = (dependenciesPointer, remainingPropsOb) => {
+    for (let dep in dependenciesPointer){
+      if ( typeof dependenciesPointer[dep] === 'object') {
+        return loopLayerNumsRemaining (dependenciesPointer[dep], remainingPropsOb);
+      } else if ( typeof remainingPropsObj[dep] === 'number' ) {
+        if ( !layerNumsRemaining.includes(remainingPropsObj[dep]) ) {
+          return layerNumsRemaining.push(remainingPropsObj[dep]);
+        }
       }
-    } else if ( typeof dependencies[prop] === 'boolean' ) {
-      let node = {};
-      node[prop] = count > 0 ? false : dependencies[prop];
-      found.push(node);
-      // console.log('--- found boolean', found);      
-      return;
-    } else {
-      return;
     }
+  };
+
+  if (layerNumsRemaining.length > 0 ) {
+    layerNumsRemaining.sort((a,b)=>a-b);
   }
 
-  for ( let prop in dependencies ) {
-    // console.log('---prop', prop, 'in dependencies', dependencies);
-    loopDependencies(prop, dependencies)
-  }
-  return found;
-}
-
-const listAllNumericDependencies = (flatDependencies, remainingProps) => {
-  const layerNumsRemoved = []
-  flatDependencies.forEach(dep => {
-    // console.log('dependent',dep);
-    for (let ppty in dep) {
-      // console.log('prop of dependent',ppty)
-      if (typeof remainingProps[ppty] === 'number' && !layerNumsRemoved.includes(remainingProps[ppty])) {
-        layerNumsRemoved.push(remainingProps[ppty]);
-        // console.log('layerNumsRemoved after push',layerNumsRemoved)
-      }
-      // console.log('layerNumsRemoved after populating',layerNumsRemoved)
-    }
-  })
-  return layerNumsRemoved;
-}
-
-const removeDependentProps = (flatDependencies, allProps) => {
-  const remainingProps = Object.assign({}, allProps);
-  flatDependencies.forEach(dep=>{
-    // console.log('dependent ',dep);
-    for (let p in dep) {
-      // console.log('prop of dependent',p)
-      delete remainingProps[p];          
-    }
-  });
-  return remainingProps;
-}
-
-const listLayerNumsRemaining = (layerNumsAffected, remainingProps) => {
-  const layerNumsRemaining = [...layerNumsAffected];
-  layerNumsRemaining.forEach((number, index)=>{
-    // console.log('layer,index',number, index);
-    for(let prp in remainingProps) {
-      // console.log('prp, remainingProps',prp, remainingProps)
-      if ( layerNumsRemaining.includes(remainingProps[prp]) ) {
-        // console.log('removing remainingProps[prp]', remainingProps[prp])
-        layerNumsRemaining.splice(index,1);
-      } 
-      // console.log('layerNumsRemoved',layerNumsRemoved)
-    }
-  })
+  loopLayerNumsRemaining (dependenciesPointer, remainingPropsObj);
   return layerNumsRemaining;
 }
 
-const decrementProps = (layerNumsRemoved, remainingProps) => {
-  const updatedProps = Object.assign({}, remainingProps);
-  // if a layer is completely removed, decrement all layers greater than it
-  // start at highest number and reverse
-  if ( layerNumsRemoved.length ) {
-    layerNumsRemoved.sort((a,b)=>a-b);
-    // console.log('layerNumsRemoved after sort',layerNumsRemoved)      
-    for (let i=layerNumsRemoved.length-1 ; i>=0 ; i--) {
-      // console.log('i',i)
-      for(let prp in remainingProps) {
-        // console.log('prp, remainingProps',prp, remainingProps)
-        if ( remainingProps[prp] > layerNumsRemoved[i] ) {
-          // console.log('before', remainingProps[prp])
-          remainingProps[prp]--;
-          // console.log('after', remainingProps[prp])
+const decrementProps = (layerNumsRemainingArr, remainingPropsObj) => {
+  const updatedProps = Object.assign({}, remainingPropsObj);
+  // layerNumsRemainingArr should have no duplicates
+  // start at highest number and go backwards
+  // new number should be index + 1
+  // e.g. old array [ 1, 3, 5, 6, 8 ]
+  // i =              0  1  2  3  4
+  // newNum =         1  2  3  4  5
+  if ( layerNumsRemainingArr.length ) {
+    // console.log('layerNumsRemainingArr',layerNumsRemainingArr)      
+    for (let i=layerNumsRemainingArr.length-1 ; i>=0 ; i--) {
+      let newNum = i+1;
+      // console.log('i',i, 'newNum', newNum)
+      for(let prop in remainingPropsObj) {
+        // console.log('prop, remainingPropsObj',prop, remainingPropsObj)
+        if ( remainingPropsObj[prop] === layerNumsRemainingArr[i] ) {
+          // console.log('before', remainingPropsObj[prop])
+          remainingPropsObj[prop] = newNum ;
+          // console.log('after', remainingPropsObj[prop])
         }
       }
     }
@@ -229,7 +241,7 @@ const decrementProps = (layerNumsRemoved, remainingProps) => {
 // when turning off, first determine whether an entire layer is turned off.
 // e.g., if we have 3 layers at level 2, and we turn off 2 of those 3, we have 1 layer remaining at stack 2.
 // therefore, we do not decrement that layer.
-const incrementStack = (prop, action, turnOn, flatDependencies) => {
+const incrementStack = (prop, action, turnOn, dependenciesPointer) => {
   const allProps = Object.assign({},action);
   let updatedProps;
   if ( turnOn ) {
@@ -246,54 +258,95 @@ const incrementStack = (prop, action, turnOn, flatDependencies) => {
   } else {  // if turning off, 
     // console.log('decrement')
     // create an object with only props to remain; used for tracking in this function
-    const remainingProps = removeDependentProps(flatDependencies,allProps)
+    const remainingPropsObj = removeDependentProps(dependenciesPointer, allProps)
     // list all layers that are at least partially removed
     // array might have duplicates, e.g. [1,1,2,4,5,5,5,7,2,3,1]
-    const layerNumsRemoved = listAllNumericDependencies(flatDependencies, allProps);
-    // console.log('remainingProps after deletions from allProps',remainingProps)
+    // const layerNumsRemovedArr = listLayersFullyRemoved(dependenciesPointer, remainingPropsObj);
+    // console.log('remainingPropsObj after deletions from allProps',remainingPropsObj)
     // whittle this list by layers completely removed
-    const layerNumsRemaining = listLayerNumsRemaining(layerNumsRemoved, remainingProps);
-    updatedProps = decrementProps(layerNumsRemaining, remainingProps);
+    const layerNumsRemainingArr = listLayerNumsRemaining(dependenciesPointer, remainingPropsObj);
+    updatedProps = decrementProps(layerNumsRemainingArr, remainingPropsObj);
   }
   return updatedProps;
 }
 
-const toggleDependencies = (action, turnOn, dep) => {
+const toggleDependencies = (action, turnOn, dependenciesPointer) => {
   let newAction = Object.assign({}, action);
-  dep.forEach(obj => {
-    for ( let prop in obj ) {
-      // console.log('prop in obj', prop, obj);
-      // console.log('turnOn',turnOn);
-      // console.log('newAction[prop]',typeof newAction[prop], newAction[prop]);
-      // console.log('newAction[prop]',newAction[prop]);
-      if (newAction[prop] === true && !turnOn) {     // dependency is on; we are turning parent off
-        newAction[prop] = false;                     // so turn off
-        // console.log('just turned off ',prop,newAction[prop]);
-      } else if (
-        prop.slice(0,3) === 'arr' && 
-        typeof newAction[prop] === 'number') {             // arrows are numbers in state, boolean in dependencies
-          // console.log('ON AN ARROW, turn on, prop, obj', turnOn, prop, obj)
-        if (turnOn && newAction[prop] < on && obj[prop]) { // dependency is off; dep[prop]: 'true' = always on
-          newAction[prop] = on;                            // so turn on (on is a global variable set to 1)
-        // console.log('turn on', );
-        } else if (!turnOn && newAction[prop] >= on ) {    // dependency is on; we are turning off parent
-          newAction[prop] = flippedOff;                    // so flip off (flippedOff is a global variable set to -1)
-          // console.log('flip off')
+
+  const flipOn = (dependency, newAction) => {
+    console.log('');
+    console.log('flip on {}', dependency);
+    console.log('newAction{...}',newAction);
+    
+    for (let key in dependency) {                         // only one key
+      console.log('let key in dependency', key)
+      console.log('typeof dependency[key]', typeof dependency[key])
+      console.log('dependency[key]', dependency[key])
+      
+      console.log('dependency[key]', dependency[key])
+      // console.log('default on', defaultOn);
+
+      if (typeof dependency[key] === 'object') {
+        console.log('turn off object', key)
+        newAction[key] = false;                        // match default
+      } else if (typeof newAction[key] === 'boolean') {          
+          newAction[key] = dependency[key];                        // match default
+          console.log('newAction[key] boolean on', key, newAction[key])
+      } else if (typeof newAction[key] === 'number') {   
+        if ( newAction[key] < on && dependency[key] ) {        // turn on only if default is on
+          newAction[key] = on;                          // on is a global variable set to 1
+          console.log('newAction[key] number on', key, newAction[key])
         }
-      } else if (typeof dep[prop] === 'boolean') {     // this will be all text properties; booleans in state & dependencies
-        if (!newAction[prop] && obj[prop] && turnOn) { // filter dependencies by 'true' (always on when parent is on)
-          newAction[prop] = true;                      // so turn on
-        } else if (newAction[prop] && !turnOn) {       // dependency is on; we are turning parent off
-          newAction[prop] = false;                     // so turn off
-        } 
+      } 
+    }
+  };
+
+  const flipOff = (dependency, newAction) => {
+    console.log('');    
+    console.log('flip off', dependency);
+    console.log('newAction',newAction);
+    for (let key in dependency) {
+      console.log('let key in dependency', key)
+      console.log('typeof newAction[key]', typeof newAction[key])
+      console.log('newAction[key] before', newAction[key])
+      console.log('dependency[key] before', dependency[key])
+      
+      if (typeof newAction[key] === 'boolean') {          
+        newAction[key] = false;                        // always turn off
+        console.log('newAction[key] boolean off', key, newAction[key])
+      } else if (typeof newAction[key] === 'number') { // number dependencies always flip off
+        if ( newAction[key] >= on ) {                  // but only if already on
+          newAction[key] = flippedOff;                 // flippedOff is a global variable set to -1
+          console.log('newAction[key] number off', key, newAction[key])
+        }
+      }
+
+      if (typeof dependency[key] === 'object') {
+        console.log('recurse off', key)
+        flipOff(dependency[key], newAction);
       }
     }
-  });
+  };
+
+  if (typeof dependenciesPointer === 'object') {
+    
+    if (turnOn) {
+      console.log(' ');
+      console.log('dep obj to turn on', dependenciesPointer);
+      flipOn(dependenciesPointer, newAction);
+
+    } else { 
+      console.log(' ');    
+      console.log('dep obj to turn off', dependenciesPointer);
+      flipOff(dependenciesPointer, newAction);
+    }
+
+  }
   return newAction;
 }
 
 // flippedOff is -1; find these and turn to simple off, which is 0
-export const removeFlippedOff = action => {
+const removeFlippedOff = action => {
   const newAction = Object.assign({}, action);
   for (let prop in newAction) {
     newAction[prop] = newAction[prop] === flippedOff ? off : newAction[prop] ;
@@ -315,19 +368,19 @@ export const toggle = (prop, state) => dispatch => {
     turnOn = action[prop];
     // console.log('on', turnOn);
     // get dependencies (if any) of the prop that was just toggled, then flatten that into an array in a separate variable
-    const thisDependencies = extractDependencies(prop, DEPENDENCIES);
-    // console.log('thisDependencies', thisDependencies)
-    const flatDependencies = flattenDependencies(thisDependencies[0]); // we only need the first one, which may be a nested object.
-    // console.log('flatDependencies', flatDependencies)
+    const dependenciesPointer = findDependencies(prop);
+    console.log('dependenciesPointer', dependenciesPointer)
+    // const dependenciesPointerArr = flattenDependencies(dependenciesPointer); // we only need the first one, which may be a nested object.
+    // console.log('dependenciesPointerArr', dependenciesPointerArr)
     // increment the stack; if turning on, increment existing; if turning off, decrement existing (only affects numeric properties)
-    const incrementedStack = incrementStack(prop, action, turnOn, flatDependencies);
+    const incrementedStackObj = incrementStack(prop, action, turnOn, dependenciesPointer);
     // console.log('updatedStack', updatedStack)
     // merge with remaining copy of state
-    const incrementedState = Object.assign({}, action, incrementedStack);
+    const incrementedState = Object.assign({}, action, incrementedStackObj);
     // console.log('incrementedActions', incrementedActions);
     // toggleDependencies includes adding arrows to stack as #on, and removing as #flippedOff
     // toggleDependencies handles text as simple on/off
-    const newAction = toggleDependencies(incrementedState, turnOn, flatDependencies);
+    const newAction = toggleDependencies(incrementedState, turnOn, dependenciesPointer);
     console.log('newAction',newAction);
     // finally, as a timeout
     // go through state, and if flippedOff, set to plain Off

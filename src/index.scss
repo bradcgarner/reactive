@@ -464,7 +464,7 @@ $arrowOff: $arrowW + ($flowW/2);
 
 .r-1-connect-L {
   top: $folder-header-loaded + ($line * 2) + $half-line;
-  height: (38.6 * $line) + $group-bot-margin;
+  height: (37.6 * $line) + $group-bot-margin;
   left: -3em;
   width: 3em;
   border-right: none;
@@ -475,7 +475,7 @@ $arrowOff: $arrowW + ($flowW/2);
 }
 .r-1-connect-R {
   top: $folder-header-loaded + ($line * 2) + $half-line;
-  height: (38.6 * $line) + $group-bot-margin;
+  height: (37.6 * $line) + $group-bot-margin;
   left: 0;
   width: 1em;
   border-top: none;

@@ -2,61 +2,64 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 export function Component1(props) {
-  // ################## CLASS VARIABLES ################
   
   // @@@@@@@@@ line 1
-  const showDefault = props.reduxx ? 'clear' : 'normal' ;
-  const componentType = props.classs ? 'class' : 'function' ;
-  const componentTypePad = props.classs ? 'normal' : 'hidden' ;
-  const line1end = props.classs ? 'exends React.Component {' : '(props) {' ;
+  // const showDefault = props.reduxx ? 'clear' : 'normal' ;
 
   // @@@@@@@@@ constructor 
-  const showConstructor = props.classs ? 'normal' : 'clear' ;
+  // const showConstructor = props.classs ? 'normal' : 'clear' ;
 
   // @@@@@@@@@ method callback 
-  const showCallback = ( !props.reduxx && props.stateful ) ? 'normal' : 'clear' ;
+  // const showCallback = ( !props.reduxx && props.stateful ) ? 'normal' : 'clear' ;
 
   // @@@@@@@@@ setState 
-  const isStateful = ( !props.reduxx && props.stateful ) ? 'normal' : 'clear' ;
-  const showSetState = ( !props.reduxx && props.stateful ) ? 'normal' : 'hidden' ;
+  // const isStateful = ( !props.reduxx && props.stateful ) ? 'normal' : 'clear' ;
+  // const showSetState = ( !props.reduxx && props.stateful ) ? 'normal' : 'hidden' ;
 
   // @@@@@@@@@ return 
-  const showCallbackFn = ( !props.reduxx & props.callback ) ? 'normal' : 'clear' ;
-  const hideCallBackFn = showCallbackFn==='normal' ? 'hidden' : 'normal' ;
-  const showThisCallbackFn = ( showCallbackFn==='normal' && props.classs ) ? 'normal' : 'clear' ;
+  // const showCallbackFn = ( !props.reduxx & props.callback ) ? 'normal' : 'clear' ;
+  // const hideCallBackFn = showCallbackFn==='normal' ? 'hidden' : 'normal' ;
 
   // @@@@@@@@@ dispatch 
-  const showDispatch = props.reduxx ? 'normal' : 'hidden' ;
-  const dispatchAsync = ( props.reduxx && props.async ) ? 'normal' : 'hidden' ;
-  const showSimpleFn = ( showCallbackFn==='clear' && showDispatch==='hidden' && dispatchAsync==='hidden' ) ? 'normal' : 'hidden' ;
+  // const showDispatch = props.reduxx ? 'normal' : 'hidden' ;
+  // const dispatchAsync = ( props.reduxx && props.async ) ? 'normal' : 'hidden' ;
+  // const showSimpleFn = ( showCallbackFn==='clear' && showDispatch==='hidden' && dispatchAsync==='hidden' ) ? 'normal' : 'hidden' ;
 
   // @@@@@@@@@ mapState 
-  const showMapState =  ( props.reduxx && props.mapState ) ? 'normal' : 'clear' ;
-  const showMapStateAtConnect =  showMapState==='normal' ? 'normal' : 'hidden' ;
+  // const showMapState =  ( props.reduxx && props.mapState ) ? 'normal' : 'clear' ;
+  // const showMapStateAtConnect =  showMapState==='normal' ? 'normal' : 'hidden' ;
+  
+  // ################## CONTENT VARIABLES ################
+  const componentType      = props.arrC1Class ? 'class' : 'function' ;
+  const line1end           = props.arrC1Class ? 'exends React.Component {' : '(props) {' ;
 
-  // @@@@@@@@@ forms 
-  // const showForm = ( props.reduxx && props.form ) ? 'normal' : 'clear' ;
+  // ################## CLASS VARIABLES ################  
+  const arrComponentTypePad= componentType === 'class' ? 'hidden' : 'normal' ;
+  const arrClass           = `arr${props.arrC1Class}`;
+  const arrStateful        = `arr${props.arrC1Stateful}`;
+  const arrMapState        = `arr${props.arrC1MapState}`;
+  const arrConstructor     = `arr${props.arrC1Constructor}`;
+  const arrMapStateConnect = `arr${props.arrC1MapState}`;
+  const arrRedux           = `arr${props.arrRedux}`;
+  const arrDispatch        = `arr${props.arrRedux}`;
+  const arrAsync           = `arr${props.arrC1Async}`;
+  const arrCallback        = `arr${props.arrC1Callback}`;
+  const arrThisCallback    = ( arrCallback && props.classs ) ? arrCallback : 'arr0' ;
+  const arrNoCallback      = (props.arrRedux || props.arrC1Callback) ? 'arr0' : 'normal' ;
+  const arrNoConnect       = props.arrC1Connect ? 'arr0' : 'normal' ;
+  const arrConnect         = `arr${props.arrC1Connect}`;
+  const arrCompose         = `arr${props.arrC1Compose}`;
+  const arrConnectSimple   = arrCompose ? 'arr0' : arrConnect ;
+  const arrLink            = `arr${props.arrC1Link}`;
+  const arrForm            = `arr${props.arrC1Form}`;
+  const arrRoute           = `arr${props.arrC1Route}`;
+  const arrRouter          = `arr${props.arrC1Router}`;
+  const arrExportCompose   = `arr${props.arrC1Compose}`;
+  const arrExportConnect   = `arr${props.arrC1Connect}`;
+  const arrExport          = props.arrC1Compose + props.arrC1Connect === 0 ?
+                             `arr${props.arrC1Exp}` : 'arr0' ;
+  const arrActions         = `arr${props.arrActionsC1}`;
   
-  // @@@@@@@@@ connect 
-  // const arrConnect = props.reduxx ? 'normal' : 'clear';
-  
-  // @@@@@@@@@ compose 
-  // const arrCompose = ( props.reduxx && props.compose ) ? 'normal' : 'clear' ;
-  
-  // ##################### ARROW CLASSES #####################
-  const arrConnect       = `arr${props.arrC1Connect}`;
-  const arrCompose       = `arr${props.arrC1Compose}`;
-  const arrConnectSimple = ( arrConnect && !arrCompose ) ? arrConnect : 'arr0';
-  const arrLink          = `arr${props.arrC1Link}`;
-  const arrForm          = `arr${props.arrC1Form}`;
-  const arrRoute         = `arr${props.arrC1Route}`;
-  const arrRouter        = `arr${props.arrC1Router}`;
-  const arrExportCompose = `arr${props.arrC1Compose}`;
-  const arrExportConnect = `arr${props.arrC1Connect}`;
-  const arrExport        = props.arrC1Compose + props.arrC1Connect === 0 ?
-                           `arr${props.arrC1Exp}` : 'arr0' ;
-  const arrActions       = `arr${props.arrActionsC1}`;
-                           
     return (
     <div className="block component1">
       <div className="folder-header"><h3>Component1</h3></div>
@@ -79,58 +82,58 @@ export function Component1(props) {
       <div className="group component1line1">
         <div className="code">
           <p>export
-            <span className={showDefault}> default </span>
-            {componentType} <span className={componentTypePad}>&nbsp;&nbsp;&nbsp;</span> 
+            <span className={arrNoConnect}> default </span>
+            {componentType} <span className={arrComponentTypePad}>&nbsp;&nbsp;&nbsp;</span> 
             <span className="example">Component1</span> {line1end}
           </p>
         </div>
       </div>
     
       <div className="group component1constructor"> 
-        <div className="code in1"><p className={showConstructor}>constructor( props ) &#123;</p></div>
-        <div className="code in2"><p className={showConstructor}>super( props )</p></div>
+        <div className="code in1"><p className={arrConstructor}>constructor( props ) &#123;</p></div>
+        <div className="code in2"><p className={arrConstructor}>super( props )</p></div>
         <div className="code in3">
-          <p className={showConstructor}> this.state=&#123; prop: arg[] } </p></div>
-        <div className="code constructor in1"><p className={showConstructor}>&#125;</p></div>
+          <p className={arrConstructor}> this.state=&#123; prop: arg[] } </p></div>
+        <div className="code constructor in1"><p className={arrConstructor}>&#125;</p></div>
       </div>
 
       <div className ="group component1method"> 
 
         <div className="component1methodCallback">
-          <div className="code in1"><p className={showCallbackFn}>callbackFunc( arg ) &#123;</p></div>
-          <div className="code in2"><p className={showCallbackFn}>this.setState(&#123;</p></div>
-          <div className="code in3"><p className={showCallbackFn}>prop: arg</p></div>
-          <div className="code in2"><p className={showCallbackFn}>&#125;)</p></div>
-          <div className="code in1"><p className={showCallbackFn}>&#125;</p></div>
+          <div className="code in1"><p className={arrCallback}>callbackFunc( arg ) &#123;</p></div>
+          <div className="code in2"><p className={arrCallback}>this.setState(&#123;</p></div>
+          <div className="code in3"><p className={arrCallback}>prop: arg</p></div>
+          <div className="code in2"><p className={arrCallback}>&#125;)</p></div>
+          <div className="code in1"><p className={arrCallback}>&#125;</p></div>
         </div>
         
         <div className="component1methodDispatch">
-          <div className="code in1"><p className={showDispatch}>callbackFunc( arg ) &#123;</p></div>
-          <div className="code in2"><p className={showDispatch}>this.props.dispatch( actionName ( value ) ) ;</p></div>
-          <div className="code in2"><p className={dispatchAsync}>this.props.dispatch( asyncActionName ( value ) ) ;</p></div>      
-          <div className="code in1"><p className={showDispatch}>&#125;</p></div>
+          <div className="code in1"><p className={arrDispatch}>asyncFunc( arg ) &#123;</p></div>
+          <div className="code in2"><p className={arrDispatch}>this.props.dispatch( actionName ( value ) ) ;</p></div>
+          <div className="code in2"><p className={arrAsync}>this.props.dispatch( asyncActionName ( value ) ) ;</p></div>      
+          <div className="code in1"><p className={arrDispatch}>&#125;</p></div>
           <div className="code in1"><p className={arrForm}>handleSubmitButton(values) &#123; </p></div>
           <div className="code in2"><p className={arrForm}>this.props.dispatch(submitForm(values))</p></div>
           <div className="code in1"><p className={arrForm}>&#125;</p></div>
         </div>
 
         <div className="component1methodSimple">
-          <div className="code in1"><p className={showSimpleFn}>callbackFunc( arg ) &#123;</p></div>
-          <div className="code in2"><p className={showSimpleFn}>{'// ...do some logic'};</p></div>
-          <div className="code in1"><p className={showSimpleFn}>&#125;</p></div>
+          <div className="code in1"><p className={arrNoCallback}>simpleFunc( arg ) &#123;</p></div>
+          <div className="code in2"><p className={arrNoCallback}>{'// ...do some logic'};</p></div>
+          <div className="code in1"><p className={arrNoCallback}>&#125;</p></div>
         </div>
 
       </div>    
            
       <div className="group component1return">
-        <div className="code in1"><p className={isStateful}>render() (</p></div>
+        <div className="code in1"><p className={arrClass}>render() (</p></div>
         <div className="code in2"><p>return (</p></div>
         <div className="code in3"><p className={arrRouter}>&lt;BrowserRouter&gt;</p></div>
         <div className="code in4"><p>&lt;div&gt;</p></div>
-        <div className="code in5"><p>&lt;Component2 <span className={hideCallBackFn}>/></span>
-          <span className={showCallbackFn}> onClick = &#123; ( arg ) => </span>
-          <span className={showThisCallbackFn}>this.</span>
-          <span className={showCallbackFn}>callbackFunc( arg ) &#125; /></span>
+        <div className="code in5"><p>&lt;Component2 <span className={arrNoCallback}>/></span>
+          <span className={arrCallback}> onClick = &#123; ( arg ) => </span>
+          <span className={arrThisCallback}>this.</span>
+          <span className={arrCallback}>callbackFunc( arg ) &#125; /></span>
         </p></div>
         <div className="code in5"><p className={arrRoute}>&lt;Route exact path="/" component=&#123; Component2 &#125; /></p></div>
         <div className="code in5"><p className={arrLink}>&lt;Link to="&#123; link &#125;"></p></div>
@@ -141,21 +144,21 @@ export function Component1(props) {
         <div className="code in4"><p>&lt;/form&gt;</p></div>
         <div className="code in3"><p className={arrRouter}>&lt;/BrowserRouter&gt;</p></div>
         <div className="code in2"><p>)</p></div>
-        <div className="code in1"><p className={isStateful}>&#125;</p></div>
+        <div className="code in1"><p className={arrStateful}>&#125;</p></div>
       </div>
     
       <div className="group component1mapState">
-        <div className="code in1"><p className={showMapState}>export const mapStateToProps = state => (&#123;</p></div>
-        <div className="code in2"><p className={showMapState}>key: state.value</p></div>
-        <div className="code in1"><p className={showMapState}>&#125;</p></div>
+        <div className="code in1"><p className={arrMapState}>export const mapStateToProps = state => (&#123;</p></div>
+        <div className="code in2"><p className={arrMapState}>key: state.value</p></div>
+        <div className="code in1"><p className={arrMapState}>&#125;</p></div>
       </div>  
   
       <div className="group component1connect">
 
         <div className="group component1connectSimple">
           <div className="code in1">
-            <p className={arrConnectSimple}>export default connect(
-              <span className={showMapStateAtConnect}> mapStateToProps </span>
+            <p className={arrConnect}>export default connect(
+              <span className={arrMapState}> mapStateToProps </span>
             )( Component1 )</p>
           </div>
         </div>
@@ -166,7 +169,7 @@ export function Component1(props) {
           </div>
           <div className="code in2">
             <p className={arrCompose}>connect( 
-              <span className={showMapStateAtConnect}> mapStateToProps </span>
+              <span className={arrMapStateConnect}> mapStateToProps </span>
             ),</p>
           </div>
           <div className="code in2">
