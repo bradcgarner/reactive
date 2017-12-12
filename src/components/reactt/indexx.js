@@ -28,7 +28,7 @@ export function Indexx(props) {
           <div className="code"><p>ReactDOM.render(</p></div>
           <div className="code in1"><p className={arrProviderIn}>&lt;Provider store = &#123; store &#125; &gt;</p></div>
           <div className="code in2"><p>&lt;<span className="example">Component1</span> /&gt;</p></div>
-          <div className="code in1"><p className={arrProviderIn}>&lt;/Provider /&gt; ,</p></div>
+          <div className="code in1"><p className={arrProviderIn}>&lt;/Provider &gt; ,</p></div>
           <div className="code in1"><p>document.getElementById('root')</p></div>
           <div className="code"><p>);</p></div>
           <div className="code"><p>registerServiceWorker();</p></div>
