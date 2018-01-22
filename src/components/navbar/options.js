@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toggle } from '../../actions'
 
-export function Menu(props) {
+export function Options(props) {
   let reactFormat = props.reactt ? '' : 'strikethru';
   let classFormat = props.reactt ? '' : 'strikethru';
   let statefulFormat = props.classs ? '' : 'strikethru';
@@ -18,7 +18,7 @@ export function Menu(props) {
   let composeFormat =  props.reduxx ? '' : 'strikethru';
   
   return (
-    <div className="menu">
+    <div className="options navbar-menu">
                 
       <form className="menu-form">
         <div className='input-label-pair'>
@@ -97,5 +97,5 @@ const mapStateToProps = state => ({
   ...state
 });
 
-export default connect(mapStateToProps)(Menu);
+export default connect(mapStateToProps)(Options);
 

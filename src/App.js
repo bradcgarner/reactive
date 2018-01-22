@@ -2,6 +2,7 @@ import React from 'react';
 import Reactt from './components/reactt/';
 import Reduxx from './components/reduxx/';
 import NavBar from './components/navbar/navbar';
+import TheTrip from './components/theTrip';
 import { connect } from 'react-redux';
 
 
@@ -12,6 +13,7 @@ export function App(props) {
         <NavBar />
         <Reactt />
         <Reduxx />
+        <TheTrip />
       </main>
   )
 }

@@ -1,46 +1,60 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggle } from '../../actions'
-import Menu from './menu';
+import About from './about';
+import Options from './options';
+import Explanation from './explanation';
+import Settings from './settings';
 
 export class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      menu: false,
+      open: null,
     }
   }
 
-  toggleMenu(){
-    this.setState({menu: !this.state.menu});
+  toggleOpen(element){
+    if (this.state.open === element) {
+      this.setState({open: null});
+    } else {
+      this.setState({open: element});
+    }
   }
 
   render() {
-    const reactFormat = this.props.reactt ? '' : 'strikethru';
-    const classFormat = this.props.reactt ? '' : 'strikethru';
-    const statefulFormat = this.props.classs ? '' : 'strikethru';
-    const propsFormat = this.props.reactt ? '' : 'strikethru';
-    const callbackFormat = this.props.reactt ? '' : 'strikethru';
-    const linksFormat = this.props.reactt ? '' : 'strikethru';
-    const routesFormat = this.props.reactt ? '' : 'strikethru';
-    const reduxFormat = this.props.reactt ? '' : 'strikethru';
-    const mapStateFormat =  this.props.reduxx ? '' : 'strikethru';
-    const combineFormat = this.props.reduxx ? '' : 'strikethru';
-    const asyncFormat =  this.props.reduxx ? '' : 'strikethru';
-    const formFormat = this.props.reduxx ? '' : 'strikethru';
-    const composeFormat =  this.props.reduxx ? '' : 'strikethru';
     
-    const menu = this.state.menu ? <Menu/> : null;
+    const about = this.state.open === 'about' ? <About/> : null;
+    const menu = this.state.open === 'menu' ? <Options/> : null;
+    const explanation = this.state.open === 'explanation' ? <Explanation/> : null;
+    const settings = this.state.open === 'settings' ? <Settings/> : null;
   
     return (
       <div className="navbar">
+
+        <i className="fa fa-question-circle navbar-icon"
+        aria-hidden="true"
+        onClick={()=>this.toggleOpen('about')}>
+          {about}
+        </i>
         
-        <i className="fa fa-cogs"
+        <i className="fa fa-cogs navbar-icon"
           aria-hidden="true"
-          onClick={()=>this.toggleMenu()}></i>
-  
-        {menu}
-  
+          onClick={()=>this.toggleOpen('menu')}>
+          {menu}
+        </i>
+        
+        <i className="fa fa-binoculars navbar-icon"
+          aria-hidden="true"
+          onClick={()=>this.toggleOpen('explanation')}>
+          {explanation}
+        </i>
+
+        <i className="fa fa-sliders navbar-icon"
+        aria-hidden="true"
+        onClick={()=>this.toggleOpen('settings')}>
+          {settings}
+        </i>
+
       </div>
   
     )

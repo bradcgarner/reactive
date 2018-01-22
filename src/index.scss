@@ -5,6 +5,7 @@ $file: maroon;
 $indent: 10px;
 $background: white;
 $navbar-color: #ccc;
+$navbar-menu-color: #ddd;
 
 * {
   margin: 0;
@@ -24,21 +25,31 @@ $navbar-height: 50px;
   height: $navbar-height;
   background-color: $navbar-color;
   z-index: 999;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
-.menu {
+.navbar-icon {
+  position: relative;
+  height: $navbar-height;
+  width: $navbar-height;
+  padding: 5px;
+  font-size: 30px;
+}
+.navbar-menu {
   position: absolute;
   top: 100%;
   width: 300px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: white;
+  background-color: $navbar-menu-color;
 }
 
-.menu-form {
 
-}
 .input-label-pair {
   display: flex;
   flex-direction: row;
@@ -1047,16 +1058,83 @@ $arrowOff: $arrowW + ($flowW/2);
 .arr0  { color: transparent; border-color: transparent; background-color: transparent;}
 .arr1  { color: #000000;   border-color: #000000; }
 .arr2  { color: #2a767e;   border-color: #2a767e }
-.arr3  { color: #349D8F;   border-color: #349D8F }
-.arr4  { color: #349D8F;   border-color: #349D8F }
-.arr5  { color: #349D8F;   border-color: #349D8F }
-.arr6  { color: #349D8F;   border-color: #349D8F }
-.arr7  { color: #349D8F;   border-color: #349D8F }
-.arr8  { color: #349D8F;   border-color: #349D8F }
-.arr9  { color: #349D8F;   border-color: #349D8F }
+.arr3  { color: #2a767e;   border-color: #2a767e }
+.arr4  { color: #2a767e;   border-color: #2a767e }
+.arr5  { color: #2a767e;   border-color: #2a767e }
+.arr6  { color: #2a767e;   border-color: #2a767e }
+.arr7  { color: #2a767e;   border-color: #2a767e }
+.arr8  { color: #2a767e;   border-color: #2a767e }
+.arr9  { color: #2a767e;   border-color: #2a767e }
 
 
 
 .arrundefined {
   border-color: rgb(238, 255, 0);
+}
+
+.theTrip {
+  position: absolute;
+  top: 150px;
+  left: 175px;
+  border-radius: 50%;
+  -webkit-transform: rotate(25deg);
+  -ms-transform: rotate(25deg);
+  transform: rotate(40deg);
+  height: 700px;
+  width: 700px;
+  margin: 0;
+  padding: 0;
+}
+.theTripTL {
+  position: absolute;
+  top: 2%;
+  right: 0;
+  border-radius: 50%;
+  border-top: 10px solid blue;
+  height: 95%;
+  width: 95%;
+  margin: 0;
+  padding: 0;
+  transform: rotate(40deg);
+}
+.theTripTR {
+  position: absolute;
+  bottom: 1%;
+  right: 0;
+  border-radius: 50%;
+  border-right: 10px solid green;
+  height: 97%;
+  width: 97%;
+  margin: 0;
+  padding: 0;
+  transform: rotate(20deg);
+}
+.theTripBR {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border-bottom: 10px solid orange;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  transform: rotate(-20deg);
+}
+.theTripBL, .theTripBL2 {
+  position: absolute;
+  top: 1%;
+  right: 3.5%;
+  border-radius: 50%;
+  border-left: 10px solid purple;
+  border-top: transparent;
+  border-bottom: 0px transparent;
+  height: 90%;
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  transform: rotate(60deg);
+}
+.theTripBL2 {
+  transform: rotate(30deg);
 }
