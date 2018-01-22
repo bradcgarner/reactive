@@ -4,6 +4,7 @@ $code: green;
 $file: maroon;
 $indent: 10px;
 $background: white;
+$navbar-color: #ccc;
 
 * {
   margin: 0;
@@ -21,18 +22,28 @@ $navbar-height: 50px;
   width: 100%;
   padding: 10px;
   height: $navbar-height;
-  background-color: $background;
+  background-color: $navbar-color;
   z-index: 999;
 }
+.menu {
+  position: absolute;
+  top: 100%;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: white;
+}
 
-form {
-  input {
-    // display: inline-block;
-    float: left;
-  };
-  label {
-    float: left;
-  }
+.menu-form {
+
+}
+.input-label-pair {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
 }
 
 $column-side-padding: 1.5em;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Reactt from './components/reactt/';
 import Reduxx from './components/reduxx/';
-import NavBar from './components/navbar';
+import NavBar from './components/navbar/navbar';
 import { connect } from 'react-redux';
 
 
