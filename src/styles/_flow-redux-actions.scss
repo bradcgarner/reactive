@@ -1,0 +1,119 @@
+// must be first
+@import '_colors.scss';
+@import '_dimensions.scss';
+
+@import '_group-dimensions.scss';
+
+// first letter [r,e] = [react, redux]
+// second letter i index, 1 compon1,
+//       2 compon2, s store, r reducer,
+//       a actions
+// third part = descriptor
+// last part = Left, Right, Top, Bottom
+
+// @@@@@@@@@@@@ REDUX ACTIONS FILE @@@@@@@@@@@@@@@
+.e-a-dispatch {
+  top: $folder-header-loaded + ($line * 1) + $half-line;
+  height: (12.6 * $line) + $group-bot-margin;
+  left: 19em;
+  width: 10em;
+  border-bottom: none;
+  border-left: none;
+  .arrow-D {
+    top: 30%;
+    right: -$arrowOff;
+  }
+  .tail1 {
+    bottom: 0;
+    right: 0;
+    width: 3em;
+  }
+  .tail2 {
+    bottom: ($line * 1);
+    right: 0;
+    width: 3.5em;
+  }
+  .tail3 {
+    bottom: ($line * 3);
+    right: 0;
+    width: 14em;
+  }
+}
+
+// @@@@@@@@@@@@ REDUX ACTIONS EXPORT @@@@@@@@@@@@@@@
+
+.e-a-export {
+  height: (9.2 * $line);
+  top: $folder-header-loaded + (1.8*$line);
+  right: 0;
+  width: 4.5em;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  .arrow-L {
+    left: 30%;
+    top: -$arrowOff;
+  }
+}
+.e-a-export-async {
+  height: (9.2 * $line);
+  top: $folder-header-loaded + (1.8*$line);
+  right: 0;
+  width: 4.5em;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  .arrow-L {
+    left: 30%;
+    bottom: -$arrowOff;
+  }
+}
+.e-a-export-submit {
+  top: $folder-header-loaded + (5.8*$line);
+  height: (4.2 * $line);
+  right: 0;
+  width: 4.5em;
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+  .arrow-L {
+    left: 30%;
+    top: -$arrowOff;
+  }
+}
+.e-a-export-component1 {
+  height: (19.8 * $line) + ($block-padding * 2) + $folder-header-loaded;
+  bottom: 0;
+  right: 4.5em;
+  width: 8em + ($column-side-padding * 2);
+  border-bottom: none;
+  border-left: none;
+  .arrow-L {
+    left: 30%;
+    top: -$arrowOff;
+  }
+}
+.e-a-export-reducer {
+  height: (27.3 * $line) + $folder-header-loaded + $folder-top-bot-padding;
+  bottom: 0;
+  right: 0;
+  width: 4.5em + $flowW;
+  border-bottom: none;
+  border-right: none;
+  .arrow-R {
+    left: 30%;
+    top: -$arrowOff;
+  }
+}
+.e-a-export-component2 {
+  height: (26.2 * $line) + $folder-header-loaded + $folder-top-bot-padding;
+  top: 0;
+  right: 4.5em;
+  width: 12.5em + ($column-side-padding * 2);
+  border-left: none;
+  border-top: none;
+  .arrow-L {
+    left: 30%;
+    bottom: -$arrowOff;
+  }
+}

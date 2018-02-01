@@ -1,0 +1,62 @@
+@import '_dimensions.scss';
+@import '_colors.scss';
+
+.flowContainer { // outermost container for all allows / flow
+  position: absolute;
+  top: $block-padding;
+  left: $block-padding-left;
+  z-index: 99;
+}
+.flow {
+  border: $flowW $flowStyle $flowLine;
+  position: absolute;
+}
+.tail {
+  position: absolute;
+  height: 10px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: $flowW $flowStyle;
+  border-color: inherit;
+}
+.arrow-L {
+  position: absolute;
+  border: $arrowW solid;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: inherit;
+  border-bottom-color: transparent;
+  height: $arrowW; 
+  width: $arrowW;
+}
+.arrow-R {
+  position: absolute;
+  border: $arrowW solid;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: inherit;
+  border-bottom-color: transparent;
+  height: $arrowW; 
+  width: $arrowW;
+}
+.arrow-U {
+  position: absolute;
+  border: $arrowW solid;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: inherit;
+  border-right-color: transparent;
+  height: $arrowW; 
+  width: $arrowW;
+}
+.arrow-D {
+  position: absolute;
+  border: $arrowW solid;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-top-color: inherit;
+  border-bottom-color: transparent;
+  height: $arrowW; 
+  width: $arrowW;
+}

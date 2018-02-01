@@ -1,0 +1,45 @@
+$navbar-height: 50px;
+$column-side-padding: 1.5em;
+
+$block-padding-left: 50px;
+$block-padding-right: 25px;
+$block-padding: 10px;
+
+$h1-height: 22px;
+
+$folder-header: 18px;
+$folder-top-bot-padding: 12px;
+$folder-left-right-padding: 15px;
+$folder-bot-margin: 12px;
+$folder-OH: $folder-header + (2 * $folder-bot-margin) ;
+$folder-width: 500px;
+
+$group-header: 0px;
+$group-bot-margin: 8px;
+$group-OH: $group-header + $group-bot-margin;
+
+$folder-header-loaded: $folder-header + $group-bot-margin;
+$line: 14px;
+$half-line: 10px; // 3 extra for typography sake
+
+$indent: 10px;
+
+.in1 { margin-left: $indent * 1;}
+.in2 { margin-left: $indent * 2;}
+.in3 { margin-left: $indent * 3;}
+.in4 { margin-left: $indent * 4;}
+.in5 { margin-left: $indent * 5;}
+.in6 { margin-left: $indent * 6;}
+
+$flowW: 0.2em;
+$arrowW: .6em;
+$arrowOff: $arrowW + ($flowW/2);
+
+h1, h2, h3 {
+  clear: left;
+}
+h2, h3 { font-size: 15px; }
+h1     { font-size: 17px; }
+.example {
+  font-size: 12px;
+}

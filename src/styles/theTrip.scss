@@ -1,0 +1,66 @@
+.theTrip {
+  position: absolute;
+  top: 150px;
+  left: 175px;
+  border-radius: 50%;
+  -webkit-transform: rotate(25deg);
+  -ms-transform: rotate(25deg);
+  transform: rotate(40deg);
+  height: 700px;
+  width: 700px;
+  margin: 0;
+  padding: 0;
+}
+.theTripTL {
+  position: absolute;
+  top: 2%;
+  right: 0;
+  border-radius: 50%;
+  border-top: 10px solid blue;
+  height: 95%;
+  width: 95%;
+  margin: 0;
+  padding: 0;
+  transform: rotate(40deg);
+}
+.theTripTR {
+  position: absolute;
+  bottom: 1%;
+  right: 0;
+  border-radius: 50%;
+  border-right: 10px solid green;
+  height: 97%;
+  width: 97%;
+  margin: 0;
+  padding: 0;
+  transform: rotate(20deg);
+}
+.theTripBR {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border-bottom: 10px solid orange;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  transform: rotate(-20deg);
+}
+.theTripBL, .theTripBL2 {
+  position: absolute;
+  top: 1%;
+  right: 3.5%;
+  border-radius: 50%;
+  border-left: 10px solid purple;
+  border-top: transparent;
+  border-bottom: 0px transparent;
+  height: 90%;
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  transform: rotate(60deg);
+}
+.theTripBL2 {
+  transform: rotate(30deg);
+}

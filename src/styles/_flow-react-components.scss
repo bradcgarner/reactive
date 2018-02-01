@@ -1,0 +1,356 @@
+// must be first
+@import '_colors.scss';
+@import '_dimensions.scss';
+
+@import '_group-dimensions.scss';
+
+// first letter [r,e] = [react, redux]
+// second letter i index, 1 compon1,
+//       2 compon2, s store, r reducer,
+//       a actions
+// third part = descriptor
+// last part = Left, Right, Top, Bottom
+
+// @@@@@@@@@@@@ REACT COMPONENT 1 FILE @@@@@@@@@@@@@@@
+
+.r-1-connect-L {
+  top: $folder-header-loaded + ($line * 2) + $half-line;
+  height: (38.6 * $line) + $group-bot-margin;
+  left: -3em;
+  width: 3em;
+  border-right: none;
+  .arrow-D {
+    top: 50%;
+    left: -$arrowOff;
+  }
+}
+.r-1-connect-R {
+  top: $folder-header-loaded + ($line * 2) + $half-line;
+  height: (38.6 * $line) + $group-bot-margin;
+  left: 0;
+  width: 1em;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+.r-1-compose {
+  top: $folder-header-loaded + ($line * 3) + $half-line;
+  height: (36.6 * $line) + $group-bot-margin;
+  left: -2em;
+  width: 2em;
+  border-right: none;
+  .arrow-D {
+    top: 55%;
+    left: -$arrowOff;
+  }
+}
+.r-1-link-L {
+  top: $folder-header-loaded + ($line * 7) + $half-line;
+  height: (20.6 * $line) + $group-bot-margin;
+  left: -1em;
+  width: 1em;
+  border-right: none;
+  .arrow-D {
+    top: 50%;
+    left: -$arrowOff;
+  }
+}
+.r-1-link-R {
+  top: $folder-header-loaded + ($line * 7) + $half-line;
+  height: (20.6 * $line) + $group-bot-margin;
+  left: 0em;
+  width: ($indent * 4.8);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.r-1-form {
+  top: $folder-header-loaded + ($line * 4) + $half-line;
+  height: (37.6 * $line) + $group-bot-margin;
+  left: 23.5em;
+  width: 8em;
+  border-bottom: none;
+  border-left: none;
+  .arrow-D1 {
+    top: 40%;
+    right: -$arrowOff;
+  }
+  .arrow-D2 {
+    top: 85%;
+    right: -$arrowOff;
+  }
+  .tail1 {
+    bottom: (10 * $line);
+    right: 0;
+    width: 3em;
+  }
+  .tail2 {
+    bottom: 0;
+    right: 0;
+    width: 12em;
+  }
+}
+.r-1-route {
+  top: $folder-header-loaded + ($line * 5) + $half-line;
+  height: (21.6 * $line) + $group-bot-margin;
+  left: 21em;
+  width: 9em;
+  border-bottom: none;
+  border-left: none;
+  .arrow-D {
+    top: 50%;
+    right: -$arrowOff;
+  }
+  .tail {
+    bottom: 0;
+    right: 0;
+    width: 1em;
+  }
+}
+
+.r-1-router {
+  top: $folder-header-loaded + ($line * 6) + $half-line;
+  height: (17.6 * $line) + $group-bot-margin;
+  left: 24.5em;
+  width: 4em;
+  border-bottom: none;
+  border-left: none;
+  .arrow-D {
+    top: 50%;
+    right: -$arrowOff;
+  }
+  .tail {
+    bottom: 0;
+    right: 0;
+    width: 18em;
+  }
+}
+// @@@@@@@@@@@@ REDUX COMPONENT 1 EXPORTS @@@@@@@@@@@@@@@
+
+.r-1-export-one {
+  height: (24.8 * $line) + $folder-header-loaded + $block-padding;
+  right: 0;
+  top: -($folder-header-loaded + ($line * 13.8));
+  width: 6em;
+  border-right: none;
+  .arrow-U1 {
+    top: 175px;
+    left: -$arrowOff;
+  }
+}
+.r-1-export-two {
+  height: (1.6 * $line) ;
+  left: 100%;
+  top: -($folder-header-loaded + ($line * 13.8));
+  width: 16em;
+  border-bottom: none;
+  border-left: none;
+  .arrow-R {
+    left: 30%;
+    top: -$arrowOff;
+  }
+}
+.r-1-export-oneConnect {
+  height: (1.5 * $line);
+  left: 0;
+  bottom: -(44.6 * $line);
+  width: 16em;
+  border-top: none;
+  border-left: none;
+  .arrow-L {
+    left: 30%;
+    bottom: -$arrowOff;
+  }
+}
+.r-1-export-oneCompose {
+  height: (1.5 * $line);
+  left: 0;
+  bottom: -(47.5 * $line);
+  width: 5em;
+  border-left: none;
+  border-top: none;
+  .arrow-L {
+    left: 30%;
+    bottom: -$arrowOff;
+  }
+}
+.r-1-export-twoConnect, .r-1-export-twoCompose {
+  right: 0;
+  top: -($folder-header-loaded + ($line * 13.8));
+  width: 6em;
+  border-right: none;
+  .arrow-U1 {
+    top: 175px;
+    left: -$arrowOff;
+  }
+  .arrow-U2 {
+    top: 500px;
+    left: -$arrowOff;
+  }
+}
+
+.r-1-export-twoConnect {
+  height: (57.65 * $line) + $folder-header-loaded + $block-padding;
+}
+
+.r-1-export-twoCompose {
+  height: (60.6 * $line) + $folder-header-loaded + $block-padding;
+}
+.r-1-export-threeConnect, .r-1-export-threeCompose {
+  height: (1.6 * $line) ;
+  left: 100%;
+  top: -($folder-header-loaded + ($line * 13.8));
+  width: 16em;
+  border-bottom: none;
+  border-left: none;
+  .arrow-R {
+    left: 30%;
+    top: -$arrowOff;
+  }
+}
+
+// @@@@@@@@@@@@ REACT COMPONENT 2 FILE @@@@@@@@@@@@@@@
+
+.r-2-connect {
+  top: $folder-header-loaded + ($line * 2) + $half-line;
+  height: (12.6 * $line) + $group-bot-margin;
+  left: -3em;
+  width: 3em;
+  border-right: none;
+  .arrow-D {
+    top: 50%;
+    left: -$arrowOff;
+  }
+}
+.r-2-link-L {
+  top: $folder-header-loaded + ($line * 5) + $half-line;
+  height: (5.6 * $line) + $group-bot-margin;
+  left: -1.5em;
+  width: 1.5em;
+  border-right: none;
+  .arrow-D {
+    top: 50%;
+    left: -$arrowOff;
+  }
+}
+.r-2-link-R {
+  top: $folder-header-loaded + ($line * 5) + $half-line;
+  height: (5.6 * $line) + $group-bot-margin;
+  left: 0em;
+  width: ($indent * 4.8);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+.r-2-route {
+  top: $folder-header-loaded + ($line * 4) + $half-line;
+  height: (5.6 * $line) + $group-bot-margin;
+  left: 21em;
+  width: 9em;
+  border-bottom: none;
+  border-left: none;
+  .arrow-D {
+    top: 50%;
+    right: -$arrowOff;
+  }
+  .tail {
+    bottom: 0;
+    right: 0;
+    width: 4em;
+  }
+}
+
+// @@@@@@@@@@@@ REDUX COMPONENT 2 EXPORTS @@@@@@@@@@@@@@@
+
+.r-2-export {
+  height: (47.6 * $line) + $folder-header-loaded + $block-padding;
+  right: 0;
+  bottom: -(7 * $line) -$folder-header-loaded;
+  width: 5em;
+  border-right: none;
+  .arrow-U {
+    top: 30%;
+    left: -$arrowOff;
+  }
+}
+.r-2-export-connect-L {
+  height: (58.6 * $line) + $folder-header-loaded + $block-padding;
+  right: 0;
+  bottom: -$folder-header-loaded -(18 * $line);
+  width: 5em;
+  border-right: none;
+  .arrow-U {
+    top: 30%;
+    left: -$arrowOff;
+  }
+}
+.r-2-export-connect-R {
+  height: (1.5 * $line);
+  left: 0;
+  bottom: -$folder-header-loaded -(18 * $line);
+  width: 16em;
+  border-top: none;
+  border-left: none;
+  .arrow-L {
+    left: 30%;
+    bottom: -$arrowOff;
+  }
+}
+
+// @@@@@@@@@@@@ REACT STORE FILE @@@@@@@@@@@@@@@
+
+.e-s-reducer-T {
+  top: $folder-header-loaded + ($line * 0) + $half-line;
+  height: (3.6 * $line) + $group-bot-margin;
+  left: 18em;
+  width: 3em;
+  border-bottom: none;
+  border-left: none;
+  .arrow-R {
+    left: 50%;
+    top: -$arrowOff;
+  }
+}
+.e-s-reducer-B {
+  top: $folder-header-loaded + ($line * 0) + $half-line;
+  height: (3.6 * $line) + $group-bot-margin;
+  left: 18em;
+  width: 3em;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  .arrow-L {
+    left: 50%;
+    bottom: -$arrowOff;
+  }
+}
+.e-s-create {
+  top: $folder-header-loaded + ($line * 1) + $half-line;
+  height: (2.6 * $line) + $group-bot-margin;
+  left: -2em;
+  width: 1.9em;
+  border-right: none;
+  .arrow-R {
+    right: 5%;
+    bottom: -$arrowOff;
+  }
+}
+.e-s-thunk{
+  top: $folder-header-loaded + ($line * 2) + $half-line;
+  height: (1 * $line);
+  left: -2em;
+  width: 1.9em;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+.e-s-middleware{
+  top: $folder-header-loaded + ($line * 2) + $half-line;
+  height: (1 * $line);
+  left: -2em;
+  width: 1.9em;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}

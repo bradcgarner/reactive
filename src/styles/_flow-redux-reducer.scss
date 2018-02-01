@@ -1,0 +1,98 @@
+// must be first
+@import '_colors.scss';
+@import '_dimensions.scss';
+
+@import '_group-dimensions.scss';
+
+// first letter [r,e] = [react, redux]
+// second letter i index, 1 compon1,
+//       2 compon2, s store, r reducer,
+//       a actions
+// third part = descriptor
+// last part = Left, Right, Top, Bottom
+
+// @@@@@@@@@@@@ REDUX REDUCER FILE @@@@@@@@@@@@@@@
+.e-r-combine {
+  top: $folder-header-loaded + ($line * 0) + $half-line;
+  height: (23.2 * $line);
+  left: 20em;
+  width: 10em;
+  border-bottom: none;
+  border-left: none;
+  .arrow-D {
+    top: 50%;
+    right: -$arrowOff;
+  }
+  .tail {
+    bottom: 0;
+    right: 0;
+    width: 11.5em;
+  }
+}
+
+.e-r-named1 {
+  top: $folder-header-loaded + ($line * 5) + $half-line;
+  height: (20.2 * $line);
+  left: 17em;
+  width: 11em;
+  border-bottom: none;
+  border-left: none;
+  .arrow-D {
+    top: 30%;
+    right: -$arrowOff;
+  }
+  .tail {
+    bottom: 0;
+    right: 0;
+    width: 21em;
+  }
+}
+.e-r-named2 {
+  top: $folder-header-loaded + ($line * 14) + $half-line;
+  height: (10.2 * $line);
+  left: 14em;
+  width: 12.5em;
+  border-bottom: none;
+  border-left: none;
+  .arrow-D {
+    top: 30%;
+    right: -$arrowOff;
+  }
+  .tail {
+    bottom: 0;
+    right: 0;
+    width: 20em;
+  }
+}
+// @@@@@@@@@@@@ REDUX REDUCER EXPORTS @@@@@@@@@@@@@@@
+
+.e-r-export-store {
+  height: (14.6 * $line) + $group-bot-margin;
+  right: 0;
+  bottom: -$folder-header-loaded - (6*$line);
+  width: 6em;
+  border-right: none;
+  .arrow-L {
+    left: 30%;
+    bottom: -$arrowOff;
+  }
+  .arrow-R {
+    left: 30%;
+    top: -$arrowOff;
+  }
+}
+.e-r-export-storeCombine {
+  height: (14.6 * $line) + (18 * $line) + $group-bot-margin;
+  right: 0;
+  bottom: -$folder-header-loaded - (24*$line);
+  width: 6em;
+  border-right: none;
+  .arrow-L {
+    left: 30%;
+    bottom: -$arrowOff;
+  }
+  .arrow-R {
+    left: 30%;
+    top: -$arrowOff;
+  }
+}

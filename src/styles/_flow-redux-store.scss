@@ -1,0 +1,46 @@
+// must be first
+@import '_colors.scss';
+@import '_dimensions.scss';
+
+@import '_group-dimensions.scss';
+
+// first letter [r,e] = [react, redux]
+// second letter i index, 1 compon1,
+//       2 compon2, s store, r reducer,
+//       a actions
+// third part = descriptor
+// last part = Left, Right, Top, Bottom
+
+/// @@@@@@@@@@@@ REDUX STORE EXPORTS @@@@@@@@@@@@@@@
+ 
+.e-s-export-one {
+  height: (1 * $line);
+  top: $folder-header-loaded + (5* $line);
+  left: 15em;
+  width: 10em;
+  border-top: none;
+}
+.e-s-export-two {
+  height: (5.5 * $line);
+  right: -25em;
+  bottom: -$folder-header-loaded - (5* $line);
+  width: 40em;
+  border-bottom: none;
+  border-left: none;
+  .arrow-U {
+    top: 30%;
+    right: -$arrowOff;
+  }
+}
+.e-s-export-three {
+  height: (3.5 * $line);
+  right: 15em;
+  top: (1.35*$line);
+  width: 10em;
+  border-top: none;
+  border-left: none;
+  .arrow-L {
+    left: 50%;
+    bottom: -$arrowOff;
+  }
+}

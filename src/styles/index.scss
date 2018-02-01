@@ -1,0 +1,26 @@
+// must be first
+@import '_colors.scss';
+@import '_dimensions.scss';
+
+@import '_group-dimensions.scss';
+
+@import '_navbar.scss';
+@import '_arrows-general.scss';
+
+@import '_flow-react-components.scss';
+@import '_flow-react-index.scss';
+@import '_flow-redux-actions.scss';
+@import '_flow-redux-reducer.scss';
+@import '_flow-redux-store.scss';
+
+// must be last
+@import '_text-arrow-colors.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inconsolata', monospace;  
+  font-size: 13px;
+  box-sizing: border-box;  
+  white-space: nowrap;
+}

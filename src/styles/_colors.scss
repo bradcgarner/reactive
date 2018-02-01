@@ -1,0 +1,31 @@
+$unavailable: #ccc;
+$library: blue;
+$code: green;
+$file: maroon;
+$background: white;
+$navbar-color: #ccc;
+$block-color: #ccc;
+$navbar-menu-color: #ddd;
+
+$flowLine: rgb(236, 222, 236);
+$flowStyle: solid;
+
+.library { color: $library; }
+.code    { color: $code;    }
+.file    { color: $file;    }
+.clear   { color: white;  }
+.block {
+  background-color: $block-color;
+}
+.strikethru {
+  text-decoration: line-through;
+  color: $unavailable;
+}
+.hidden, .comment {
+  display: none;
+}
+.example {
+  // font-family: 'Nova Mono', monospace;  
+  text-decoration: underline;
+  // font-style: italic;
+}

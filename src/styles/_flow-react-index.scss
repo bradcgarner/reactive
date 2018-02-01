@@ -1,0 +1,111 @@
+// must be first
+@import '_colors.scss';
+@import '_dimensions.scss';
+
+@import '_group-dimensions.scss';
+
+// first letter [r,e] = [react, redux]
+// second letter i index, 1 compon1,
+//       2 compon2, s store, r reducer,
+//       a actions
+// third part = descriptor
+// last part = Left, Right, Top, Bottom
+
+// @@@@@@@@@@@@ REACT INDEX FILE @@@@@@@@@@@@@@@
+
+.r-i-store-L {
+  top: $folder-header-loaded + ($line * 2) + $half-line;
+  height: (3.6 * $line) + $group-bot-margin;
+  left: -2em;
+  width: 2em;
+  border-right: none;
+  .arrow-L {
+    left: 20%;
+    top: -$arrowOff;
+  }
+}
+.r-i-store-R {
+  top: $folder-header-loaded + ($line * 2) + $half-line;
+  height: (4.6 * $line) + $group-bot-margin;
+  left: 0;
+  width: $indent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+.r-i-provider {
+  top: $folder-header-loaded + ($line * 4) + $half-line;
+  height: (1.6 * $line) + $group-bot-margin;
+  left: -1em;
+  width: 1em;
+  border-bottom: none;
+  border-right: none;
+}
+.r-i-compon1-L {
+  top: $folder-header-loaded + ($line * 1) + $half-line;
+  height: (5.6 * $line) + $group-bot-margin;
+  left: -3em;
+  width: 3em;
+  border-right: none; 
+  .arrow-R {
+    right: 0;
+    bottom: -$arrowOff;
+  }
+}
+.r-i-compon1-R {
+  top: $folder-header-loaded + ($line * 1) + $half-line;
+  height: (5.6 * $line) + $group-bot-margin;
+  left: 0;
+  width: ($indent * 2);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+.r-i-react-dom-L {
+  top: $folder-header-loaded + ($line * 3) + $half-line;
+  height: (1.6 * $line) + $group-bot-margin;
+  left: 8em;
+  width: 9em;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  .arrow-L {
+    left: 50%;
+    bottom: -$arrowOff;
+  }
+}
+.r-i-react-dom-R {
+  top: $folder-header-loaded + ($line * 3) + $half-line;
+  height: (1.6 * $line) + $group-bot-margin;
+  left: 17em;
+  width: 3em;
+  border-left: none;
+}
+// @@@@@@@@@@@@ REDUX INDEX EXPORTS @@@@@@@@@@@@@@@
+
+
+.r-i-export-html {
+  height: (0 * $line);
+  left: 17em;
+  top: $folder-header-loaded + ($line * 9.7);
+  width: 4em;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  .arrow-R {
+    left: 100%;
+    bottom: -$arrowOff;
+  }
+}
+.r-i-export-provider {
+  height: (10 * $line);
+  left: 17em;
+  top: $folder-header-loaded + ($line * 6.7);
+  width: 12em;
+  border-left: none;
+  border-bottom: none;
+  .arrow-D {
+    top: 100%;
+    right: -$arrowOff;
+  }
+}
